@@ -48,7 +48,7 @@ public class PlayerMovementLeo: MonoBehaviour
         
         if (_isGrounded == true && Input.GetButton("Jump"))
         {
-            _rb.velocity = new Vector2(_rb.velocity.x, _jumpPower);
+            _rb.velocity = Vector2.up * _jumpPower; 
         }
 
         if (Input.GetButtonUp("Jump") && _rb.velocity.y > 0f)
