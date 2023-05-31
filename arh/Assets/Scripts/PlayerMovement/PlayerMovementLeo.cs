@@ -17,7 +17,6 @@ public class PlayerMovementLeo: MonoBehaviour
     public float checkRadius;
     [SerializeField] private bool _isGrounded;
 
-    private float coyoteTime = 0.2f;
     
     
     // Start is called before the first frame update
