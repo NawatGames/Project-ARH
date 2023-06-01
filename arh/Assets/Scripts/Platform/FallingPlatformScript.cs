@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class FallingPlatformScript : MonoBehaviour
 {
-    private float platformTimer = 0.0f;
 
     void Awake()
     {
-        Time.timeScale = 1.0f;
+        Time.timeScale = 1f;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -16,19 +15,31 @@ public class FallingPlatformScript : MonoBehaviour
         if(col.gameObject.CompareTag("Player"))
         {
             Debug.Log("Colisão");
-            if(platformTimer == 2.0f)
-            {
-                gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-                platformTimer = 0.0f;
-                Debug.Log("Caindo");
-            }
-            gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            //gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+            Destroy(gameObject);
             Debug.Log("Caindo");
         }
     }
 
-    void Update()
+    //nao funcionou, continuar (ver link)
+    private IEnumerator PlatformCountdown()
     {
-        platformTimer += Time.deltaTime;
-    }    
+        int timeCounter = 2;
+        int finalTime = 0;
+
+        while(timeCounter > 0)
+        {
+            yield return new WaitForSeconds(1);
+            timeCounter--;
+        }
+
+        PlatformFall();
+    }
+
+    void PlatformFall()
+    {
+        gameObject.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+        //Destroy(gameObject);
+        Debug.Log("Caindo");
+    }
 }

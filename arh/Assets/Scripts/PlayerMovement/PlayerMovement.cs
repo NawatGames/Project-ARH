@@ -26,8 +26,15 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(moveDirection * moveSpeed, jumpForce);
             Debug.Log("Jump 1");
-            jumpCount = 1;
+            jumpCount++;
         }
+
+        //if(Input.GetButtonDown("Jump") && jumpCount == 1)
+        //{
+        //    rb.velocity = new Vector2(moveDirection * moveSpeed, jumpForce);
+        //    Debug.Log("Jump 2");
+        //    jumpCount++;
+        //}
     }
 
     void OnCollisionEnter2D(Collision2D col)
