@@ -25,7 +25,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnGrounded()
     {
+        Debug.Log(_canDoubleJump);
         _canDoubleJump = true;
+        //Debug.Log(_canDoubleJump);
     }
 
     private void FixedUpdate()
@@ -43,9 +45,9 @@ public class PlayerMovement : MonoBehaviour
         if (context.performed && _canDoubleJump)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpPower);
-            _canDoubleJump = !_canDoubleJump;
+            //Debug.Log(_canDoubleJump);
+            _canDoubleJump = !_canDoubleJump; 
+            //Debug.Log(_canDoubleJump);
         }
     }
-
-
 }
