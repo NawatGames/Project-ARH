@@ -3,6 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerJumpLeo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerJumpLeo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement/PlayerMovement.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement/PlayerMovement.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,7 +16,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../../../Project ARH/Project-ARH/arh/Assets/Scripts/PlayerMovement/GroundHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../Project ARH/Project-ARH/arh/Assets/Scripts/PlayerMovement/PlayerMovement.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement/CheckGround.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement/PlayerMovementLeo.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -86,7 +94,7 @@
       <workItem from="1684461990281" duration="4000" />
       <workItem from="1685566474930" duration="5522000" />
       <workItem from="1685573562977" duration="16000" />
-      <workItem from="1685590835813" duration="295000" />
+      <workItem from="1685590835813" duration="2260000" />
     </task>
     <servers />
   </component>
