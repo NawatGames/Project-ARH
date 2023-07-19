@@ -15,7 +15,6 @@ public class ButtomBehavior : MonoBehaviour
     public Color notActiveColor;
     public Color activeColor;
 
-    private UnityEvent ButtonActivated;
 
     
     // Start is called before the first frame update
@@ -27,7 +26,7 @@ public class ButtomBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isInRange == false && _isInteracting == false)
+        if (_isInRange == false && _isInteracting == true)
         {
             _renderer.color = notActiveColor;
         }
@@ -63,7 +62,6 @@ public class ButtomBehavior : MonoBehaviour
             Debug.Log("Botao ativado!"); 
             _renderer.color = activeColor;
             _isInteracting = true;
-            ButtonActivated.Invoke();
         }
     }
 }
