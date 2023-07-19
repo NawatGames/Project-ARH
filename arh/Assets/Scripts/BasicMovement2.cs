@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BasicMovement : MonoBehaviour
+public class BasicMovement2 : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust the speed of movement as needed
 
@@ -15,11 +15,11 @@ public class BasicMovement : MonoBehaviour
     {
         float moveInput = 0f;
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             moveInput = -1f; // Move left
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             moveInput = 1f; // Move right
         }
