@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : MonoBehaviour
@@ -17,7 +16,6 @@ public class PlayerStateMachine : MonoBehaviour
     
     private bool _isMovementPressed;
     private bool _isJumpPressed;
-    private bool _isInteractPressed;
     
     [Space]
     [Header("Stats")]
@@ -26,9 +24,6 @@ public class PlayerStateMachine : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-    public UnityEvent isInteracting;
-    
-    
     // state variables
     private PlayerBaseState _currentState;
     private PlayerStateFactory _states;
@@ -39,8 +34,7 @@ public class PlayerStateMachine : MonoBehaviour
         get => _currentState;
         set => _currentState = value; 
     }
-    
-    
+
     public bool IsMovementPressed
     {
         get => _isMovementPressed;
@@ -51,11 +45,6 @@ public class PlayerStateMachine : MonoBehaviour
         get => _isJumpPressed;
     }
 
-    public bool IsInteractPressed
-    {
-        get => _isInteractPressed;
-    }
-    
     public Vector2 getDir
     {
         get => _dir;
@@ -132,13 +121,6 @@ public class PlayerStateMachine : MonoBehaviour
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         _isJumpPressed = context.ReadValueAsButton();
-    }
-    
-    // callback handler function for interact button
-    public void OnInteractInput(InputAction.CallbackContext context)
-    {
-        _isInteractPressed = context.ReadValueAsButton();
-        isInteracting.Invoke();
     }
 
     private void OnEnable()
