@@ -6,12 +6,12 @@ public class CheckIfPlayerOn : MonoBehaviour
 {
     [SerializeField] private UnityEvent playerOnPressurePlate;
     [SerializeField] private UnityEvent playerOffPressurePlate;
-    private HashSet<GameObject> _playersOnPressurePlate;
-    private Collider2D _collider;
+    private readonly HashSet<GameObject> _playersOnPressurePlate = new HashSet<GameObject>();
+    private BoxCollider2D _collider;
 
-    private void Awake()
+    private void OnEnable()
     {
-        _collider = GetComponent<Collider2D>();
+        _collider = GetComponent<BoxCollider2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
