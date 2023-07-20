@@ -7,11 +7,10 @@ using UnityEngine.InputSystem;
 
 public class ButtomBehavior : MonoBehaviour
 {
-    [SerializeField] private GameObject interactable;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private bool _isInRange = false;
-    private bool _isInteracting;
-    private bool _isActive;
+    public bool _isActive = false;
+    public bool isInteracting = false;
 
     public Color notActiveColor;
     public Color activeColor;
@@ -27,7 +26,7 @@ public class ButtomBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isInRange == false && _isInteracting == true && _isActive == false)
+        if (_isInRange == false && _isActive == false)
         {
             _renderer.color = notActiveColor;
         }
@@ -58,25 +57,25 @@ public class ButtomBehavior : MonoBehaviour
 
     public void ButtonActivation()
     {
+        isInteracting = true;
+        
         if (_isActive == false)
         {
             if (_isInRange == true)
             {
-                Debug.Log("Botao ativado!");
                 _renderer.color = activeColor;
-                _isInteracting = true;
                 _isActive = true;
+                Debug.Log("Botao ativado!");
 
             }
         }
-        else
+        else if(_isActive == true)
         {
             if (_isInRange == true)
             {
-                Debug.Log("Botao Desativado!");
                 _renderer.color = notActiveColor;
-                _isInteracting = true;
                 _isActive = false;
+                Debug.Log("Botao Desativado!");
             }
         }
     }

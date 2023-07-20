@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 369036273}
   - component: {fileID: 369036272}
   - component: {fileID: 369036271}
+  - component: {fileID: 369036274}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -234,6 +235,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &369036274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369036270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f70e179559f5c45aba5d47a47c9b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &456304565
 GameObject:
   m_ObjectHideFlags: 0
@@ -663,9 +676,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d3947d525207543b9952f47facf393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactable: {fileID: 369036270}
   _renderer: {fileID: 934513498}
   _isInRange: 0
+  _isActive: 0
+  isInteracting: 0
   notActiveColor: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
   activeColor: {r: 0.34202102, g: 1, b: 0.21226418, a: 1}
 --- !u!61 &934513497
