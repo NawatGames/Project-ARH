@@ -11,12 +11,13 @@ public class ButtomBehavior : MonoBehaviour
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private bool _isInRange = false;
     private bool _isInteracting;
+    private bool _isActive;
 
     public Color notActiveColor;
     public Color activeColor;
 
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,12 +27,12 @@ public class ButtomBehavior : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_isInRange == false && _isInteracting == true)
+        if (_isInRange == false && _isInteracting == true && _isActive == false)
         {
             _renderer.color = notActiveColor;
         }
-        
-      
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -41,8 +42,8 @@ public class ButtomBehavior : MonoBehaviour
             _isInRange = true;
             Debug.Log("Posso apertar o botao!");
         }
-        
-        
+
+
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -57,11 +58,26 @@ public class ButtomBehavior : MonoBehaviour
 
     public void ButtonActivation()
     {
-        if (_isInRange == true)
+        if (_isActive == false)
         {
-            Debug.Log("Botao ativado!"); 
-            _renderer.color = activeColor;
-            _isInteracting = true;
+            if (_isInRange == true)
+            {
+                Debug.Log("Botao ativado!");
+                _renderer.color = activeColor;
+                _isInteracting = true;
+                _isActive = true;
+
+            }
+        }
+        else
+        {
+            if (_isInRange == true)
+            {
+                Debug.Log("Botao Desativado!");
+                _renderer.color = notActiveColor;
+                _isInteracting = true;
+                _isActive = false;
+            }
         }
     }
 }
