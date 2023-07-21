@@ -15,11 +15,13 @@ public class DoorBehavior : MonoBehaviour
     [SerializeField] private bool isOpen = false;
     [SerializeField] private int buttonPressedNeeded;
     public int _buttonPressedCounter = 0;
+    [SerializeField] private Vector3 movementFinalPosition;
+    [SerializeField] private Vector3 movementInitialPosition;
 
 
     private void Awake()
     {
-        //_movementDirection = transform.localPosition;
+        movementInitialPosition = transform.position;
     }
 
     public void ButtomPressed()
@@ -40,15 +42,15 @@ public class DoorBehavior : MonoBehaviour
         {
             if (_buttonPressedCounter == buttonPressedNeeded)
             {
-                transform.DOMoveY(4f, movementDuration, false);
-               //Debug.Log("Porta abriu!");
+                transform.DOLocalMove(movementFinalPosition, movementDuration, false).SetEase(animationCurve);
+                //Debug.Log("Porta abriu!");
                 isOpen = true;
             }
             
         }
         else
         {
-            transform.DOMoveY(0f, movementDuration, false);
+            transform.DOLocalMove(movementInitialPosition, movementDuration, false).SetEase(animationCurve);
             //Debug.Log("Porta fechou!");
             isOpen = false;
         }

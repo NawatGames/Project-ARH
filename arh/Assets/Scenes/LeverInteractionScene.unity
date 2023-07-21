@@ -235,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 233737202909979492, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9592638
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 233737202909979492, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 233737202909979492, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0599998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 233737202909979492, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -281,6 +281,46 @@ PrefabInstance:
       propertyPath: buttonPressedNeeded
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: movementFinalPosition.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: movementFinalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[0].inSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[0].outSlope
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[0].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: animationCurve.m_Curve.Array.data[1].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
 --- !u!1 &454537346
@@ -307,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454537346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5407363, y: -0.01312444, z: -0.0599998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -924,7 +964,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 233737202909979492, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0599998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 233737202909979492, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -965,6 +1005,14 @@ PrefabInstance:
     - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
       propertyPath: buttonPressedNeeded
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: movementFinalPosition.x
+      value: 17.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4081974209968212425, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+      propertyPath: movementFinalPosition.y
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
