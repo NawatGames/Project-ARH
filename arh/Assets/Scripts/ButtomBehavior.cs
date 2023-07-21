@@ -15,6 +15,10 @@ public class ButtomBehavior : MonoBehaviour
     public Color notActiveColor;
     public Color activeColor;
 
+    public UnityEvent isButtonActive;
+    public UnityEvent isButtonNotActive;
+    
+
 
 
     // Start is called before the first frame update
@@ -66,6 +70,7 @@ public class ButtomBehavior : MonoBehaviour
                 _renderer.color = activeColor;
                 _isActive = true;
                 Debug.Log("Botao ativado!");
+                isButtonActive.Invoke();
 
             }
         }
@@ -76,6 +81,7 @@ public class ButtomBehavior : MonoBehaviour
                 _renderer.color = notActiveColor;
                 _isActive = false;
                 Debug.Log("Botao Desativado!");
+                isButtonNotActive.Invoke();
             }
         }
     }

@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using DG.Tweening;
 using UnityEngine;
 using DG.Tweening.Core;
+using Vector2 = System.Numerics.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class DoorBehavior : MonoBehaviour
 {
@@ -10,31 +14,43 @@ public class DoorBehavior : MonoBehaviour
     [SerializeField] private AnimationCurve animationCurve;
     [SerializeField] private bool isOpen = false;
     [SerializeField] private int buttonPressedNeeded;
-    private int _buttonPressedCounter = 0;
-    
-    public void ButtomPressed()
+    public int _buttonPressedCounter = 0;
+    [SerializeField] private Vector3 _movementDirection;
+
+
+    private void Awake()
     {
-        if (isOpen == false)
-        {
-            _buttonPressedCounter++;
-            
-        }
-        
+        //_movementDirection = transform.localPosition;
     }
-    public void DoorActivation()
+
+    public void ButtomPressed()
+    { 
+        _buttonPressedCounter++;
+        DoorToogle();
+    }
+
+    public void ButtonUnpressed()
+    {
+        _buttonPressedCounter--;
+        DoorToogle();
+
+    }
+    public void DoorToogle()
     {
         if (isOpen == false)
         {
             if (_buttonPressedCounter == buttonPressedNeeded)
             {
-                Debug.Log("Porta abriu!");
+                transform.DOMoveY(4f, movementDuration, false);
+               //Debug.Log("Porta abriu!");
                 isOpen = true;
             }
             
         }
         else
         {
-            Debug.Log("Porta fechou!");
+            transform.DOMoveY(0f, movementDuration, false);
+            //Debug.Log("Porta fechou!");
             isOpen = false;
         }
         
