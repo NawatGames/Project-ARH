@@ -15,7 +15,6 @@ public class DoorBehavior : MonoBehaviour
     [SerializeField] private bool isOpen = false;
     [SerializeField] private int buttonPressedNeeded;
     public int _buttonPressedCounter = 0;
-    [SerializeField] private Vector3 _movementDirection;
 
 
     private void Awake()
