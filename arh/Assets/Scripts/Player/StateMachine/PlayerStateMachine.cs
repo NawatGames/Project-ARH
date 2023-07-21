@@ -26,8 +26,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
 
-    public UnityEvent isInteracting;
-    
+    public UnityEvent isInteractingEvent;
     
     // state variables
     private PlayerBaseState _currentState;
@@ -138,7 +137,8 @@ public class PlayerStateMachine : MonoBehaviour
     public void OnInteractInput(InputAction.CallbackContext context)
     {
         _isInteractPressed = context.ReadValueAsButton();
-        isInteracting.Invoke();
+        isInteractingEvent.Invoke();
+        
     }
 
     private void OnEnable()

@@ -7,26 +7,26 @@ using UnityEngine.InputSystem;
 
 public class ButtomBehavior : MonoBehaviour
 {
+    [SerializeField] private PlayerStateMachine _playerStateMachine;
+    [SerializeField] private GameObject _playerGameObject;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private bool _isInRange = false;
-    public bool _isActive = false;
-    public bool isInteracting = false;
+    [SerializeField] bool _isActive = false;
 
     public Color notActiveColor;
     public Color activeColor;
 
     public UnityEvent isButtonActive;
     public UnityEvent isButtonNotActive;
-    
 
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
-
+        _playerGameObject = GameObject.FindWithTag("Player");
+        _playerStateMachine = _playerGameObject.GetComponent<PlayerStateMachine>();
     }
+
 
     private void FixedUpdate()
     {
@@ -35,6 +35,17 @@ public class ButtomBehavior : MonoBehaviour
             _renderer.color = notActiveColor;
         }
 
+
+    }
+
+    private void OnEnable()
+    {
+        _playerStateMachine.isInteractingEvent.AddListener(ButtonActivation);
+    }
+
+    private void OnDisable()
+    {
+        _playerStateMachine.isInteractingEvent.RemoveListener(ButtonActivation);
 
     }
 
@@ -61,7 +72,6 @@ public class ButtomBehavior : MonoBehaviour
 
     public void ButtonActivation()
     {
-        isInteracting = true;
         
         if (_isActive == false)
         {
