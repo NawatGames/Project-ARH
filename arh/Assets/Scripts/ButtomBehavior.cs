@@ -54,7 +54,7 @@ public class ButtomBehavior : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             _isInRange = true;
-            Debug.Log("Posso apertar o botao!");
+            //Debug.Log("Posso apertar o botao!");
         }
 
 
@@ -79,7 +79,7 @@ public class ButtomBehavior : MonoBehaviour
             {
                 _renderer.color = activeColor;
                 _isActive = true;
-                Debug.Log("Botao ativado!");
+                //Debug.Log("Botao ativado!");
                 isButtonActive.Invoke();
 
             }
@@ -90,7 +90,7 @@ public class ButtomBehavior : MonoBehaviour
             {
                 _renderer.color = notActiveColor;
                 _isActive = false;
-                Debug.Log("Botao Desativado!");
+                //Debug.Log("Botao Desativado!");
                 isButtonNotActive.Invoke();
             }
         }
