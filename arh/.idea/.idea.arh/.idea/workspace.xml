@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Collectable Stone.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Collectable Stone.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PortalEndLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PortalEndLevel.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Portal/PortalBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Portal/PortalBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Portal/StoneBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Portal/StoneBehavior.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +81,7 @@
       <updated>1684461988605</updated>
       <workItem from="1684461990281" duration="4000" />
       <workItem from="1687998524954" duration="6000" />
-      <workItem from="1690643097434" duration="5796000" />
+      <workItem from="1690643097434" duration="7817000" />
     </task>
     <servers />
   </component>
