@@ -40,13 +40,5 @@ public class CheckIfPlayerOn : MonoBehaviour
         }
     }
     
-    public void PlayerOn()
-    {
-        Debug.Log("Player em cima da placa de pressão");
-    }
-    
-    public void PlayerOff()
-    {
-        Debug.Log("Player saiu da placa de pressão");
-    }
+
 }

@@ -3,13 +3,13 @@ using UnityEngine.Events;
 
 public class StoneGetCollected : MonoBehaviour
 {
-    [SerializeField] private UnityEvent stoneCollected;
+    [SerializeField] private UnityEvent OnStoneCollected;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !(other.isTrigger))
         {
-            stoneCollected.Invoke();
+            OnStoneCollected.Invoke();
             gameObject.SetActive(false);
         }
     }
