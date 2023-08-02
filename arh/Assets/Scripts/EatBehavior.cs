@@ -7,9 +7,11 @@ using UnityEngine;
 public class EatBehavior : MonoBehaviour
 {
     [SerializeField] private GameObject _edibleObject;
+    
     [SerializeField] private bool _objectIsInRange = false;
     [SerializeField] private bool _eatButtonWasPressed = false;
     [SerializeField] private bool _objectWasAte;
+    
     [SerializeField] private float _throwForce;
     private Color _edibleObjectBaseColor;
     private Rigidbody2D _edibleObjectRigidBody;
