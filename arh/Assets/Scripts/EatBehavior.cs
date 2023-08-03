@@ -7,15 +7,14 @@ using UnityEngine;
 public class EatBehavior : MonoBehaviour
 {
     [SerializeField] private GameObject _edibleObject;
-    
+
     [SerializeField] private bool _objectIsInRange = false;
     [SerializeField] private bool _eatButtonWasPressed = false;
     [SerializeField] private bool _objectWasAte;
-    
+
     [SerializeField] private float _throwForce;
     private Color _edibleObjectBaseColor;
     private Rigidbody2D _edibleObjectRigidBody;
-    
 
 
     // Start is called before the first frame update
@@ -26,22 +25,25 @@ public class EatBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         if (_objectWasAte == false)
         {
             if (_edibleObject != null)
             {
-                _edibleObjectRigidBody = _edibleObject.GetComponent<Rigidbody2D>();
-
-                if (_eatButtonWasPressed == true)
+                if (_edibleObject.GetComponent<Rigidbody2D>() != null)
                 {
-                    if (_objectIsInRange == true)
+                    _edibleObjectRigidBody = _edibleObject.GetComponent<Rigidbody2D>();
+                    
+                    if (_eatButtonWasPressed == true)
                     {
-                        // Consome o Objeto
-                        _objectWasAte = true;
-                        _eatButtonWasPressed = false;
-                        _edibleObject.SetActive(false);
-                        Debug.Log("Comi o Objeto");
+                        if (_objectIsInRange == true)
+                        {
+                            // Consome o Objeto
+                            _objectWasAte = true;
+                            _eatButtonWasPressed = false;
+                            _edibleObject.SetActive(false);
+                            Debug.Log("Comi o Objeto");
+                }
+
                     }
                 }
             }
@@ -58,7 +60,7 @@ public class EatBehavior : MonoBehaviour
                 _edibleObject.SetActive(true);
 
                 _edibleObject.transform.position = _edibleObject.transform.position;
-                _edibleObjectRigidBody.velocity = new Vector2(_throwForce,_edibleObjectRigidBody.velocity.y);
+                _edibleObjectRigidBody.velocity = new Vector2(_throwForce, _edibleObjectRigidBody.velocity.y);
 
                 Debug.Log("Cuspi o Objeto");
             }
@@ -67,20 +69,24 @@ public class EatBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_objectIsInRange == false)
+        if (!_objectWasAte)
         {
-            _edibleObject = other.gameObject;
-            _edibleObjectBaseColor = _edibleObject.gameObject.GetComponent<SpriteRenderer>().color;
-            
-            _edibleObject.gameObject.GetComponent<SpriteRenderer>().color = Color.blue;
-            _objectIsInRange = true;
-            Debug.Log("encostei em algo!");
+            if (_objectIsInRange == false)
+            {
+                _edibleObject = other.gameObject;
+
+                _objectIsInRange = true;
+                Debug.Log("encostei em algo!");
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        _objectIsInRange = false;
-        _edibleObject.GetComponent<SpriteRenderer>().color = _edibleObjectBaseColor;
+        if (!_objectWasAte)
+        {
+            _objectIsInRange = false;
+            _edibleObject = null;
+        }
     }
 }
