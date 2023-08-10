@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementTest : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
 
-        if(Input.GetButtonDown("Jump") && jumpCount == 0)
+        if (Input.GetButtonDown("Jump") && jumpCount == 0)
         {
             rb.velocity = new Vector2(moveDirection * moveSpeed, jumpForce);
             Debug.Log("Jump 1");
@@ -40,6 +40,6 @@ public class PlayerMovement : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("Jump 0");
-            jumpCount = 0;
+        jumpCount = 0;
     }
 }
