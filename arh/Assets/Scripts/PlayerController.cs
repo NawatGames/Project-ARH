@@ -1,8 +1,14 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
+
+
+// [X] Apex Modifiers
+// [ ] Jump Buffering
+// [ ] Coyote Time
+// [X] Clamped Fall Speed
+// [ ] Edge Detection
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,13 +16,14 @@ public class PlayerController : MonoBehaviour
     public Text jumpBuffer;
     
     [Header("Movement")]
-    [SerializeField] private float movementSpeed;
+    [SerializeField] private float speed;
     [SerializeField] private float acceleration;
     [SerializeField] private float deceleration;
     [SerializeField] private float velocityPower;
     [Space] [SerializeField] private float frictionAmount;
 
     private float _horizontalInput;
+    private float _maxSpeed;
     private bool _isFacingRight;
 
     [Space] [Header("Jump")]
@@ -36,11 +43,10 @@ public class PlayerController : MonoBehaviour
     private bool _canDoubleJump;
     
     [Space] [Header("Apex Modifiers")] 
-    [SerializeField] private float jumpApexThreshold;
-    // [SerializeField] private float jumpApexSpeedMultiplier;
-    // [Range(0.0f, 0.9f)] [SerializeField] private float jumpApexGravityCut;
-
-    private float _apexPoint;
+    [SerializeField] private float fallSpeedThreshold;
+    [SerializeField] private float speedMultiplier;
+    [Range(0.0f, 0.9f)] [SerializeField] private float gravityCut;
+    
     private bool _isOnApex;
 
     [Space] [Header("Checks")]
@@ -56,28 +62,33 @@ public class PlayerController : MonoBehaviour
         _normalGravityScale = _rb.gravityScale;
 
         _isFacingRight = true;
+        _maxSpeed = speed;
     }
     
     private void Update()
     {
-        _jumpBufferCounter = Mathf.Clamp(_jumpBufferCounter - Time.deltaTime, 0, jumpBufferTime);
+        // _jumpBufferCounter = Mathf.Clamp(_jumpBufferCounter - Time.deltaTime, 0, jumpBufferTime);
+        _jumpBufferCounter -= Time.deltaTime;
         
-        if (_isFalling && IsGrounded()) // was falling and now is grounded
+        if (IsGrounded())
         {
-            _rb.gravityScale = _normalGravityScale;
-            _isFalling = false;
-            _canDoubleJump = canDoubleJump;
-        }
-        else if (IsGrounded())
-        {
-            _coyoteTimeCounter = coyoteTime;
+            if (_isFalling) 
+            {
+                // was falling and now has touched the ground
+                _isFalling = false;
+                
+                _rb.gravityScale = _normalGravityScale;
+                _canDoubleJump = canDoubleJump;
+                _coyoteTimeCounter = coyoteTime;
+            }
         }
         else
         {
-            _coyoteTimeCounter = Mathf.Clamp(_coyoteTimeCounter - Time.deltaTime, 0, coyoteTime);
+            // _coyoteTimeCounter = Mathf.Clamp(_coyoteTimeCounter - Time.deltaTime, 0, coyoteTime);
+            _coyoteTimeCounter -= Time.deltaTime;
         }
-        
-        
+
+
         if ((_horizontalInput > 0 && !_isFacingRight) || (_horizontalInput < 0 && _isFacingRight))
         {
             Flip();
@@ -85,7 +96,7 @@ public class PlayerController : MonoBehaviour
 
 
         coyote.text = "Coyote Time: " + _coyoteTimeCounter;
-        jumpBuffer.text = "JumpBuffer: " + _jumpBufferCounter;
+        jumpBuffer.text = "Jump Buffer: " + _jumpBufferCounter;
     }
 
     private void FixedUpdate()
@@ -95,7 +106,7 @@ public class PlayerController : MonoBehaviour
 
         #region Run
 
-        var targetSpeed = _horizontalInput * movementSpeed;
+        var targetSpeed = _horizontalInput * _maxSpeed;
         var speedDif = targetSpeed - _rb.velocity.x;
         var accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
         var movement = Mathf.Pow(MathF.Abs(speedDif) * accelRate, velocityPower) * Mathf.Sign(speedDif);
@@ -139,26 +150,35 @@ public class PlayerController : MonoBehaviour
         
         #region Fall Gravity + Clamped Fall Speed
 
-        if (vel.y < 0)
+        if (!_isOnApex)
         {
-            _rb.gravityScale = _normalGravityScale * fallGravityMultiplier;
-            _rb.velocity = new Vector2(vel.x, Mathf.Max(vel.y, -maxFallSpeed));
-            _isFalling = true;
-        }
-        else
-        {
-            _rb.gravityScale = _normalGravityScale;
+            if (vel.y < 0)
+            {
+                _rb.gravityScale = _normalGravityScale * fallGravityMultiplier;
+                _rb.velocity = new Vector2(vel.x, Mathf.Max(vel.y, -maxFallSpeed));
+                _isFalling = true;
+            }
+            else
+            {
+                _rb.gravityScale = _normalGravityScale;
+            }
         }
         #endregion
 
         
-        // #region Apex Modifiers
-        //
-        // _apexPoint = Mathf.InverseLerp(jumpApexThreshold, 0, Mathf.Abs(vel.y));
-        // var apexBonus = Mathf.Sign(_horizontalInput) * jumpApexSpeedMultiplier * _apexPoint;
-        // var minFallSpeed = maxFallSpeed * (1 - jumpApexGravityCut);
-        // _rb.velocity = new Vector2((apexBonus * Time.deltaTime), (Mathf.Lerp(minFallSpeed, maxFallSpeed, _apexPoint)));
-        // #endregion
+        #region Apex Modifiers
+
+        if (Mathf.Abs(vel.y) < fallSpeedThreshold && !IsGrounded())
+        {
+            _maxSpeed = speed * speedMultiplier;
+            _rb.gravityScale = _normalGravityScale * (1 - gravityCut);
+            _isOnApex = true;
+        }
+        else
+        {
+            _isOnApex = false;
+        }
+        #endregion
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -167,11 +187,15 @@ public class PlayerController : MonoBehaviour
         {
             _jumpBufferCounter = jumpBufferTime;
         }
+
         
-        if (context.canceled) // Jump Cut
+        #region Jump Cut
+
+        if (context.canceled)
         {
             _rb.AddForce(Vector2.down * _rb.velocity.y * (1 - jumpCutMultiplier), ForceMode2D.Impulse);
         }
+        #endregion
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -179,15 +203,11 @@ public class PlayerController : MonoBehaviour
         _horizontalInput = context.ReadValue<float>();
     }
 
+    
     private void Flip()
     {
         var localScale = transform.localScale;
         transform.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
         _isFacingRight = !_isFacingRight;
-    }
-
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheckPoint.transform.position, groundCheckRadius, groundLayer);
     }
 }

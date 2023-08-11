@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coyote: {fileID: 1609194224}
   jumpBuffer: {fileID: 1821166861}
-  movementSpeed: 12
+  speed: 12
   acceleration: 7
   deceleration: 7
   velocityPower: 0.9
@@ -1888,9 +1888,11 @@ MonoBehaviour:
   jumpBufferTime: 3
   fallGravityMultiplier: 2
   maxFallSpeed: 50
-  jumpApexThreshold: 0
+  fallSpeedThreshold: 0
+  speedMultiplier: 1.2
+  gravityCut: 0.5
   groundCheckPoint: {fileID: 1590361788}
-  groundCheckRadius: 0.2
+  groundCheckRadius: 0.1
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
