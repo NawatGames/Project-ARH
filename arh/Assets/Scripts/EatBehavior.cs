@@ -73,10 +73,14 @@ public class EatBehavior : MonoBehaviour
         {
             if (_objectIsInRange == false)
             {
-                _edibleObject = other.gameObject;
+                if (other.CompareTag("Edible Object"))
+                {
+                    _edibleObject = other.gameObject;
 
-                _objectIsInRange = true;
-                Debug.Log("encostei em algo!");
+                    _objectIsInRange = true;
+                    Debug.Log("encostei em algo!");
+                }
+                    
             }
         }
     }

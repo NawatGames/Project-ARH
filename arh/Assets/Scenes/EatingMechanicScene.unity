@@ -264,6 +264,9 @@ MonoBehaviour:
   jumpForce: 12
   fallMultiplier: 3
   lowJumpMultiplier: 8
+  isInteractingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &538849536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +324,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 26a4e445-2ba9-4453-860a-3310a07f1b7e
     m_ActionName: Gameplay/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 007f6067-f1dc-4441-a70b-8de99b803adc
+    m_ActionName: Gameplay/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -512,6 +519,9 @@ MonoBehaviour:
   jumpForce: 12
   fallMultiplier: 3
   lowJumpMultiplier: 8
+  isInteractingEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &798438725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -921,7 +931,7 @@ GameObject:
   - component: {fileID: 1799958900}
   m_Layer: 0
   m_Name: food
-  m_TagString: Untagged
+  m_TagString: Edible Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
