@@ -70,23 +70,23 @@ public class PlayerController : MonoBehaviour
         // _jumpBufferCounter = Mathf.Clamp(_jumpBufferCounter - Time.deltaTime, 0, jumpBufferTime);
         _jumpBufferCounter -= Time.deltaTime;
         
-        if (IsGrounded())
-        {
-            if (_isFalling) 
-            {
-                // was falling and now has touched the ground
-                _isFalling = false;
-                
-                _rb.gravityScale = _normalGravityScale;
-                _canDoubleJump = canDoubleJump;
-                _coyoteTimeCounter = coyoteTime;
-            }
-        }
-        else
-        {
-            // _coyoteTimeCounter = Mathf.Clamp(_coyoteTimeCounter - Time.deltaTime, 0, coyoteTime);
-            _coyoteTimeCounter -= Time.deltaTime;
-        }
+        // if (IsGrounded())
+        // {
+        //     if (_isFalling) 
+        //     {
+        //         // was falling and now has touched the ground
+        //         _isFalling = false;
+        //         
+        //         _rb.gravityScale = _normalGravityScale;
+        //         _canDoubleJump = canDoubleJump;
+        //         _coyoteTimeCounter = coyoteTime;
+        //     }
+        // }
+        // else
+        // {
+        //     // _coyoteTimeCounter = Mathf.Clamp(_coyoteTimeCounter - Time.deltaTime, 0, coyoteTime);
+        //     _coyoteTimeCounter -= Time.deltaTime;
+        // }
 
 
         if ((_horizontalInput > 0 && !_isFacingRight) || (_horizontalInput < 0 && _isFacingRight))
@@ -137,14 +137,14 @@ public class PlayerController : MonoBehaviour
             _jumpBufferCounter = 0;
         }
         
-        if (_jumpBufferCounter > 0 && _canDoubleJump && !IsGrounded() && _coyoteTimeCounter < 0) // double jump
-        {
-            _rb.velocity = new Vector2(_rb.velocity.x, 0);
-            _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            _canDoubleJump = false;
-        
-            _jumpBufferCounter = 0;
-        }
+        // if (_jumpBufferCounter > 0 && _canDoubleJump && ! IsGrounded() && _coyoteTimeCounter < 0) // double jump
+        // {
+        //     _rb.velocity = new Vector2(_rb.velocity.x, 0);
+        //     _rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        //     _canDoubleJump = false;
+        //
+        //     _jumpBufferCounter = 0;
+        // }
         #endregion
         
         
@@ -168,13 +168,13 @@ public class PlayerController : MonoBehaviour
         
         #region Apex Modifiers
 
-        if (Mathf.Abs(vel.y) < fallSpeedThreshold && !IsGrounded())
+        // if (Mathf.Abs(vel.y) < fallSpeedThreshold && !IsGrounded())
         {
             _maxSpeed = speed * speedMultiplier;
             _rb.gravityScale = _normalGravityScale * (1 - gravityCut);
             _isOnApex = true;
         }
-        else
+        // else
         {
             _isOnApex = false;
         }
