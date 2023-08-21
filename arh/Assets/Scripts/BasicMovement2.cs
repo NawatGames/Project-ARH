@@ -3,6 +3,7 @@ using UnityEngine;
 public class BasicMovement2 : MonoBehaviour
 {
     public float moveSpeed = 5f; // Adjust the speed of movement as needed
+    private bool _canMove = true;
 
     private Rigidbody2D rb;
 
@@ -24,7 +25,10 @@ public class BasicMovement2 : MonoBehaviour
             moveInput = 1f; // Move right
         }
 
-        // Move the player horizontally based on the input
-        rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        if (_canMove)
+        {
+            // Move the player horizontally based on the input
+            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        }
     }
 }

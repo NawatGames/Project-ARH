@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class LevelManager : MonoBehaviour
+public class RoomManager : MonoBehaviour
 {
 
     [SerializeField] private GameObject virtualCam;

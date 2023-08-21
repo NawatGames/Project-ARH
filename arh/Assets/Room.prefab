@@ -185,7 +185,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1312659994329344367}
   - component: {fileID: 1312659994329344366}
-  - component: {fileID: 1312659994329344361}
+  - component: {fileID: 6330838112934165937}
   m_Layer: 0
   m_Name: Room
   m_TagString: Untagged
@@ -238,7 +238,7 @@ PolygonCollider2D:
       - {x: -11.42, y: 4.97}
       - {x: -11.41, y: -5}
       - {x: 11.44, y: -5}
---- !u!114 &1312659994329344361
+--- !u!114 &6330838112934165937
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -250,4 +250,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d52ee16e699b49f5a0cbaa70bf924d35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCam: {fileID: 1312659992961922109}
+  virtualCam: {fileID: 0}
