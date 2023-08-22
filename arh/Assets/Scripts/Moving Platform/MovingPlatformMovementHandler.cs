@@ -11,17 +11,19 @@ namespace Moving_Platform
 
         private MovingPlatform _movingPlatform;
 
-        private Vector2 _startPosition;
+        private Vector2 _startPos;
         private Vector2 _movementDirection;
 
         private bool _movingForwards;
+        private bool _canPlatformMove = true;
+
         private Transform _platform;
-        
+
         private void Awake()
         {
             _movingPlatform = GetComponent<MovingPlatform>();
             _platform = _movingPlatform.GetPlatform();
-            _startPosition = transform.position;
+            _startPos = transform.position;
         }
 
         private void OnEnable()
@@ -42,24 +44,47 @@ namespace Moving_Platform
 
         private void FixedUpdate()
         {
+            var platformPos = _platform.position;
+            var finalPos = finalPosition.position;
             var step = speed * Time.deltaTime;
-            
-            if (_movingForwards)
+
+            if (_movingForwards && _canPlatformMove) // going towards the final position
             {
-                if (Vector3.Distance(_platform.position, finalPosition.position) < 0.01f)
+                if (Vector3.Distance(platformPos, finalPos) < 0.01f)
                 {
-                    step = 0;
+                    step = 0; // stop
+                    _movementDirection = Vector2.zero;
                 }
-                _platform.position = Vector2.MoveTowards(_platform.position, finalPosition.position, step);
+                else _movementDirection = (finalPos - platformPos).normalized;
+                
+                _platform.position = Vector2.MoveTowards(platformPos, finalPos, step);
             }
-            else
+            else if (_canPlatformMove) // going towards the start position
             {
-                if (Vector3.Distance(_platform.position, _startPosition) < 0.01f)
+                if (Vector3.Distance(platformPos, _startPos) < 0.01f)
                 {
-                    step = 0;
+                    step = 0; // stop
+                    _movementDirection = Vector2.zero;
                 }
-                _platform.position = Vector2.MoveTowards(_platform.position, _startPosition, step);
+                else _movementDirection = (_startPos - (Vector2)platformPos).normalized;
+                
+                _platform.position = Vector2.MoveTowards(platformPos, _startPos, step);
             }
+        }
+
+        public Vector2 GetMovementDirection()
+        {
+            return _movementDirection;
+        }
+
+        public bool GetCanPlatformMove()
+        {
+            return _canPlatformMove;
+        }
+
+        public void SetCanPlatformMove(bool value)
+        {
+            _canPlatformMove = value;
         }
     }
 }
