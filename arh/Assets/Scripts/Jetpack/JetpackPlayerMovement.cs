@@ -11,9 +11,10 @@ public class JetpackPlayerMovement : MonoBehaviour
     private float moveDirection;
     private Transform groundCheck;
     private LayerMask groundLayer;
-    private bool doublejumpEnabled;
+    public bool doublejumpEnabled;
     private bool isGrounded;
     public bool jetpackEnabled;
+    public bool inAir;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class JetpackPlayerMovement : MonoBehaviour
         isGrounded = true;
         doublejumpEnabled = false;
         jetpackEnabled = false;
+        inAir = false;
     }
 
     void Update()
@@ -35,6 +37,7 @@ public class JetpackPlayerMovement : MonoBehaviour
             {
                 rb.velocity = new Vector2(moveDirection * moveSpeed, jumpForce);
                 isGrounded = false;
+                inAir = true;
             }
 
             else if(doublejumpEnabled)
@@ -50,6 +53,7 @@ public class JetpackPlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            inAir = false;
         }
 
         if(jetpackEnabled)
