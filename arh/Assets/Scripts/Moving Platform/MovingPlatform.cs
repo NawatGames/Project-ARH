@@ -30,19 +30,19 @@ namespace Moving_Platform
 
         private void OnCollisionEnter2D(Collision2D other)
         {
+            other.gameObject.transform.SetParent(transform);
             if (other.gameObject.CompareTag("Player"))
             {
                 playerSteppedOnPlatformEvent.Invoke();
-                other.gameObject.transform.SetParent(transform);
             }
         }
 
         private void OnCollisionExit2D(Collision2D other)
         {
+            other.gameObject.transform.SetParent(null);
             if (other.gameObject.CompareTag("Player"))
             {
                 playerLeftPlatformEvent.Invoke();
-                other.gameObject.transform.SetParent(null);
             }
         }
 
