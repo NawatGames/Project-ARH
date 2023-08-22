@@ -40,13 +40,6 @@ public class PlayerStateMachine : MonoBehaviour
     private bool _isJumpFalling;
     private bool _isJumpPressed;
     private bool _isJumpReleased;
-    
-    [Space]
-    [Header("Stats")]
-    [SerializeField] public float movementSpeed = 7;
-    [SerializeField] public float jumpForce = 12;
-    [SerializeField] public float fallMultiplier = 2.5f;
-    [SerializeField] public float lowJumpMultiplier = 2f;
 
     // state variables
     private PlayerBaseState _currentState;
@@ -95,26 +88,6 @@ public class PlayerStateMachine : MonoBehaviour
     public SpriteRenderer getSR
     {
         get => _sr;
-    }
-    
-    public float getFallMultiplier
-    {
-        get => fallMultiplier;
-    }
-    
-    public float getLowJumpMultiplier
-    {
-        get => lowJumpMultiplier;
-    }
-
-    public float getMovementSpeed
-    {
-        get => movementSpeed;
-    }
-    
-    public float getJumpForce
-    {
-        get => jumpForce;
     }
 
     public int getSide

@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5759d6a660e3ac14dbd9a801bf9d7627, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f6430afde7e4bb4d9a34fa7ddbd1e2a, type: 3}
   m_Name: Hollow Knight Style
   m_EditorClassIdentifier: 
   gravityStrength: -52
-  gravityScale: 1.7333333
+  gravityScale: 5.3007135
   fallGravityMult: 2
   maxFallSpeed: 18
   fastFallGravityMult: 1
@@ -34,20 +34,5 @@ MonoBehaviour:
   jumpHangTimeThreshold: 0
   jumpHangAccelerationMult: 1
   jumpHangMaxSpeedMult: 1
-  wallJumpForce: {x: 8.5, y: 20}
-  wallJumpRunLerp: 0.075
-  wallJumpTime: 0.3
-  doTurnOnWallJump: 0
-  slideSpeed: -12
-  slideAccel: 12
   coyoteTime: 0.2
   jumpInputBufferTime: 0.2
-  dashAmount: 0
-  dashSpeed: 0
-  dashSleepTime: 0
-  dashAttackTime: 0
-  dashEndTime: 0
-  dashEndSpeed: {x: 0, y: 0}
-  dashEndRunLerp: 0
-  dashRefillTime: 0
-  dashInputBufferTime: 0
