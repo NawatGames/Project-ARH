@@ -3302,8 +3302,8 @@ GameObject:
   - component: {fileID: 1853419881}
   - component: {fileID: 1853419880}
   - component: {fileID: 1853419886}
-  - component: {fileID: 1853419883}
   - component: {fileID: 1853419884}
+  - component: {fileID: 1853419888}
   - component: {fileID: 1853419887}
   m_Layer: 0
   m_Name: Player
@@ -3328,7 +3328,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 295554b2f7c80024a8e9d2a45944f2c1, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -3349,25 +3349,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1853419883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853419879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d16615f8ad6042f4495d988d20bd0639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  jumpForce: 50
-  wallJumpLerp: 10
-  fallMultiplier: 2.5
-  lowJumpMultiplier: 2
-  canMove: 0
-  side: 1
 --- !u!114 &1853419884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3384,14 +3365,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   onGround: 0
-  onWall: 0
-  onRightWall: 0
-  onLeftWall: 0
-  wallSide: 0
-  collisionRadius: 0.25
-  bottomOffset: {x: 0, y: 0}
-  rightOffset: {x: 0, y: 0}
-  leftOffset: {x: 0, y: 0}
+  collisionRadius: 0.1
+  bottomOffset: {x: 0.06, y: -0.59}
+  rightOffset: {x: 0.51, y: -0.18}
+  leftOffset: {x: -0.4, y: -0.18}
 --- !u!70 &1853419886
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3435,9 +3412,9 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853419883}
+      - m_Target: {fileID: 1853419888}
         m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
-        m_MethodName: OnMovementInput
+        m_MethodName: OnWalkInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3451,9 +3428,9 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853419883}
+      - m_Target: {fileID: 1853419888}
         m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
-        m_MethodName: OnJump
+        m_MethodName: OnJumpInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3510,3 +3487,20 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1853419888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853419879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a174e3cdbd813344ca89e70b9ffc37ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data: {fileID: 11400000, guid: 2282d77ce6c5cb2459398e6808949331, type: 2}
+  movementSpeed: 7
+  jumpForce: 12
+  fallMultiplier: 8
+  lowJumpMultiplier: 3

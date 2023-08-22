@@ -14,13 +14,20 @@ public class PlayerJumpState : PlayerBaseState
     public override void EnterState()
     {
         Jump();
+        Debug.Log("--> jump state");
     }
 
     public override void UpdateState()
     {
         CheckMovementDirection();
-        BetterJumping();
+        VariableJumpHeight();
         CheckSwitchState();
+
+
+        if (_ctx.getRB.velocity.y < 0)
+        {
+            _ctx.IsJumpReleased = true;
+        }
     }
 
     public override void ExitState(){}
@@ -43,16 +50,17 @@ public class PlayerJumpState : PlayerBaseState
         _ctx.getRB.velocity = velocity;
     }
 
-    private void BetterJumping()
+    private void VariableJumpHeight()
     {
         if(_ctx.getRB.velocity.y < 0)
         {
-            _ctx.getRB.velocity += Vector2.up * (Physics2D.gravity.y * (_ctx.getFallMultiplier - 1) * Time.deltaTime);
-        }else if(_ctx.getRB.velocity.y > 0 && !Input.GetButton("Jump"))
+            _ctx.getRB.velocity += (Vector2.up * (Physics2D.gravity.y * (_ctx.getFallMultiplier - 1) * Time.deltaTime));
+        }else if(_ctx.getRB.velocity.y > 0 && _ctx.IsJumpReleased)
         {
             _ctx.getRB.velocity += Vector2.up * (Physics2D.gravity.y * (_ctx.getLowJumpMultiplier - 1) * Time.deltaTime);
         }
     }
+    
     
     private void CheckMovementDirection()
     {
