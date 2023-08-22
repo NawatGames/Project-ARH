@@ -23,6 +23,10 @@ public class BasicMovement2 : MonoBehaviour
         {
             moveInput = 1f; // Move right
         }
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            rb.AddForce(Vector2.up * 0.05f, ForceMode2D.Impulse);
+        }
 
         // Move the player horizontally based on the input
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);

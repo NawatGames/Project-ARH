@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class BasicMovement : MonoBehaviour
@@ -22,6 +23,10 @@ public class BasicMovement : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             moveInput = 1f; // Move right
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            rb.AddForce(Vector2.up * 0.05f, ForceMode2D.Impulse);
         }
 
         // Move the player horizontally based on the input
