@@ -12,9 +12,10 @@ public class JetpackPlayerMovement : MonoBehaviour
     private Transform groundCheck;
     private LayerMask groundLayer;
     public bool doublejumpEnabled;
-    private bool isGrounded;
+    public bool isGrounded;
     public bool jetpackEnabled;
-    public bool inAir;
+    public float fireTimer;
+    public ParticleSystem fireParticles;
 
     private void Awake()
     {
@@ -22,7 +23,7 @@ public class JetpackPlayerMovement : MonoBehaviour
         isGrounded = true;
         doublejumpEnabled = false;
         jetpackEnabled = false;
-        inAir = false;
+        fireParticles.Stop();
     }
 
     void Update()
@@ -37,13 +38,17 @@ public class JetpackPlayerMovement : MonoBehaviour
             {
                 rb.velocity = new Vector2(moveDirection * moveSpeed, jumpForce);
                 isGrounded = false;
-                inAir = true;
+                //fireParticles.Play();
+                //StartCoroutine(FireCountdown());
+                //caso queria sair fogo nos dois pulos
             }
 
             else if(doublejumpEnabled)
             {
                 rb.velocity = new Vector2(moveDirection * moveSpeed, jumpForce);
                 doublejumpEnabled = false;
+                fireParticles.Play();
+                StartCoroutine(FireCountdown());
             }
         }
     }
@@ -53,15 +58,15 @@ public class JetpackPlayerMovement : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
-            inAir = false;
+
+            if(jetpackEnabled)
+            {
+                doublejumpEnabled = true;
+            }
         }
 
-        if(jetpackEnabled)
-        {
-            doublejumpEnabled = true;
-        }
     }
-
+ 
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("JetpackPickup"))
@@ -70,5 +75,11 @@ public class JetpackPlayerMovement : MonoBehaviour
             doublejumpEnabled = true;
             Destroy(col.gameObject);
         }
+    }
+
+    IEnumerator FireCountdown()
+    {
+        yield return new WaitForSeconds(fireTimer);
+        fireParticles.Stop();
     }
 }

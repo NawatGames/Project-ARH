@@ -5193,8 +5193,10 @@ MonoBehaviour:
   moveSpeed: 8
   jumpForce: 8
   doublejumpEnabled: 0
+  isGrounded: 0
   jetpackEnabled: 0
-  inAir: 0
+  fireTimer: 0.5
+  fireParticles: {fileID: 974439598}
 --- !u!50 &1265140691
 Rigidbody2D:
   serializedVersion: 4
@@ -5317,13 +5319,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265140689}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 16355638388c13d49a8b2a832ce4e6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jetpackScript: {fileID: 0}
   fireTimer: 0.5
   fireParticles: {fileID: 974439598}
+  playerObject: {fileID: 1265140689}
 --- !u!1 &2116161748
 GameObject:
   m_ObjectHideFlags: 0
