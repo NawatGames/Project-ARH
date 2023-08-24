@@ -17,6 +17,9 @@ public class PlayerStateMachine2 : MonoBehaviour
     private bool _isJumpPressed;
 
 
+    private PlayerBaseState2 _currentState;
+    
+    
     private void Awake()
     {
         _playerInput = new PlayerInput();
