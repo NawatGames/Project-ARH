@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerWalkState2 : PlayerBaseState2
+public class PlayerWalkState : PlayerBaseState
 {
     public override void EnterState()
     {

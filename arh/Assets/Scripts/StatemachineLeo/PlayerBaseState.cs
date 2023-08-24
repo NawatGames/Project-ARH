@@ -1,4 +1,4 @@
-public abstract class PlayerBaseState2
+public abstract class PlayerBaseState
 {
     // Start is called before the first frame update
     void Start()

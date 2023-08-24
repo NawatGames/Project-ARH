@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerStateMachine2 : MonoBehaviour
+public class PlayerStateMachine : MonoBehaviour
 {
     private Rigidbody2D _rb;
     private PlayerInput _playerInput;
@@ -17,7 +17,7 @@ public class PlayerStateMachine2 : MonoBehaviour
     private bool _isJumpPressed;
 
 
-    private PlayerBaseState2 _currentState;
+    private PlayerBaseState _currentState;
     
     
     private void Awake()
