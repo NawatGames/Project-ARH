@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class PlayerJumpState : PlayerBaseState
 {
+
+    public PlayerJumpState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+    : base(currentContext, playerStateFactory){}
     public override void EnterState()
     {
-    
+        HandleJump();
+        Debug.Log("HELLO FROM JUMPSTATE");
+
     }
     public override void UpdateState()
     {
-    
+        CheckSwitchStates();
+
     }
     public override void ExitState()
     {
@@ -18,10 +24,18 @@ public class PlayerJumpState : PlayerBaseState
     }
     public override void CheckSwitchStates()
     {
-    
+        if (_ctx.IsGrounded && _ctx.IsFalling)
+        {
+            SwitchState(_factory.Grounded());
+        }
     }
     public override void InitializeSubState()
     {
     
+    }
+
+    void HandleJump()
+    {   
+        _ctx.Rigidbody2D.AddForce(Vector2.up * _ctx.AppliedJumpForce,ForceMode2D.Impulse);
     }
 }

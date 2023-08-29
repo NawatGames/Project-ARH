@@ -6,27 +6,73 @@ using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    private Collision _collisionContext;
     private Rigidbody2D _rb;
     private PlayerInput _playerInput;
 
     private Vector2 _currentMovementInput;
-    private Vector2 _currentMovement;
-    private Vector2 _appliedMovement;
-    private bool _isMovementPressed;
+    [SerializeField] Vector2 _currentMovement;
+    [SerializeField] private float _appliedMovementSpeed;
+    [SerializeField] private float _appliedJumpForce;
 
-    private bool _isJumpPressed;
+    [SerializeField] private bool _isMovementPressed;
+    [SerializeField] private bool _isJumpPressed;
+    [SerializeField] private bool _isGrounded;
+    [SerializeField] private bool _isFalling;
 
-
+    
     private PlayerBaseState _currentState;
+    private PlayerStateFactory _states;
+    
+    //Getters and Setters
+    public PlayerBaseState CurrentState
+    {
+        get { return _currentState; }
+        set { _currentState = value; }
+    }
+    public Rigidbody2D Rigidbody2D
+    {
+        get { return _rb; }
+        set { _rb = value; }
+    }
+    public bool IsJumpPressed
+    {
+        get { return _isJumpPressed; }
+    }
+    public bool IsGrounded
+    {
+        get { return _isGrounded; }
+        set { _isGrounded = value;}
+    }
+    public bool IsFalling
+    {
+        get { return _isFalling; }
+    }
+
+    public Vector2 CurrentMovement
+    {
+        get { return _currentMovement;}
+        set { _currentMovement = value; }
+    }
+    
+    public float AppliedJumpForce
+    {
+        get { return _appliedJumpForce; }
+    }
+
+    
     
     
     private void Awake()
     {
         _playerInput = new PlayerInput();
         _rb = GetComponent<Rigidbody2D>();
+        _collisionContext = GetComponent<Collision>();
 
 
-
+        _states = new PlayerStateFactory(this);
+        _currentState = _states.Grounded();
+        _currentState.EnterState();
 
 
         _playerInput.Gameplay.Walk.started += OnMomeventInput;
@@ -41,7 +87,6 @@ public class PlayerStateMachine : MonoBehaviour
 
 
 
-
     }
 
     // Start is called before the first frame update
@@ -53,6 +98,9 @@ public class PlayerStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        _currentState.UpdateState();
+        _isGrounded = _collisionContext.onGround;
+        _isFalling = _rb.velocity.y <= 0.0f;
     }
 
     public void OnMomeventInput(InputAction.CallbackContext context)

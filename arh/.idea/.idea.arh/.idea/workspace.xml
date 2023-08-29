@@ -2,28 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtomBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtomBehavior.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerBaseState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerBaseState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerGroundedState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerGroundedState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerIdleState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerIdleState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerJumpState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerJumpState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateFactory.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateFactory.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerWalkState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerWalkState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerBaseState2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerBaseState2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerGroundedState2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerGroundedState2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerIdleState2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerIdleState2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerJumpState2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerJumpState2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerStateMachine2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerStateMachine2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerWalkState2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerWalkState2.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerStateMachine_Leo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerStateMachine_Leo.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerJumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerJumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerWalkState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +20,8 @@
     <setting file="file://$USER_HOME$/Desktop/FrontFootAnimationHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/MemberAnimationHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatBehavior.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerStateMachine2.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerStateFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StatemachineLeo/PlayerStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -105,7 +92,9 @@
       <workItem from="1689858279076" duration="1473000" />
       <workItem from="1689950182152" duration="10477000" />
       <workItem from="1692459709838" duration="940000" />
-      <workItem from="1692876624878" duration="3930000" />
+      <workItem from="1692876624878" duration="4057000" />
+      <workItem from="1692921506815" duration="825000" />
+      <workItem from="1693308296432" duration="4908000" />
     </task>
     <servers />
   </component>
