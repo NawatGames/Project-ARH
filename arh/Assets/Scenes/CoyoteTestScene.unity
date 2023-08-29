@@ -271,6 +271,55 @@ MonoBehaviour:
   isGrounded: 0
   jetpackEnabled: 0
   coyoteCounter: 0
+  playerControls:
+    m_Name: Player Controls
+    m_Type: 0
+    m_ExpectedControlType: Vector2
+    m_Id: 1a4080ef-6c9b-4190-a9d2-a051fe6a5361
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: WASD
+      m_Id: 475bcc04-76b9-4c5a-9d6d-dffb39e905e5
+      m_Path: 2DVector
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 4
+    - m_Name: up
+      m_Id: 772a57cf-586d-4d38-86b6-3932f22e56c8
+      m_Path: <Keyboard>/w
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: down
+      m_Id: cc4a6c44-8720-4d90-9657-8028296f6080
+      m_Path: <Keyboard>/s
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: left
+      m_Id: 8527fae6-678e-4cb9-9d10-dbb0baf9010d
+      m_Path: <Keyboard>/a
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    - m_Name: right
+      m_Id: c1a421bc-c2d5-427a-9007-b91f4761d23c
+      m_Path: <Keyboard>/d
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Player Controls
+      m_Flags: 8
+    m_Flags: 0
 --- !u!50 &1227538744
 Rigidbody2D:
   serializedVersion: 4

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CoyoteScript : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class CoyoteScript : MonoBehaviour
     public float coyoteCounter;
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
+    public InputAction playerControls;
 
     private void Awake()
     {
@@ -48,7 +50,7 @@ public class CoyoteScript : MonoBehaviour
             }
         }
 
-        if(Input.GetButtonDown("Jump"))
+        if(Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             jumpBufferCounter = jumpBufferTime;
         }
@@ -58,7 +60,7 @@ public class CoyoteScript : MonoBehaviour
             jumpBufferCounter -= Time.deltaTime;
         }
 
-        if(Input.GetButtonUp("Jump"))
+        if(Keyboard.current.spaceKey.wasReleasedThisFrame)
         {
             if(rb.velocity.y > 0f)
             {
@@ -97,7 +99,6 @@ public class CoyoteScript : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            Debug.Log("Saiu");
         }
     }
 
