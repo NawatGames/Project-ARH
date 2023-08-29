@@ -19,6 +19,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private bool _isJumpPressed;
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _isFalling;
+    [SerializeField] private bool _requiresNewJumpPress;
 
     
     private PlayerBaseState _currentState;
@@ -47,6 +48,12 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsFalling
     {
         get { return _isFalling; }
+    }
+
+    public bool RequiresNewJumpPress
+    {
+        get { return _requiresNewJumpPress; }
+        set { _requiresNewJumpPress = value; }
     }
 
     public Vector2 CurrentMovement
@@ -100,7 +107,7 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _currentState.UpdateState();
         _isGrounded = _collisionContext.onGround;
-        _isFalling = _rb.velocity.y <= 0.0f;
+        _isFalling = _rb.velocity.y < 0.0f;
     }
 
     public void OnMomeventInput(InputAction.CallbackContext context)
@@ -111,6 +118,7 @@ public class PlayerStateMachine : MonoBehaviour
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         _isJumpPressed = context.ReadValueAsButton();
+        _requiresNewJumpPress = false;
     }
     public void OnInteractInput(InputAction.CallbackContext context)
     {

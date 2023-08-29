@@ -20,7 +20,10 @@ public class PlayerJumpState : PlayerBaseState
     }
     public override void ExitState()
     {
-    
+        if (_ctx.IsJumpPressed)
+        {
+            _ctx.RequiresNewJumpPress = true;
+        }
     }
     public override void CheckSwitchStates()
     {

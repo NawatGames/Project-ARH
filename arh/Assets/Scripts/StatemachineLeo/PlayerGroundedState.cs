@@ -22,7 +22,7 @@ public class PlayerGroundedState : PlayerBaseState
     public override void CheckSwitchStates()
     {
         //Se o player apertar o botao de pulo, ele dever ir para o estado pulo!
-        if (_ctx.IsJumpPressed)
+        if (_ctx.IsJumpPressed && !_ctx.RequiresNewJumpPress)
         {
             SwitchState(_factory.Jump());
         }
