@@ -52,7 +52,7 @@ public class PlayerJumpState : PlayerBaseState
     }
 
     void HandleJump()
-    {   
+    {   //Debug.Log("JUMP FUNCTION EXECUTED!");
         Ctx.Rigidbody2D.AddForce(Vector2.up * Ctx.AppliedJumpForce,ForceMode2D.Impulse);
     }
 }

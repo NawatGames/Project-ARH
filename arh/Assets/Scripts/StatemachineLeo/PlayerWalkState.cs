@@ -9,22 +9,24 @@ public class PlayerWalkState : PlayerBaseState
         : base(currentContext, playerStateFactory){}
     public override void EnterState()
     {
-    
+        Debug.Log("HELLO FROM WALKSTATE");
+
     }
     public override void UpdateState()
     {
         CheckSwitchStates();
-        //_ctx.CurrentMovement.x = 
+        Ctx.CurrentMovement = new Vector2(Ctx.CurrentMovementInput.x * Ctx.AppliedMovementSpeed,0f);
+        
     }
     public override void ExitState()
     {
-    
+        
     }
     public override void CheckSwitchStates()
     {
         if (!Ctx.IsMovementPressed)
         {
-            SwitchState(Factory.Walk());
+            SwitchState(Factory.Idle());
         }
     }
     public override void InitializeSubState()

@@ -9,7 +9,8 @@ public class PlayerIdleState : PlayerBaseState
         : base(currentContext, playerStateFactory){}
     public override void EnterState()
     {
-    
+        Debug.Log("HELLO FROM IDLESTATE");
+
     }
     public override void UpdateState()
     {

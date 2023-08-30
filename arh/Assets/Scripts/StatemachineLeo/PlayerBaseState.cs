@@ -57,7 +57,6 @@ public abstract class PlayerBaseState
         
         newState.EnterState();
 
-        _ctx.CurrentState = newState;
         if (_isRootState)
         {
             _ctx.CurrentState = newState;

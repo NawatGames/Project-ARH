@@ -10,7 +10,7 @@ public class PlayerStateMachine : MonoBehaviour
     private Rigidbody2D _rb;
     private PlayerInput _playerInput;
 
-    private Vector2 _currentMovementInput;
+    [SerializeField] private Vector2 _currentMovementInput;
     [SerializeField] Vector2 _currentMovement;
     [SerializeField] private float _appliedMovementSpeed;
     [SerializeField] private float _appliedJumpForce;
@@ -60,6 +60,15 @@ public class PlayerStateMachine : MonoBehaviour
     {
         get { return _currentMovement;}
         set { _currentMovement = value;}
+    }
+    
+    public Vector2 CurrentMovementInput
+    {
+        get { return _currentMovementInput; }
+    }
+    public float AppliedMovementSpeed
+    {
+        get { return _appliedMovementSpeed; }
     }
     public bool IsMovementPressed
     {
@@ -113,7 +122,11 @@ public class PlayerStateMachine : MonoBehaviour
         _currentState.UpdateStates();
         _isGrounded = _collisionContext.onGround;
         _isFalling = _rb.velocity.y < 0.0f;
-        //_currentMovement = new Vector2();
+    }
+
+    private void FixedUpdate()
+    {
+        _rb.velocity = new Vector2(_currentMovement.x, _rb.velocity.y);
     }
 
     public void OnMomeventInput(InputAction.CallbackContext context)
