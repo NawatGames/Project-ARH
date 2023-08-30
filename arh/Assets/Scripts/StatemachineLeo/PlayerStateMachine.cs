@@ -59,7 +59,12 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector2 CurrentMovement
     {
         get { return _currentMovement;}
-        set { _currentMovement = value; }
+        set { _currentMovement = value;}
+    }
+    public bool IsMovementPressed
+    {
+        get { return _isMovementPressed; }
+        set { _isMovementPressed = value; }
     }
     
     public float AppliedJumpForce
@@ -105,9 +110,10 @@ public class PlayerStateMachine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _currentState.UpdateState();
+        _currentState.UpdateStates();
         _isGrounded = _collisionContext.onGround;
         _isFalling = _rb.velocity.y < 0.0f;
+        //_currentMovement = new Vector2();
     }
 
     public void OnMomeventInput(InputAction.CallbackContext context)

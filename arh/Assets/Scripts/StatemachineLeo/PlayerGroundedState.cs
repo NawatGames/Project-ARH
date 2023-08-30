@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerGroundedState : PlayerBaseState
 {
     public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-        : base(currentContext, playerStateFactory){}
+        : base(currentContext, playerStateFactory)
+        
+    {
+        IsRootState = true;
+        InitializeSubState();
+    }
     public override void EnterState()
     {
         Debug.Log("HELLO FROM GROUNDSTATE");
@@ -22,14 +27,21 @@ public class PlayerGroundedState : PlayerBaseState
     public override void CheckSwitchStates()
     {
         //Se o player apertar o botao de pulo, ele dever ir para o estado pulo!
-        if (_ctx.IsJumpPressed && !_ctx.RequiresNewJumpPress)
+        if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress)
         {
-            SwitchState(_factory.Jump());
+            SwitchState(Factory.Jump());
         }
     
     }
     public override void InitializeSubState()
     {
-    
+        if (!Ctx.IsMovementPressed)
+        {
+            SetSubState(Factory.Idle());
+        }
+        else if (Ctx.IsMovementPressed)
+        {
+            SetSubState(Factory.Walk());
+        }
     }
 }

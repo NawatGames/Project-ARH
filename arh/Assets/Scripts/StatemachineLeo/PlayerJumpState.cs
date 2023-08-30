@@ -6,7 +6,14 @@ public class PlayerJumpState : PlayerBaseState
 {
 
     public PlayerJumpState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-    : base(currentContext, playerStateFactory){}
+        : base(currentContext, playerStateFactory)
+        
+    {
+        IsRootState = true;
+        InitializeSubState();
+
+
+    }
     public override void EnterState()
     {
         HandleJump();
@@ -20,25 +27,32 @@ public class PlayerJumpState : PlayerBaseState
     }
     public override void ExitState()
     {
-        if (_ctx.IsJumpPressed)
+        if (Ctx.IsJumpPressed)
         {
-            _ctx.RequiresNewJumpPress = true;
+            Ctx.RequiresNewJumpPress = true;
         }
     }
     public override void CheckSwitchStates()
     {
-        if (_ctx.IsGrounded && _ctx.IsFalling)
+        if (Ctx.IsGrounded && Ctx.IsFalling)
         {
-            SwitchState(_factory.Grounded());
+            SwitchState(Factory.Grounded());
         }
     }
     public override void InitializeSubState()
     {
-    
+        if (!Ctx.IsMovementPressed)
+        {
+            SetSubState(Factory.Idle());
+        }
+        else if (Ctx.IsMovementPressed)
+        {
+            SetSubState(Factory.Walk());
+        }
     }
 
     void HandleJump()
     {   
-        _ctx.Rigidbody2D.AddForce(Vector2.up * _ctx.AppliedJumpForce,ForceMode2D.Impulse);
+        Ctx.Rigidbody2D.AddForce(Vector2.up * Ctx.AppliedJumpForce,ForceMode2D.Impulse);
     }
 }

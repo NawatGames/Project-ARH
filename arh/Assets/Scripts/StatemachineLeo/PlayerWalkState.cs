@@ -14,7 +14,7 @@ public class PlayerWalkState : PlayerBaseState
     public override void UpdateState()
     {
         CheckSwitchStates();
-
+        //_ctx.CurrentMovement.x = 
     }
     public override void ExitState()
     {
@@ -22,7 +22,10 @@ public class PlayerWalkState : PlayerBaseState
     }
     public override void CheckSwitchStates()
     {
-    
+        if (!Ctx.IsMovementPressed)
+        {
+            SwitchState(Factory.Walk());
+        }
     }
     public override void InitializeSubState()
     {
