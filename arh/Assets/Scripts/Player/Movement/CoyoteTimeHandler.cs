@@ -1,4 +1,5 @@
 using System;
+using Player.Movement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -13,20 +14,20 @@ namespace DefaultNamespace
         private bool _isGrounded;
 
         private bool _isCoyoteTimeActive;
-        [SerializeField] private PlayerJump playerJump;
+        [SerializeField] private JumpRequester jumpRequester;
 
         public UnityEvent<bool> CoyoteTimeActiveChangedEvent;
 
         private void OnEnable()
         {
             groundedHandler.IsGroundedChangedEvent.AddListener(OnIsGroundedChanged);
-            playerJump.JumpStartedEvent.AddListener(OnJumpStarted);
+            jumpRequester.JumpStartedEvent.AddListener(OnJumpStarted);
         }
         
         private void OnDisable()
         {
             groundedHandler.IsGroundedChangedEvent.RemoveListener(OnIsGroundedChanged);
-            playerJump.JumpStartedEvent.RemoveListener(OnJumpStarted);
+            jumpRequester.JumpStartedEvent.RemoveListener(OnJumpStarted);
         }
 
         private void OnJumpStarted()

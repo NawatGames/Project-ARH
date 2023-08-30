@@ -4,7 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="" />
+    <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerApexState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerApexState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerFallingState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerFallingState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerGroundedState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerGroundedState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerIdleState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerIdleState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerJumpingState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerJumpingState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerWalkingState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Concrete States/PlayerWalkingState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/CoyoteTimeHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/CoyoteTimeHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/GravityHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/GravityHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/JumpBufferHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/JumpBufferHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerController.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerController.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerJump.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerJump.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerJumpHandler.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerJumpHandler.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerMovement.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/PlayerMovement.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/SpaceInput.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/Player Movement/SpaceInput.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/PlayerBaseState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/PlayerBaseState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/PlayerStateFactory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/PlayerStateFactory.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/PlayerStateMachine.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player State Machine/PlayerStateMachine.cs.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +61,14 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 6
+}]]></component>
   <component name="ProjectId" id="2PzZgyCxm44d2J4aWhl2QoWV8MC" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,6 +82,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "player__movement__andre",
+    "ignore.virus.scanning.warn.message": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -45,15 +92,15 @@
   },
   "keyToStringList": {
     "rider.external.source.directories": [
-      "C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache",
+      "C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache",
       "C:\\Users\\andre\\AppData\\Local\\Symbols\\src"
     ]
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programas\Unity\Editor\2021.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\kaive\Documents\NAWAT\Project-ARH\arh -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kaive\Documents\NAWAT\Project-ARH\arh" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -61,7 +108,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programas\Unity\Editor\2021.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;E:\Programas\GitHub Desktop\Project-ARH\arh&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\Programas\GitHub Desktop\Project-ARH\arh" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -86,10 +133,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="3160">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="12912">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="3160" />
+      <option name="pid" value="12912" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -113,6 +160,7 @@
       <workItem from="1691719876381" duration="3710000" />
       <workItem from="1692217625649" duration="2949000" />
       <workItem from="1692220935240" duration="4986000" />
+      <workItem from="1693433107887" duration="2535000" />
     </task>
     <servers />
   </component>

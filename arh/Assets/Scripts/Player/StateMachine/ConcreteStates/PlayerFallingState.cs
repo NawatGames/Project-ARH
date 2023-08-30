@@ -1,7 +1,7 @@
+using DefaultNamespace;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace DefaultNamespace
+namespace Player.StateMachine.ConcreteStates
 {
     public class PlayerFallingState : PlayerBaseState
     {

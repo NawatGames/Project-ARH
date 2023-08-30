@@ -1,16 +1,16 @@
-using UnityEngine;
+using DefaultNamespace;
 
-namespace DefaultNamespace
+namespace Player.StateMachine.ConcreteStates
 {
-    public class PlayerGroundedState : PlayerBaseState
+    public class PlayerIdleState : PlayerBaseState
     {
-        public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
+        public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
             currentContext, playerStateFactory){}
-
+        
         #region BaseState Functions
         public override void EnterState()
         {
-            Debug.Log("Entered Grounded State!");
+            base.EnterState();
         }
 
         public override void UpdateState()

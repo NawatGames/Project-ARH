@@ -1,3 +1,5 @@
+using Player.StateMachine;
+using Player.StateMachine.ConcreteStates;
 using UnityEngine;
 using UnityEngine.Serialization;
 

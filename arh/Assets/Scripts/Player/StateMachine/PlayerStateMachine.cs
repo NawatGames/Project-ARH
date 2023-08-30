@@ -1,8 +1,8 @@
-using System;
+using DefaultNamespace;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace DefaultNamespace
+namespace Player.StateMachine
 {
     public class PlayerStateMachine : MonoBehaviour
     {
@@ -10,7 +10,7 @@ namespace DefaultNamespace
         private PlayerBaseState _currentState;
         private PlayerStateFactory _states;
         
-        public UnityEvent<PlayerBaseState> CurrentStateChanged;
+        public UnityEvent<PlayerBaseState> currentStateChanged;
 
         // getters and setters
         public PlayerBaseState CurrentState
@@ -41,7 +41,7 @@ namespace DefaultNamespace
                 _currentState.EnterState();
             }
 
-            CurrentStateChanged.Invoke(_currentState);
+            currentStateChanged.Invoke(_currentState);
         }
 
         private void Update()

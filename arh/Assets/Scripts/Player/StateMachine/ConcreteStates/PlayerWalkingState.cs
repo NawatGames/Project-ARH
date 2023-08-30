@@ -1,8 +1,10 @@
-namespace DefaultNamespace
+using DefaultNamespace;
+
+namespace Player.StateMachine.ConcreteStates
 {
-    public class PlayerIdleState : PlayerBaseState
+    public class PlayerWalkingState : PlayerBaseState
     {
-        public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
+        public PlayerWalkingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
             currentContext, playerStateFactory){}
         
         #region BaseState Functions

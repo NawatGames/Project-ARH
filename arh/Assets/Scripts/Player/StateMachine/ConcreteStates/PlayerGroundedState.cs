@@ -1,14 +1,17 @@
-namespace DefaultNamespace
+using DefaultNamespace;
+using UnityEngine;
+
+namespace Player.StateMachine.ConcreteStates
 {
-    public class PlayerJumpingState : PlayerBaseState
+    public class PlayerGroundedState : PlayerBaseState
     {
-        public PlayerJumpingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
+        public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
             currentContext, playerStateFactory){}
-        
+
         #region BaseState Functions
         public override void EnterState()
         {
-            base.EnterState();
+            Debug.Log("Entered Grounded State!");
         }
 
         public override void UpdateState()

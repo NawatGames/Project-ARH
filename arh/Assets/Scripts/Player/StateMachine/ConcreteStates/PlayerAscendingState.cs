@@ -1,8 +1,10 @@
+using Player.StateMachine;
+
 namespace DefaultNamespace
 {
-    public class PlayerWalkingState : PlayerBaseState
+    public class PlayerAscendingState : PlayerBaseState
     {
-        public PlayerWalkingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
+        public PlayerAscendingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
             currentContext, playerStateFactory){}
         
         #region BaseState Functions

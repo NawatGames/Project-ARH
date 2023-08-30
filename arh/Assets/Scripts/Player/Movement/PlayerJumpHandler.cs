@@ -1,4 +1,5 @@
 using System;
+using Player.Movement;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -14,18 +15,18 @@ namespace DefaultNamespace
         [Range(0, 1)] [SerializeField] private float jumpCutMultiplier;
         // [SerializeField] private float maxFallSpeed;
         
-        [SerializeField] private PlayerJump playerJump;
+        [SerializeField] private JumpRequester jumpRequester;
 
         private void OnEnable()
         {
-            playerJump.JumpStartedEvent.AddListener(OnJumpStarted);
-            playerJump.JumpCanceledEvent.AddListener(OnJumpCanceled);
+            jumpRequester.JumpStartedEvent.AddListener(OnJumpStarted);
+            jumpRequester.JumpCanceledEvent.AddListener(OnJumpCanceled);
         }
 
         private void OnDisable()
         {
-            playerJump.JumpStartedEvent.RemoveListener(OnJumpStarted);
-            playerJump.JumpCanceledEvent.RemoveListener(OnJumpCanceled);
+            jumpRequester.JumpStartedEvent.RemoveListener(OnJumpStarted);
+            jumpRequester.JumpCanceledEvent.RemoveListener(OnJumpCanceled);
         }
 
         private void OnJumpStarted()
