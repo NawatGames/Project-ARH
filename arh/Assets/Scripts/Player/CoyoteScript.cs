@@ -28,9 +28,14 @@ public class CoyoteScript : MonoBehaviour
         jetpackEnabled = false;
     }
 
+    public void Move(InputAction.CallbackContext context)
+    {
+        moveDirection = context.ReadValue<Vector2>().x;
+    }
+
     void Update()
     {
-        moveDirection = Input.GetAxis("Horizontal");
+        //moveDirection = Input.GetAxis("Horizontal");
 
         rb.velocity = new Vector2(moveDirection * moveSpeed, rb.velocity.y);
 
