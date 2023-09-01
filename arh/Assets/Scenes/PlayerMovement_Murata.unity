@@ -3162,6 +3162,205 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &652452401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 652452402}
+  m_Layer: 0
+  m_Name: groundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &652452402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652452401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.06, y: -0.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1853419881}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &730251608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 730251615}
+  - component: {fileID: 730251614}
+  - component: {fileID: 730251613}
+  - component: {fileID: 730251612}
+  - component: {fileID: 730251611}
+  - component: {fileID: 730251610}
+  - component: {fileID: 730251609}
+  m_Layer: 0
+  m_Name: PlayerEventHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &730251609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f99beccd1edbf408de183fe9d9c1ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _doubleJump: {fileID: 730251613}
+  _jumpSelector: {fileID: 730251610}
+  _jumpBuffer: {fileID: 730251611}
+  PerformJumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &730251610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b1695b78bf1f444b047dfe47e8f8ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  JumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  JumpBufferedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  DoubleJumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  JumpCanceledEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _jumpBuffer: {fileID: 730251611}
+  _coyote: {fileID: 730251614}
+  _isGrounded: {fileID: 730251612}
+--- !u!114 &730251611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dbdb316aac64fd43aa6cd3e6dd64711, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bufferTime: 0.1
+  isWithinBufferTime: 0
+  doubleJump: {fileID: 730251613}
+  JumpBufferedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &730251612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc96a064b2d40444a985a23e6fe2c2fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  _groundCheckRadius: 0.1
+  _groundCheckPosition: {fileID: 652452402}
+  _onGrounded:
+    m_PersistentCalls:
+      m_Calls: []
+  _onNotGrounded:
+    m_PersistentCalls:
+      m_Calls: []
+  ToGroundedStateChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &730251613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e76024f6e42894a82927315b04f21d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxDoubleJumps: 1
+  PerformDoubleJump:
+    m_PersistentCalls:
+      m_Calls: []
+  JumpFailedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  jumpSelector: {fileID: 730251610}
+  isGrounded: {fileID: 730251612}
+--- !u!114 &730251614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 650065d7f8aa73841830c16fe1a8b742, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coyoteTime: 0.2
+  CoyoteOrGroundStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  CoyoteOrGroundEndEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _isGroundedComponent: {fileID: 730251612}
+  _jumpRequester: {fileID: 730251609}
+--- !u!4 &730251615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &870453552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3302,9 +3501,9 @@ GameObject:
   - component: {fileID: 1853419881}
   - component: {fileID: 1853419880}
   - component: {fileID: 1853419886}
+  - component: {fileID: 1853419887}
   - component: {fileID: 1853419884}
   - component: {fileID: 1853419888}
-  - component: {fileID: 1853419887}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3346,6 +3545,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 175074172}
+  - {fileID: 652452402}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3428,9 +3628,9 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1853419888}
-        m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
-        m_MethodName: OnJumpInput
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: JumpBuffer, Assembly-CSharp
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3499,8 +3699,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a174e3cdbd813344ca89e70b9ffc37ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data: {fileID: 11400000, guid: 2282d77ce6c5cb2459398e6808949331, type: 2}
-  movementSpeed: 7
-  jumpForce: 12
-  fallMultiplier: 8
-  lowJumpMultiplier: 3
+  Data: {fileID: 11400000, guid: 15e299f9ede41f8479c5271899e4793e, type: 2}
+  eventHandler: {fileID: 730251608}

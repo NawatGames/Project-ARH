@@ -11,20 +11,18 @@ public class PlayerIdleState : PlayerBaseState
         Debug.Log("--> Idle state");
     }
 
-    public override void UpdateState()
+    /*public override void UpdateState()
     {
-        CheckSwitchState();
-    }
+        NextState();
+    }*/
 
     public override void ExitState(){}
 
-    public override void CheckSwitchState()
+    public void NextState()
     {
         if (_ctx.IsMovementPressed)
         {
             SwitchStates(_factory.Walk());
         }
     }
-
-    public override void InitializeSubState(){}
 }

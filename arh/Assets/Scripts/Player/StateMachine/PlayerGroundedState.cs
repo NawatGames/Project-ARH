@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class PlayerGroundedState : PlayerBaseState
 {
-    public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory) : base(
+    private JumpRequester _jumpRequester;
+    private IsGrounded _isGrounded;
+
+    public PlayerGroundedState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, JumpRequester jumpRequester, IsGrounded isGrounded) : base(
         currentContext, playerStateFactory)
     {
+        this. _jumpRequester = jumpRequester;
+        this. _isGrounded = isGrounded;
+
         _isRootState = true;
         InitializeSubState();
     }
@@ -14,24 +20,27 @@ public class PlayerGroundedState : PlayerBaseState
     public override void EnterState()
     {
         Debug.Log("--> grounded state");
-    }
-
-    public override void UpdateState()
-    {
-        CheckSwitchState();
+        _jumpRequester.PerformJumpEvent.AddListener(GoToAscendingState);
+        _isGrounded._onNotGrounded.AddListener(GoToDescendingState);        // O PerformJumpEvent é chamado primeiro, se não teria que fazer uma verificação
     }
  
-    public override void ExitState(){}
-
-    public override void CheckSwitchState()
+    public override void ExitState()
     {
-        if (_ctx.IsJumpPressed)
-        {
-            SwitchStates(_factory.Jump());
-        }
+        _jumpRequester.PerformJumpEvent.RemoveListener(GoToAscendingState);
+        _isGrounded._onNotGrounded.RemoveListener(GoToDescendingState);
     }
 
-    public override void InitializeSubState()
+    public void GoToAscendingState()
+    {
+        SwitchStates(_factory.Ascending());
+    }
+
+    public void GoToDescendingState()
+    {
+        SwitchStates(_factory.Descending());
+    }
+
+    public void InitializeSubState()
     {
         if (!_ctx.IsMovementPressed)
         {

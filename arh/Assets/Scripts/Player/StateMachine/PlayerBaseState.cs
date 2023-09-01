@@ -17,22 +17,17 @@ public abstract class PlayerBaseState
     
     public abstract void EnterState();
 
-    public abstract void UpdateState();
-
     public abstract void ExitState();
 
-    public abstract void CheckSwitchState();
 
-    public abstract void InitializeSubState();
-
-    public void UpdateStates()
+    /*public void UpdateStates()
     {
         UpdateState();
         if (_currentSubState != null)
         {
             _currentSubState.UpdateStates();
         }
-    }
+    }*/
 
     protected void SwitchStates(PlayerBaseState newState)
     {
