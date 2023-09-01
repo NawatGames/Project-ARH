@@ -1,3 +1,5 @@
+using Player.StateMachine;
+using Player.StateMachine.ConcreteStates;
 
 public class PlayerStateFactory
 {
@@ -20,7 +22,7 @@ public class PlayerStateFactory
 
     public PlayerBaseState Jump()
     {
-        return new PlayerJumpState(_context, this);
+        return new PlayerAscendingState(_context, this);
     }
 
     public PlayerBaseState Grounded()
