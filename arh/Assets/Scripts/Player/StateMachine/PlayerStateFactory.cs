@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerStateFactory
 {
@@ -12,35 +13,37 @@ public class PlayerStateFactory
     private PlayerAscendingState _ascendingState;
     private PlayerDescendingState _descendingState;
 
-    public PlayerStateFactory(PlayerStateMachine currentContext, IsGrounded isGround, JumpRequester jumpRequester, Apogee apogee)
+    public PlayerStateFactory(PlayerStateMachine currentContext, PlayerInput playerInput, IsGrounded isGround, JumpRequester jumpRequester, Apogee apogee)
     {
         _context = currentContext;
 
-        _idleState = new PlayerIdleState(_context, this);   // Os subStates devem ser criados antes dos superStates !!!
-        _walkState = new PlayerWalkState(_context, this);   //
+        InputAction moveAction = playerInput.FindAction("Move");
+
+        _walkState = new PlayerWalkState(_context, this, moveAction);   //
+        _idleState = new PlayerIdleState(_context, this, moveAction);   // Os subStates devem ser criados antes dos superStates !!!
         _groundedState = new PlayerGroundedState(_context, this, jumpRequester, isGround);
         
-        _ascendingState = new PlayerAscendingState(_context, this, apogee);
-        _descendingState = new PlayerDescendingState(_context, this, isGround);
+        _ascendingState = new PlayerAscendingState(_context, this, apogee, jumpRequester);
+        _descendingState = new PlayerDescendingState(_context, this, isGround, jumpRequester);
 
     }
 
-    public PlayerBaseState Idle()
+    public PlayerIdleState Idle()
     {
         return _idleState;
     }
 
-    public PlayerBaseState Walk()
+    public PlayerWalkState Walk()
     {
         return _walkState;
     }
 
-    public PlayerBaseState Grounded()
+    public PlayerGroundedState Grounded()
     {
         return _groundedState;
     }
     
-    public PlayerBaseState Ascending()
+    public PlayerAscendingState Ascending()
     {
         return _ascendingState;
     }

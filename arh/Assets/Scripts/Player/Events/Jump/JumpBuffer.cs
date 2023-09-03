@@ -5,6 +5,8 @@ using System.Collections;
 
 public class JumpBuffer : MonoBehaviour
 {
+    [SerializeField] JumpRequester jumpRequester; // Para chamar funcao quando jumpInput for solto
+
     [SerializeField] private float _bufferTime = 0.1f; // testar se esse valor default está bom
     public bool isWithinBufferTime = false;
 
@@ -25,7 +27,6 @@ public class JumpBuffer : MonoBehaviour
     private IEnumerator BufferTimer(float timer)
     {
         isWithinBufferTime = true;
-        Debug.Log("aaaa");
         yield return new WaitForSeconds(timer);
         isWithinBufferTime = false;
 
@@ -39,9 +40,12 @@ public class JumpBuffer : MonoBehaviour
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
-        if(context.performed)
-        {
-            JumpBufferedEvent.Invoke();
-        }
+        // if(context.performed)    (desnecessário pois o listener é adicionado direto no performed (em PlayerStateMachine))
+        JumpBufferedEvent.Invoke();
+    }
+
+    public void OnJumpInputRelease(InputAction.CallbackContext context)
+    {
+        jumpRequester.OnJumpInputReleased();
     }
 }

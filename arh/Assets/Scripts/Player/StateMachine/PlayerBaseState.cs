@@ -14,13 +14,16 @@ public abstract class PlayerBaseState
         _ctx = currentContext;
         _factory = playerStateFactory;
     }
-    
+
+    // Funções usadas por todos estados:
+
     public abstract void EnterState();
 
     public abstract void ExitState();
 
+    public abstract void FixedUpdateState(); // Por enquanto somente root states têm (Fixed)Update (não precisa de um updateStateS p incluir subStates)
 
-    /*public void UpdateStates()
+    /*public void UpdateStates() Por enquanto não tem update
     {
         UpdateState();
         if (_currentSubState != null)
@@ -33,15 +36,21 @@ public abstract class PlayerBaseState
     {
         ExitState();
         newState.EnterState();
+        //Debug.Log("--> " + newState);
 
         if (_isRootState)
         {
+            PlayerBaseState subState = _ctx.CurrentState._currentSubState;  // Keep substates
+            newState.SetSubState(subState);                                 //
             _ctx.CurrentState = newState;
-        }else if (_currentSuperState != null)
+        }
+        else if (_currentSuperState != null)
         {
             _currentSuperState.SetSubState(newState);
         }
     }
+
+    // Funções usadas por mais de um estado:
 
     protected void SetSuperState(PlayerBaseState newSuperState)
     {
@@ -53,4 +62,18 @@ public abstract class PlayerBaseState
         _currentSubState = newSubState;
         newSubState.SetSuperState(this);
     }
+
+
+    protected bool CheckForApexZone()
+    {
+        if (Mathf.Abs(_ctx.RB.velocity.y) < _ctx.Data.apexThreshold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

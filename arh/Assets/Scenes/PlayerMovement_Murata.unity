@@ -3202,6 +3202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 730251615}
+  - component: {fileID: 730251616}
   - component: {fileID: 730251614}
   - component: {fileID: 730251613}
   - component: {fileID: 730251612}
@@ -3252,9 +3253,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   DoubleJumpEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  JumpCanceledEvent:
     m_PersistentCalls:
       m_Calls: []
   _jumpBuffer: {fileID: 730251611}
@@ -3361,6 +3359,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &730251616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 730251608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ace9abd43887b1c46ac74e8352a37a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ReachedApogeeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _rigidbody: {fileID: 1853419880}
 --- !u!1 &870453552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3502,7 +3516,6 @@ GameObject:
   - component: {fileID: 1853419880}
   - component: {fileID: 1853419886}
   - component: {fileID: 1853419887}
-  - component: {fileID: 1853419884}
   - component: {fileID: 1853419888}
   m_Layer: 0
   m_Name: Player
@@ -3549,26 +3562,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1853419884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1853419879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c62e9e561971544cb38388d960ad6dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 8
-  onGround: 0
-  collisionRadius: 0.1
-  bottomOffset: {x: 0.06, y: -0.59}
-  rightOffset: {x: 0.51, y: -0.18}
-  leftOffset: {x: -0.4, y: -0.18}
 --- !u!70 &1853419886
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -3627,19 +3620,7 @@ MonoBehaviour:
     m_ActionId: 743b73bf-af10-418d-a145-0f15702e55a9
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: JumpBuffer, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: e623942b-d23b-4cae-80f3-a804895f707c
     m_ActionName: Player/Jump[/Keyboard/space]
   - m_PersistentCalls:
@@ -3700,4 +3681,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 15e299f9ede41f8479c5271899e4793e, type: 2}
-  eventHandler: {fileID: 730251608}
+  facingRight: 1
+  _isGrounded: {fileID: 730251612}
+  _jumpRequester: {fileID: 730251609}
+  _apogee: {fileID: 730251616}
+  _jumpBuffer: {fileID: 730251611}

@@ -30,7 +30,9 @@ public class Coyote : MonoBehaviour
 
     private IEnumerator CoyoteTimer(float timer)
     {
+        //print("Coyote Start");
         yield return new WaitForSeconds(timer);
+        //print("Coyote End");
         CoyoteOrGroundEndEvent.Invoke();
     }
 

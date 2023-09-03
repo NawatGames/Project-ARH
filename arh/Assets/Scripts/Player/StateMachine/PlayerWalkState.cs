@@ -1,49 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerWalkState : PlayerBaseState
 {
-    public PlayerWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory): base (currentContext, playerStateFactory){}
+    private InputAction _moveAction;
+
+    public PlayerWalkState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, InputAction moveAction): base (currentContext, playerStateFactory)
+    {
+        this._moveAction = moveAction;
+    }
 
     public override void EnterState()
     {
-        Debug.Log("--> walk state");
+        //Debug.Log("--> walk state");
+
+        _moveAction.canceled += NextState;
     }
 
-    /*public override void UpdateState()
+    public override void ExitState()
     {
-	    CheckMovementDirection();
-        NextState();
-    }*/
-
-    public override void ExitState(){}
-
-    public void NextState()
-    {
-        if (!_ctx.IsMovementPressed)
-        {
-            SwitchStates(_factory.Idle());
-        }
+        _moveAction.canceled -= NextState;
     }
+    public override void FixedUpdateState() { }
 
-    private void CheckMovementDirection()
+    private void NextState(InputAction.CallbackContext context) // escuta o PlayerInput-Move.canceled
     {
-        if (_ctx.getDir.x < 0)
-        {
-            _ctx.getSide = -1;
-            Flip(_ctx.getSide);
-        }
-        else if (_ctx.getDir.x > 0)
-        {
-            _ctx.getSide = 1;
-            Flip(_ctx.getSide);
-        }
-    }
-    
-    private void Flip(int side)
-    {
-        bool state = (side != 1);
-        _ctx.getSR.flipX = state;
+        SwitchStates(_factory.Idle());
+        _ctx.Dir = 0;
     }
 }

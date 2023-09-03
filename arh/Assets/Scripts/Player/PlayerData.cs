@@ -33,7 +33,7 @@ public class PlayerData : ScriptableObject
 
 	[Header("Jump")]
 	public float jumpHeight; //Height of the player's jump
-	public float jumpTimeToApex; //Time between applying the jump force and reaching the desired jump height. These values also control the player's gravity and jump force.
+	public float jumpTimeToApogee; //Time between applying the jump force and reaching the desired jump height. These values also control the player's gravity and jump force.
 	[HideInInspector] public float jumpForce; //The actual force applied (upwards) to the player when they jump.
 
 	[Header("Both Jumps")]
@@ -49,13 +49,13 @@ public class PlayerData : ScriptableObject
     [Header("Assists")]
 	[Range(0.01f, 0.5f)] public float coyoteTime; //Grace period after falling off a platform, where you can still jump
 	[Range(0.01f, 0.5f)] public float jumpInputBufferTime; //Grace period after pressing jump where a jump will be automatically performed once the requirements (eg. being grounded) are met.
-	
+	public float apexThreshold; // quando a velocidade vertical tiver um valor menor que esse, o player está no Apex, com seus modifiers
 
 	//Unity Callback, called when the inspector updates
     private void OnValidate()
     {
 		//Calculate gravity strength using the formula (gravity = 2 * jumpHeight / timeToJumpApex^2) 
-		gravityStrength = -(2 * jumpHeight) / (jumpTimeToApex * jumpTimeToApex);
+		gravityStrength = -(2 * jumpHeight) / (jumpTimeToApogee * jumpTimeToApogee);
 		
 		//Calculate the rigidbody's gravity scale (ie: gravity strength relative to unity's gravity value, see project settings/Physics2D)
 		gravityScale = gravityStrength / Physics2D.gravity.y;
@@ -65,7 +65,7 @@ public class PlayerData : ScriptableObject
 		runDeccelAmount = (50 * runDecceleration) / runMaxSpeed;
 
 		//Calculate jumpForce using the formula (initialJumpVelocity = gravity * timeToJumpApex)
-		jumpForce = Mathf.Abs(gravityStrength) * jumpTimeToApex;
+		jumpForce = Mathf.Abs(gravityStrength) * jumpTimeToApogee;
 
 		#region Variable Ranges
 		runAcceleration = Mathf.Clamp(runAcceleration, 0.01f, runMaxSpeed);

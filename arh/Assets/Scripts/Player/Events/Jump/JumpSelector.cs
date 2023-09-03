@@ -6,7 +6,6 @@ public class JumpSelector : MonoBehaviour
     public UnityEvent JumpEvent;
     public UnityEvent JumpBufferedEvent;
     public UnityEvent DoubleJumpEvent;
-    public UnityEvent JumpCanceledEvent;
 
     [SerializeField] private JumpBuffer _jumpBuffer;
     [SerializeField] private Coyote _coyote;
@@ -35,12 +34,10 @@ public class JumpSelector : MonoBehaviour
         if (_isCoyoteActive)
         {
             JumpEvent.Invoke();
-            //pensar numa maneira para resetar o buffer de pulo quando o player pular de fato, e desativar o coyote, para não permitir multiplos pulos
         }
         else
         {
             DoubleJumpEvent.Invoke();
-            //pensar numa maneira para resetar o buffer de pulo quando o player pular de fato, e desativar o coyote, para não permitir multiplos pulos
         }
     }
 
@@ -48,7 +45,6 @@ public class JumpSelector : MonoBehaviour
     {
         if(_jumpBuffer.isWithinBufferTime)
         {
-            Debug.Log("buffer");
             _jumpBuffer.isWithinBufferTime = false; // Não precisa esperar o timer acabar, já seta false agora
             JumpBufferedEvent.Invoke();
         }

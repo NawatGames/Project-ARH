@@ -1,28 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerIdleState : PlayerBaseState
 {
-    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory): base (currentContext, playerStateFactory){}
+    private InputAction _moveAction;
+
+    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, InputAction moveAction): base (currentContext, playerStateFactory)
+    {
+        this._moveAction = moveAction;
+    }
 
     public override void EnterState()
     {
-        Debug.Log("--> Idle state");
+        //Debug.Log("--> Idle state");
+        _moveAction.performed += NextState;
     }
 
-    /*public override void UpdateState()
+    public override void ExitState()
     {
-        NextState();
-    }*/
+        _moveAction.performed -= NextState;
+    }
 
-    public override void ExitState(){}
+    public override void FixedUpdateState() { }
 
-    public void NextState()
+    private void NextState(InputAction.CallbackContext context) // escuta o PlayerInput-Move.performed
     {
-        if (_ctx.IsMovementPressed)
+        float dir = context.ReadValue<float>();
+
+        if (dir < 0)
         {
-            SwitchStates(_factory.Walk());
+            SetFlip(false);
+            _ctx.Dir = -1;
         }
+        else
+        {
+            SetFlip(true);
+            _ctx.Dir = 1;
+        }
+
+        SwitchStates(_factory.Walk());
+    }
+
+    private void SetFlip(bool facingRight)
+    {
+        _ctx.SR.flipX = !facingRight;
     }
 }

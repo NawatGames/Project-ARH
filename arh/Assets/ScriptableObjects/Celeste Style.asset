@@ -27,7 +27,7 @@ MonoBehaviour:
   deccelInAir: 0.65
   doConserveMomentum: 1
   jumpHeight: 3.5
-  jumpTimeToApex: 0.3
+  jumpTimeToApogee: 0.3
   jumpForce: 23.333332
   jumpCutGravityMult: 2
   jumpHangGravityMult: 0.5
@@ -36,3 +36,4 @@ MonoBehaviour:
   jumpHangMaxSpeedMult: 1.3
   coyoteTime: 0.1
   jumpInputBufferTime: 0.1
+  apexThreshold: 0

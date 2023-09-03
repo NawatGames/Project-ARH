@@ -1,70 +1,70 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerAscendingState : PlayerBaseState
 {
     private Apogee _apogee;
-    public PlayerAscendingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Apogee apogee) : base(
+    private JumpRequester _jumpRequester;
+
+    private bool jumpHasBeenCut;
+
+    public PlayerAscendingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory, Apogee apogee, JumpRequester jumpRequester) : base(
         currentContext, playerStateFactory)
     {
         this._apogee = apogee;
+        this._jumpRequester = jumpRequester;
+
+        _isRootState = true;
     }
 
     public override void EnterState()
     {
-        _apogee.ReachedApogeeEvent.AddListener(NextState);
+        jumpHasBeenCut = false;
+        //Debug.Log("--> ascending state");
+
+        _apogee.ReachedApogeeEvent.AddListener(GoToDescendingState);
+        _jumpRequester.PerformJumpEvent.AddListener(Jump);
+        _jumpRequester.ReleasedJumpEvent.AddListener(OnJumpInputReleased);
         Jump();
-        Debug.Log("--> ascending state");
     }
 
     public override void ExitState()
     {
-        _apogee.ReachedApogeeEvent.RemoveListener(NextState);
+        _apogee.ReachedApogeeEvent.RemoveListener(GoToDescendingState);
+        _jumpRequester.PerformJumpEvent.RemoveListener(Jump);
+        _jumpRequester.ReleasedJumpEvent.RemoveListener(OnJumpInputReleased);
     }
 
-    public void NextState()
+    public override void FixedUpdateState()
+    {
+        if(jumpHasBeenCut)
+        {
+            _ctx.RB.velocity += Physics2D.gravity.y * (_ctx.Data.jumpCutGravityMult - 1) * Time.fixedDeltaTime * Vector2.up;
+        }
+    }
+
+    public void GoToDescendingState()
     {
         SwitchStates(_factory.Descending());
     }
 
+    //public void GoToGroundedState() { } Pra caso o player suba numa plataforma ao mesmo tempo que chega no ápice do pulo (sem descer) - Desnecessário?
+
     private void Jump()
     {
-        var velocity = _ctx.getRB.velocity;
+        var velocity = _ctx.RB.velocity;
         velocity = new Vector2(velocity.x, 0);
         velocity += Vector2.up * _ctx.Data.jumpForce;
-        _ctx.getRB.velocity = velocity;
+        _ctx.RB.velocity = velocity;
+        jumpHasBeenCut = false;
     }
 
-    private void VariableJumpHeight()
+    private void OnJumpInputReleased()
     {
-        if(_ctx.getRB.velocity.y < 0)
-        {
-            _ctx.getRB.velocity += (Vector2.up * (Physics2D.gravity.y * (_ctx.Data.fallGravityMult - 1) * Time.deltaTime));
-        }else if(_ctx.getRB.velocity.y > 0 && _ctx.IsJumpReleased)
-        {
-            _ctx.getRB.velocity += Vector2.up * (Physics2D.gravity.y * (_ctx.Data.jumpCutGravityMult - 1) * Time.deltaTime);
-        }
+        Debug.Log("sadfsdf");
+        jumpHasBeenCut = true;
     }
-    
-    
-    private void CheckMovementDirection()
-    {
-        if (_ctx.getDir.x < 0)
-        {
-            _ctx.getSide = -1;
-            Flip(_ctx.getSide);
-        }
-        else if (_ctx.getDir.x > 0)
-        {
-            _ctx.getSide = 1;
-            Flip(_ctx.getSide);
-        }
-    }
-    
-    private void Flip(int side)
-    {
-        bool state = (side != 1);
-        _ctx.getSR.flipX = state;
-    }
+
 }
