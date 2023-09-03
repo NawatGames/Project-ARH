@@ -3230,8 +3230,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _doubleJump: {fileID: 730251613}
   _jumpSelector: {fileID: 730251610}
-  _jumpBuffer: {fileID: 730251611}
   PerformJumpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ReleasedJumpEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &730251610
@@ -3270,6 +3272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dbdb316aac64fd43aa6cd3e6dd64711, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpRequester: {fileID: 730251609}
   _bufferTime: 0.1
   isWithinBufferTime: 0
   doubleJump: {fileID: 730251613}
@@ -3604,19 +3607,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1853419888}
-        m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
-        m_MethodName: OnWalkInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 743b73bf-af10-418d-a145-0f15702e55a9
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -3681,7 +3672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 15e299f9ede41f8479c5271899e4793e, type: 2}
-  facingRight: 1
   _isGrounded: {fileID: 730251612}
   _jumpRequester: {fileID: 730251609}
   _apogee: {fileID: 730251616}
