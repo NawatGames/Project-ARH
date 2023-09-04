@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class JetpackIconChanger : MonoBehaviour
 {
-    private JetpackPlayerMovement jetpackMovement;
+    private JetpackPlayerParticleMovement jetpackMovement;
     public GameObject player;
     public GameObject icon;
 
     private void Start()
     {
-        jetpackMovement = player.GetComponent<JetpackPlayerMovement>();
+        jetpackMovement = player.GetComponent<JetpackPlayerParticleMovement>();
     }
 
     private void Update()

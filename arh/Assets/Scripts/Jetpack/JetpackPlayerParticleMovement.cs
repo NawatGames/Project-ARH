@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class JetpackPlayerMovement : MonoBehaviour
+public class JetpackPlayerParticleMovement : MonoBehaviour
 {
     public float moveSpeed = 8f;
     public float jumpForce = 8f;
