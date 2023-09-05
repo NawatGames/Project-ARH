@@ -16,6 +16,10 @@ public class PlayerIdleState : PlayerBaseState
     {
         CheckSwitchStates();
     }
+    public override void PhysicsUpdate()
+    {
+        
+    }
     public override void ExitState()
     {
     

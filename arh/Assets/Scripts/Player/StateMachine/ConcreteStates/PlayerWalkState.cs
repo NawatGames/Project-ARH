@@ -14,9 +14,16 @@ public class PlayerWalkState : PlayerBaseState
     }
     public override void UpdateState()
     {
+        //Debug.Log("Update Called!");
         CheckSwitchStates();
         Ctx.CurrentMovement = new Vector2(Ctx.CurrentMovementInput.x * Ctx.AppliedMovementSpeed,0f);
-        
+    }
+
+    public override void PhysicsUpdate()
+    {
+        //Debug.Log("Physics Update Called!");
+        Ctx.Rigidbody2D.velocity = new Vector2(Ctx.CurrentMovement.x, Ctx.Rigidbody2D.velocity.y);
+
     }
     public override void ExitState()
     {

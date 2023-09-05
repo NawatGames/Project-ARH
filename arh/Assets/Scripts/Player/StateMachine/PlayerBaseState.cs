@@ -33,7 +33,8 @@ public abstract class PlayerBaseState
     public abstract void ExitState();
     public abstract void CheckSwitchStates();
     public abstract void InitializeSubState();
-    // public abstract void (Physics Update)
+
+    public abstract void PhysicsUpdate();
 
     public void UpdateStates()
     {
@@ -41,6 +42,15 @@ public abstract class PlayerBaseState
         if (_currentSubState != null)
         {
             _currentSubState.UpdateStates();
+        }
+    }
+
+    public void PhysicsUpdatefunction()
+    {
+        PhysicsUpdate();
+        if (_currentSubState != null)
+        {
+            _currentSubState.PhysicsUpdate();
         }
     }
 

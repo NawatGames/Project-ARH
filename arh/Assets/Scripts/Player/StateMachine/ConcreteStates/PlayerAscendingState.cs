@@ -24,6 +24,10 @@ namespace Player.StateMachine
             CheckSwitchStates();
 
         }
+        public override void PhysicsUpdate()
+        {
+        
+        }
         public override void ExitState()
         {
             if (Ctx.IsJumpPressed)

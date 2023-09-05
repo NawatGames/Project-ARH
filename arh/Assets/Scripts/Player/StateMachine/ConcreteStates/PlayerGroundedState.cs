@@ -20,7 +20,10 @@ namespace Player.StateMachine.ConcreteStates
         {
             CheckSwitchStates();
         }
+        public override void PhysicsUpdate()
+        {
         
+        }
         public override void ExitState()
         {
     

@@ -126,7 +126,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(_currentMovement.x, _rb.velocity.y);
+        _currentState.PhysicsUpdatefunction();
     }
 
     public void OnMomeventInput(InputAction.CallbackContext context)
