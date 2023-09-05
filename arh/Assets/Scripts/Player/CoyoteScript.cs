@@ -8,7 +8,7 @@ public class CoyoteScript : MonoBehaviour
     public float moveSpeed = 8f;
     public float jumpForce = 8f;
     private Rigidbody2D rb;
-    private float moveDirection;
+    public float moveDirection;
     private Transform groundCheck;
     private LayerMask groundLayer;
     private bool doublejumpEnabled;
@@ -18,7 +18,6 @@ public class CoyoteScript : MonoBehaviour
     public float coyoteCounter;
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
-    public InputAction playerControls;
 
     private void Awake()
     {
