@@ -19,7 +19,7 @@ public class PlayerWalkState : PlayerBaseState
         Ctx.CurrentMovement = new Vector2(Ctx.CurrentMovementInput.x * Ctx.AppliedMovementSpeed,0f);
     }
 
-    public override void PhysicsUpdate()
+    public override void PhysicsUpdateState()
     {
         //Debug.Log("Physics Update Called!");
         Ctx.Rigidbody2D.velocity = new Vector2(Ctx.CurrentMovement.x, Ctx.Rigidbody2D.velocity.y);

@@ -126,7 +126,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _currentState.PhysicsUpdatefunction();
+        _currentState.PhysicsUpdateStates();
     }
 
     public void OnMomeventInput(InputAction.CallbackContext context)

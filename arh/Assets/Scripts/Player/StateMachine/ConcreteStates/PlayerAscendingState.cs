@@ -24,7 +24,7 @@ namespace Player.StateMachine
             CheckSwitchStates();
 
         }
-        public override void PhysicsUpdate()
+        public override void PhysicsUpdateState()
         {
         
         }

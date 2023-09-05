@@ -16,7 +16,7 @@ public class PlayerIdleState : PlayerBaseState
     {
         CheckSwitchStates();
     }
-    public override void PhysicsUpdate()
+    public override void PhysicsUpdateState()
     {
         //Debug.Log("Physics Update Called!");
         Ctx.Rigidbody2D.velocity = new Vector2(0f, Ctx.Rigidbody2D.velocity.y);

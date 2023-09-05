@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerCollisionMaterial.physicsMaterial2D" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/PlayerCollisionMaterial.physicsMaterial2D.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerStateMachine_Leo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerStateMachine_Leo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameData.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerAscendingState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerGroundedState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerIdleState.cs" afterDir="false" />
@@ -29,6 +25,7 @@
     <setting file="file://$USER_HOME$/Desktop/FrontFootAnimationHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/MemberAnimationHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatBehavior.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
