@@ -21,8 +21,8 @@ namespace Player.StateMachine
         public override void UpdateState()
         {
             CheckSwitchStates();
-            
-            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress && !Ctx.RequiresNewJumpPress)
+
+            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress) //&& !Ctx.RequiresNewJumpPress
             {
                 Ctx.CurrentBufferTime = Ctx.BufferTimer;
                 Ctx.OnBufferTime = true;
