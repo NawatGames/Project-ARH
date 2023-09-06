@@ -621,19 +621,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3de30845475b7429787fc9d3b58d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentMovementInput: {x: 0, y: 0}
-  _currentMovement: {x: 0, y: 0}
-  _appliedMovementSpeed: 8
-  _appliedJumpForce: 11.81
+  moveSpeed: 15
+  acceleration: 7
+  deceleration: 7
+  velocityPower: 0.9
+  frictionAmount: 0.2
+  jumpForce: 0
+  jumpCutMultiplier: 0
+  coyoteTime: 0
+  jumpBufferTime: 0
+  fallGravityMultiplier: 0
+  maxFallSpeed: 0
   _isMovementPressed: 0
   _isJumpPressed: 0
   _isGrounded: 0
   _isFalling: 0
   _requiresNewJumpPress: 0
-  _coyoteTimer: 0.2
+  _canDoubleJump: 0
   _currentCoyoteTime: 0
   _isCoyoteTimeActive: 0
-  _bufferTime: 0.2
   _currentBufferTime: 0
   _isBufferTimeActive: 0
 --- !u!114 &1658068545
@@ -651,11 +657,13 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  onGround: 0
   collisionRadius: 0.25
   bottomOffset: {x: 0, y: -0.35}
   rightOffset: {x: 0.49, y: 0}
   leftOffset: {x: -0.49, y: 0}
+  isGroundedChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1708287122
 GameObject:
   m_ObjectHideFlags: 0

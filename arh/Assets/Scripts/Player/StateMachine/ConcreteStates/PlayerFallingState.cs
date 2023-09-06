@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.StateMachine
+namespace Player.StateMachine.ConcreteStates
 {
     public class PlayerFallingState : PlayerBaseState
     {
@@ -63,7 +63,6 @@ namespace Player.StateMachine
             {
                 SwitchState(Factory.Grounded());
             }
-
         }
 
         public override void InitializeSubState()
@@ -73,7 +72,13 @@ namespace Player.StateMachine
 
         public override void PhysicsUpdateState()
         {
+            var vel = Ctx.Rigidbody2D.velocity;
+            var normalGravityScale = Ctx.Rigidbody2D.gravityScale;
             
+            #region Fall Gravity + Clamped Fall Speed
+            Ctx.Rigidbody2D.gravityScale = normalGravityScale * Ctx.FallGravityMultiplier;
+            Ctx.Rigidbody2D.velocity = new Vector2(vel.x, Mathf.Max(vel.y, -Ctx.MaxFallSpeed));
+            #endregion
         }
     }
 }

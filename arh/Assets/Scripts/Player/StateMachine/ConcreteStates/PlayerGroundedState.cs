@@ -22,13 +22,13 @@ namespace Player.StateMachine.ConcreteStates
             CheckSwitchStates();
             if (Ctx.IsGrounded)
             {
-                Ctx.CurrentCoyoteTime = Ctx.CoyoteTimer;
+                Ctx.CurrentCoyoteTime = Ctx.CoyoteTime;
                 Ctx.OnCoyoteTime = true;
             }
 
             if (!Ctx.IsGrounded && !Ctx.IsJumpPressed)
             {
-                Ctx.CurrentCoyoteTime = Mathf.Clamp(Ctx.CurrentCoyoteTime - Time.deltaTime, 0f, Ctx.CoyoteTimer);
+                Ctx.CurrentCoyoteTime = Mathf.Clamp(Ctx.CurrentCoyoteTime - Time.deltaTime, 0f, Ctx.CoyoteTime);
 
                 if (Ctx.CurrentCoyoteTime == 0f)
                 {

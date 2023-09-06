@@ -17,7 +17,6 @@ namespace Player.StateMachine
         {
             Debug.Log("HELLO FROM JUMPSTATE");
             Ctx.IsJumpPressed = false;
-            Ctx.Rigidbody2D.velocity = new Vector2(Ctx.Rigidbody2D.velocity.x, 0f);
             HandleJump();
 
         }
@@ -66,7 +65,8 @@ namespace Player.StateMachine
 
         void HandleJump()
         {   //Debug.Log("JUMP FUNCTION EXECUTED!");
-            Ctx.Rigidbody2D.AddForce(Vector2.up * Ctx.AppliedJumpForce,ForceMode2D.Impulse);
+            Ctx.Rigidbody2D.velocity = new Vector2(Ctx.Rigidbody2D.velocity.x, 0f);
+            Ctx.Rigidbody2D.AddForce(Vector2.up * Ctx.JumpForce,ForceMode2D.Impulse);
         }
     }
 }
