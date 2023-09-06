@@ -1,6 +1,3 @@
-using System;
-using Player.Movement;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Player.StateMachine.ConcreteStates
@@ -72,14 +69,7 @@ namespace Player.StateMachine.ConcreteStates
 
         public override void InitializeSubState()
         {
-            if (!Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Idle());
-            }
-            else if (Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Walk());
-            }
+            SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
         }
     }
 }

@@ -68,18 +68,12 @@ namespace Player.StateMachine
 
         public override void InitializeSubState()
         {
-            if (!Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Idle());
-            }
-            else if (Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Walk());
-            }
+            SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
         }
 
         public override void PhysicsUpdateState()
         {
+            
         }
     }
 }

@@ -1,40 +1,41 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerIdleState : PlayerBaseState
+namespace Player.StateMachine.ConcreteStates
 {
-    
-    public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-        : base(currentContext, playerStateFactory){}
-    public override void EnterState()
+    public class PlayerIdleState : PlayerBaseState
     {
-        //Debug.Log("HELLO FROM IDLESTATE");
-
-    }
-    public override void UpdateState()
-    {
-        CheckSwitchStates();
-    }
-    public override void PhysicsUpdateState()
-    {
-        //Debug.Log("Physics Update Called!");
-        Ctx.Rigidbody2D.velocity = new Vector2(0f, Ctx.Rigidbody2D.velocity.y);
-
-    }
-    public override void ExitState()
-    {
-    
-    }
-    public override void CheckSwitchStates()
-    {
-        if (Ctx.IsMovementPressed)
+        public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+            : base(currentContext, playerStateFactory){}
+        
+        public override void EnterState()
         {
-            SwitchState(Factory.Walk());
+            //Debug.Log("HELLO FROM IDLESTATE");
+
         }
-    }
-    public override void InitializeSubState()
-    {
+        public override void UpdateState()
+        {
+            CheckSwitchStates();
+        }
+        public override void PhysicsUpdateState()
+        {
+            //Debug.Log("Physics Update Called!");
+            Ctx.Rigidbody2D.velocity = new Vector2(0f, Ctx.Rigidbody2D.velocity.y);
+
+        }
+        public override void ExitState()
+        {
     
+        }
+        public override void CheckSwitchStates()
+        {
+            if (!(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f))
+            {
+                SwitchState(Factory.Walk());
+            }
+        }
+        public override void InitializeSubState()
+        {
+    
+        }
     }
 }

@@ -5,11 +5,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerAscendingState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/LayerMaskCollision/Collision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtomBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtomBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LayerMaskCollision.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/LayerMaskCollision.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LayerMaskCollision/Collision.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LayerMaskCollision/Collision.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/LayerMaskCollision/Collision.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/Player2Input.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AlienInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/Player2Input.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AstronautInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/Player2Input.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AlienInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/Player2Input.inputactions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AlienInput.inputactions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AstronautInput.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/PlayerInput.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AlienInput.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/PlayerInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AstronautInput.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Input/PlayerInput.inputactions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/NewInputSystem/AstronautInput.inputactions.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerFallingState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerGroundedState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/ConcreteStates/PlayerWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/PlayerStateFactory.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
