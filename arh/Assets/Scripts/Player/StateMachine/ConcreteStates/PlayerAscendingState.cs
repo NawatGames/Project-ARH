@@ -15,8 +15,9 @@ namespace Player.StateMachine
         }
         public override void EnterState()
         {
-            HandleJump();
             Debug.Log("HELLO FROM JUMPSTATE");
+            Ctx.Rigidbody2D.velocity = new Vector2(Ctx.Rigidbody2D.velocity.x, 0f);
+            HandleJump();
 
         }
         public override void UpdateState()

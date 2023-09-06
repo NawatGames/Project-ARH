@@ -20,9 +20,14 @@ public class PlayerStateFactory
         return new PlayerWalkState(_context, this);
     }
 
-    public PlayerBaseState Jump()
+    public PlayerBaseState Ascend()
     {
         return new PlayerAscendingState(_context, this);
+    }
+
+    public PlayerBaseState Falling()
+    {
+        return new PlayerFallingState(_context, this);
     }
 
     public PlayerBaseState Grounded()

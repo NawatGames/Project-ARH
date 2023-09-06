@@ -21,6 +21,11 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private bool _isFalling;
     [SerializeField] private bool _requiresNewJumpPress;
 
+
+    [SerializeField] private float _coyoteTimer;
+    [SerializeField] private float _actualCoyoteTime;
+    [SerializeField] private bool _isCoyoteTimeActive;
+    
     
     private PlayerBaseState _currentState;
     private PlayerStateFactory _states;
@@ -81,9 +86,23 @@ public class PlayerStateMachine : MonoBehaviour
         get { return _appliedJumpForce; }
     }
 
-    
-    
-    
+    public float CoyoteTimer
+    {
+        get { return _coyoteTimer; }
+    }
+
+    public float ActualCoyoteTime
+    {
+        get => _actualCoyoteTime;
+        set => _actualCoyoteTime = value;
+    }
+    public bool OnCoyoteTime
+    {
+        get => _isCoyoteTimeActive;
+        set => _isCoyoteTimeActive = value;
+    }
+
+
     private void Awake()
     {
         _playerInput = new PlayerInput();
