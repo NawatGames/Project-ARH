@@ -159,7 +159,6 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _currentState.UpdateStates();
         _isGrounded = _collisionContext.onGround;
-        _isFalling = _rb.velocity.y <= 0.0f;
     }
 
     private void FixedUpdate()

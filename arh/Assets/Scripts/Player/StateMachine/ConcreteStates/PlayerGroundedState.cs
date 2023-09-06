@@ -51,6 +51,8 @@ namespace Player.StateMachine.ConcreteStates
 
         public override void ExitState()
         {
+            Ctx.CurrentCoyoteTime = 0f;
+            Ctx.OnCoyoteTime = false;
         }
 
         public override void CheckSwitchStates()

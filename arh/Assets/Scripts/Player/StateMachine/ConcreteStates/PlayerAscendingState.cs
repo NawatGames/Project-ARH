@@ -38,10 +38,6 @@ namespace Player.StateMachine
         }
         public override void CheckSwitchStates()
         {
-            if (Ctx.IsGrounded && Ctx.IsFalling)
-            {
-                SwitchState(Factory.Grounded());
-            }
 
             if (Ctx.Rigidbody2D.velocity.y < 0)
             {
