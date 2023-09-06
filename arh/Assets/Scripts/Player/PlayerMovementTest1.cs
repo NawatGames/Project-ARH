@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class CoyoteScript : MonoBehaviour
+public class PlayerMovementTest1 : MonoBehaviour
 {
     public float moveSpeed = 8f;
     public float jumpForce = 8f;
@@ -18,6 +18,7 @@ public class CoyoteScript : MonoBehaviour
     public float coyoteCounter;
     private float jumpBufferTime = 0.2f;
     private float jumpBufferCounter;
+    public Animator animator;
 
     private void Awake()
     {
@@ -45,6 +46,7 @@ public class CoyoteScript : MonoBehaviour
                 rb.velocity = new Vector2(moveDirection * moveSpeed, jumpForce);
                 //isGrounded = false;
                 jumpBufferCounter = 0f;
+                animator.SetBool("IsJumping", true);
             }
 
             else if(doublejumpEnabled)
@@ -83,6 +85,16 @@ public class CoyoteScript : MonoBehaviour
         {
             coyoteCounter -= Time.deltaTime;
         }
+
+        if(moveDirection != 0)
+        {
+            animator.SetBool("IsRunning", true);
+        }
+
+        else
+        {
+            animator.SetBool("IsRunning", false);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D other)
@@ -90,6 +102,7 @@ public class CoyoteScript : MonoBehaviour
         if(other.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("IsJumping", false);
         }
 
         if(jetpackEnabled)

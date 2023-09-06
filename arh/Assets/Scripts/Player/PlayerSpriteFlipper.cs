@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerSpriteFlipper : MonoBehaviour
 {
-    private CoyoteScript coyoteScript;
+    private PlayerMovementTest1 moveScript;
     private bool facingRight;
 
     void Awake()
     {
         facingRight = true;
-        coyoteScript = gameObject.GetComponent<CoyoteScript>();
+        moveScript = gameObject.GetComponent<PlayerMovementTest1>();
     }
 
     private void Flip()
@@ -25,7 +25,7 @@ public class PlayerSpriteFlipper : MonoBehaviour
     {
         if(!facingRight)
         {
-            if(coyoteScript.moveDirection > 0f)
+            if(moveScript.moveDirection > 0f)
             {
                 Flip();
             }
@@ -33,7 +33,7 @@ public class PlayerSpriteFlipper : MonoBehaviour
 
         else if(facingRight)
         {
-            if(coyoteScript.moveDirection < 0f)
+            if(moveScript.moveDirection < 0f)
             {
                 Flip();
             }
