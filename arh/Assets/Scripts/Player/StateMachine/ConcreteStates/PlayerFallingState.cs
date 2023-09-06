@@ -20,27 +20,36 @@ namespace Player.StateMachine
 
         public override void UpdateState()
         {
-            throw new System.NotImplementedException();
+            CheckSwitchStates();
         }
 
         public override void ExitState()
         {
-            throw new System.NotImplementedException();
         }
 
         public override void CheckSwitchStates()
         {
-            throw new System.NotImplementedException();
+            if (Ctx.IsGrounded)
+            {
+                SwitchState(Factory.Grounded());
+            }
+            
         }
 
         public override void InitializeSubState()
         {
-            throw new System.NotImplementedException();
+            if (!Ctx.IsMovementPressed)
+            {
+                SetSubState(Factory.Idle());
+            }
+            else if (Ctx.IsMovementPressed)
+            {
+                SetSubState(Factory.Walk());
+            }
         }
 
         public override void PhysicsUpdateState()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

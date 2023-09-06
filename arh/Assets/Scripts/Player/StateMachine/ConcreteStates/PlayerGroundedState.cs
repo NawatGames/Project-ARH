@@ -17,12 +17,17 @@ namespace Player.StateMachine.ConcreteStates
         public override void EnterState()
         {
             Debug.Log("HELLO FROM GROUNDSTATE");
-            Ctx.ActualCoyoteTime = Ctx.CoyoteTimer;
         }
 
         public override void UpdateState()
         {
             CheckSwitchStates();
+            if (Ctx.IsGrounded)
+            {
+                Ctx.ActualCoyoteTime = Ctx.CoyoteTimer;
+                Ctx.OnCoyoteTime = true;
+            }
+
             if (!Ctx.IsGrounded && !Ctx.IsJumpPressed)
             {
                 Ctx.ActualCoyoteTime = Mathf.Clamp(Ctx.ActualCoyoteTime - Time.deltaTime, 0f, Ctx.CoyoteTimer);
@@ -30,13 +35,12 @@ namespace Player.StateMachine.ConcreteStates
                 if (Ctx.ActualCoyoteTime == 0f)
                 {
                     Ctx.OnCoyoteTime = false;
-                    Debug.Log("Where out Coyote Time!");
-                    // Altera para o FallingState!
+                    //Debug.Log("Where out Coyote Time!");
                 }
                 else
                 {
                     Ctx.OnCoyoteTime = true;
-                    Debug.Log("Where on Coyote Time!");
+                    //Debug.Log("Where on Coyote Time!");
                 }
             }
         }
@@ -52,9 +56,14 @@ namespace Player.StateMachine.ConcreteStates
         public override void CheckSwitchStates()
         {
             //Se o player apertar o botao de pulo, ele dever ir para o estado pulo!
-            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress && Ctx.OnCoyoteTime)
+            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress && Ctx.ActualCoyoteTime > 0)
             {
                 SwitchState(Factory.Ascend());
+            }
+
+            if (!Ctx.OnCoyoteTime && !Ctx.IsGrounded)
+            {
+                SwitchState(Factory.Falling());
             }
         }
 

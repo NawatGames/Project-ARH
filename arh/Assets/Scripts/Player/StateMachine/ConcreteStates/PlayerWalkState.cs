@@ -9,7 +9,7 @@ public class PlayerWalkState : PlayerBaseState
         : base(currentContext, playerStateFactory){}
     public override void EnterState()
     {
-        Debug.Log("HELLO FROM WALKSTATE");
+       //Debug.Log("HELLO FROM WALKSTATE");
 
     }
     public override void UpdateState()
