@@ -16,6 +16,7 @@ namespace Player.StateMachine
         public override void EnterState()
         {
             Debug.Log("HELLO FROM JUMPSTATE");
+            Ctx.IsJumpPressed = false;
             Ctx.Rigidbody2D.velocity = new Vector2(Ctx.Rigidbody2D.velocity.x, 0f);
             HandleJump();
 
@@ -31,14 +32,21 @@ namespace Player.StateMachine
         }
         public override void ExitState()
         {
-            if (Ctx.IsJumpPressed)
-            {
-                Ctx.RequiresNewJumpPress = true;
-            }
+            // if (Ctx.IsJumpPressed)
+            // {
+            //     Ctx.RequiresNewJumpPress = true;
+            // }
         }
         public override void CheckSwitchStates()
         {
+            if (Ctx.IsJumpPressed && Ctx.CanDoubleJump ) //&& !Ctx.RequiresNewJumpPress
+            {
+                Debug.Log("DoubleJump");
+                Ctx.CanDoubleJump = false;
+                SwitchState(Factory.Ascend());
 
+                //HandleJump();
+            }
             if (Ctx.Rigidbody2D.velocity.y < 0)
             {
                 SwitchState(Factory.Falling());

@@ -20,6 +20,7 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _isFalling;
     [SerializeField] private bool _requiresNewJumpPress;
+    [SerializeField] private bool _canDoubleJump;
 
 
     [SerializeField] private float _coyoteTimer;
@@ -48,7 +49,9 @@ public class PlayerStateMachine : MonoBehaviour
     public bool IsJumpPressed
     {
         get { return _isJumpPressed; }
+        set => _isJumpPressed = value;
     }
+
     public bool IsGrounded
     {
         get { return _isGrounded; }
@@ -121,6 +124,12 @@ public class PlayerStateMachine : MonoBehaviour
     {
         get => _isBufferTimeActive;
         set => _isBufferTimeActive = value;
+    }
+
+    public bool CanDoubleJump
+    {
+        get => _canDoubleJump;
+        set => _canDoubleJump = value;
     }
     private void Awake()
     {

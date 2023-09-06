@@ -17,6 +17,7 @@ namespace Player.StateMachine.ConcreteStates
         public override void EnterState()
         {
             Debug.Log("HELLO FROM GROUNDSTATE");
+            Ctx.CanDoubleJump = true;
         }
 
         public override void UpdateState()
@@ -58,7 +59,7 @@ namespace Player.StateMachine.ConcreteStates
         public override void CheckSwitchStates()
         {
             //Se o player apertar o botao de pulo, ele dever ir para o estado pulo!
-            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress && Ctx.CurrentCoyoteTime > 0)
+            if (Ctx.IsJumpPressed && Ctx.CurrentCoyoteTime > 0) //&& !Ctx.RequiresNewJumpPress
             {
                 SwitchState(Factory.Ascend());
             }

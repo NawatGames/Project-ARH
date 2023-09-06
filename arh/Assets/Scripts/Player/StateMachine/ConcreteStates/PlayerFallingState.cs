@@ -22,7 +22,7 @@ namespace Player.StateMachine
         {
             CheckSwitchStates();
             
-            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress)
+            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress && !Ctx.RequiresNewJumpPress)
             {
                 Ctx.CurrentBufferTime = Ctx.BufferTimer;
                 Ctx.OnBufferTime = true;
@@ -48,7 +48,13 @@ namespace Player.StateMachine
 
         public override void CheckSwitchStates()
         {
-
+            
+            if (Ctx.IsJumpPressed && Ctx.CanDoubleJump)
+            {
+                Ctx.CanDoubleJump = false;
+                SwitchState(Factory.Ascend());
+            }
+            
             if (Ctx.OnBufferTime && Ctx.IsGrounded)
             {
                 SwitchState(Factory.Ascend());
