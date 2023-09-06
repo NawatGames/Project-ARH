@@ -42,6 +42,11 @@ namespace Player.StateMachine
             {
                 SwitchState(Factory.Grounded());
             }
+
+            if (Ctx.Rigidbody2D.velocity.y < 0)
+            {
+                SwitchState(Factory.Falling());
+            }
         }
         public override void InitializeSubState()
         {

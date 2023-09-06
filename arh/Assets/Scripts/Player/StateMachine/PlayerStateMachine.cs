@@ -23,8 +23,12 @@ public class PlayerStateMachine : MonoBehaviour
 
 
     [SerializeField] private float _coyoteTimer;
-    [SerializeField] private float _actualCoyoteTime;
+    [SerializeField] private float _currentCoyoteTime;
     [SerializeField] private bool _isCoyoteTimeActive;
+
+    [SerializeField] private float _bufferTime;
+    [SerializeField] private float _currentBufferTime;
+    [SerializeField] private bool _isBufferTimeActive;
     
     
     private PlayerBaseState _currentState;
@@ -91,10 +95,10 @@ public class PlayerStateMachine : MonoBehaviour
         get { return _coyoteTimer; }
     }
 
-    public float ActualCoyoteTime
+    public float CurrentCoyoteTime
     {
-        get => _actualCoyoteTime;
-        set => _actualCoyoteTime = value;
+        get => _currentCoyoteTime;
+        set => _currentCoyoteTime = value;
     }
     public bool OnCoyoteTime
     {
@@ -102,7 +106,22 @@ public class PlayerStateMachine : MonoBehaviour
         set => _isCoyoteTimeActive = value;
     }
 
+    public float BufferTimer
+    {
+        get => _bufferTime;
+    }
 
+    public float CurrentBufferTime
+    {
+        get => _currentBufferTime;
+        set => _currentBufferTime = value;
+    }
+
+    public bool OnBufferTime
+    {
+        get => _isBufferTimeActive;
+        set => _isBufferTimeActive = value;
+    }
     private void Awake()
     {
         _playerInput = new PlayerInput();

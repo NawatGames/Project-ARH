@@ -24,15 +24,15 @@ namespace Player.StateMachine.ConcreteStates
             CheckSwitchStates();
             if (Ctx.IsGrounded)
             {
-                Ctx.ActualCoyoteTime = Ctx.CoyoteTimer;
+                Ctx.CurrentCoyoteTime = Ctx.CoyoteTimer;
                 Ctx.OnCoyoteTime = true;
             }
 
             if (!Ctx.IsGrounded && !Ctx.IsJumpPressed)
             {
-                Ctx.ActualCoyoteTime = Mathf.Clamp(Ctx.ActualCoyoteTime - Time.deltaTime, 0f, Ctx.CoyoteTimer);
+                Ctx.CurrentCoyoteTime = Mathf.Clamp(Ctx.CurrentCoyoteTime - Time.deltaTime, 0f, Ctx.CoyoteTimer);
 
-                if (Ctx.ActualCoyoteTime == 0f)
+                if (Ctx.CurrentCoyoteTime == 0f)
                 {
                     Ctx.OnCoyoteTime = false;
                     //Debug.Log("Where out Coyote Time!");
@@ -56,7 +56,7 @@ namespace Player.StateMachine.ConcreteStates
         public override void CheckSwitchStates()
         {
             //Se o player apertar o botao de pulo, ele dever ir para o estado pulo!
-            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress && Ctx.ActualCoyoteTime > 0)
+            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress && Ctx.CurrentCoyoteTime > 0)
             {
                 SwitchState(Factory.Ascend());
             }
