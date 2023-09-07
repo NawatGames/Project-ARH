@@ -17,7 +17,7 @@ namespace Player.StateMachine.ConcreteStates
         public override void EnterState()
         {
             Debug.Log("HELLO FROM GROUNDSTATE");
-            Ctx.CanDoubleJump = true;
+            //Ctx.CanDoubleJump = true;
         }
 
         public override void UpdateState()

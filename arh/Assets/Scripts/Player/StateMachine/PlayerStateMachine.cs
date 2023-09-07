@@ -168,6 +168,11 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _currentState.UpdateStates();
         _isGrounded = _collisionContext.onGround;
+        
+        if (_isGrounded)
+        {
+            CanDoubleJump = true;
+        }
     }
 
     private void FixedUpdate()
