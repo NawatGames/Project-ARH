@@ -14,21 +14,20 @@ namespace Player.StateMachine
 
         public override void EnterState()
         {
-            Debug.Log("HELLO FROM FALLINGSTATE");
-
+            //Debug.Log("HELLO FROM FALLINGSTATE");
         }
 
         public override void UpdateState()
         {
             CheckSwitchStates();
 
-            if (Ctx.IsJumpPressed && !Ctx.RequiresNewJumpPress) //&& !Ctx.RequiresNewJumpPress
+            if (Ctx.IsJumpPressed)
             {
-                Ctx.CurrentBufferTime = Ctx.BufferTimer;
+                Ctx.CurrentBufferTime = Ctx.PlayerData.BufferTimer;
                 Ctx.OnBufferTime = true;
             }
             
-            Ctx.CurrentBufferTime = Mathf.Clamp(Ctx.CurrentBufferTime - Time.deltaTime, 0, Ctx.BufferTimer);
+            Ctx.CurrentBufferTime = Mathf.Clamp(Ctx.CurrentBufferTime - Time.deltaTime, 0, Ctx.PlayerData.BufferTimer);
 
             if (Ctx.CurrentBufferTime == 0f)
             {
@@ -51,11 +50,11 @@ namespace Player.StateMachine
             
             if (Ctx.IsJumpPressed && Ctx.CanDoubleJump)
             {
+                Debug.Log("DoubleJump");
                 Ctx.CanDoubleJump = false;
                 SwitchState(Factory.Ascend());
             }
-            
-            if (Ctx.OnBufferTime && Ctx.IsGrounded)
+            else if (Ctx.OnBufferTime && Ctx.IsGrounded)
             {
                 SwitchState(Factory.Ascend());
             }

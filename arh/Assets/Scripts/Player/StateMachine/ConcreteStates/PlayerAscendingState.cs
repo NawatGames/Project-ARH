@@ -15,7 +15,7 @@ namespace Player.StateMachine
         }
         public override void EnterState()
         {
-            Debug.Log("HELLO FROM JUMPSTATE");
+            //Debug.Log("HELLO FROM ASCENDINGSTATE");
             Ctx.IsJumpPressed = false;
             Ctx.Rigidbody2D.velocity = new Vector2(Ctx.Rigidbody2D.velocity.x, 0f);
             HandleJump();
@@ -66,7 +66,7 @@ namespace Player.StateMachine
 
         void HandleJump()
         {   //Debug.Log("JUMP FUNCTION EXECUTED!");
-            Ctx.Rigidbody2D.AddForce(Vector2.up * Ctx.AppliedJumpForce,ForceMode2D.Impulse);
+            Ctx.Rigidbody2D.AddForce(Vector2.up * Ctx.PlayerData.AppliedJumpForce,ForceMode2D.Impulse);
         }
     }
 }

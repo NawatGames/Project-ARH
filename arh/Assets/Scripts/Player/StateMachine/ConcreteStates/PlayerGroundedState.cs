@@ -17,7 +17,6 @@ namespace Player.StateMachine.ConcreteStates
         public override void EnterState()
         {
             Debug.Log("HELLO FROM GROUNDSTATE");
-            //Ctx.CanDoubleJump = true;
         }
 
         public override void UpdateState()
@@ -25,13 +24,13 @@ namespace Player.StateMachine.ConcreteStates
             CheckSwitchStates();
             if (Ctx.IsGrounded)
             {
-                Ctx.CurrentCoyoteTime = Ctx.CoyoteTimer;
+                Ctx.CurrentCoyoteTime = Ctx.PlayerData.CoyoteTimer;
                 Ctx.OnCoyoteTime = true;
             }
 
             if (!Ctx.IsGrounded && !Ctx.IsJumpPressed)
             {
-                Ctx.CurrentCoyoteTime = Mathf.Clamp(Ctx.CurrentCoyoteTime - Time.deltaTime, 0f, Ctx.CoyoteTimer);
+                Ctx.CurrentCoyoteTime = Mathf.Clamp(Ctx.CurrentCoyoteTime - Time.deltaTime, 0f, Ctx.PlayerData.CoyoteTimer);
 
                 if (Ctx.CurrentCoyoteTime == 0f)
                 {
@@ -59,7 +58,7 @@ namespace Player.StateMachine.ConcreteStates
         public override void CheckSwitchStates()
         {
             //Se o player apertar o botao de pulo, ele dever ir para o estado pulo!
-            if (Ctx.IsJumpPressed && Ctx.CurrentCoyoteTime > 0) //&& !Ctx.RequiresNewJumpPress
+            if (Ctx.IsJumpPressed && Ctx.CurrentCoyoteTime > 0)
             {
                 SwitchState(Factory.Ascend());
             }

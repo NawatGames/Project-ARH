@@ -16,7 +16,7 @@ public class PlayerWalkState : PlayerBaseState
     {
         //Debug.Log("Update Called!");
         CheckSwitchStates();
-        Ctx.CurrentMovement = new Vector2(Ctx.CurrentMovementInput.x * Ctx.AppliedMovementSpeed,0f);
+        Ctx.CurrentMovement = new Vector2(Ctx.CurrentMovementInput.x * Ctx.PlayerData.AppliedMovementSpeed,0f);
     }
 
     public override void PhysicsUpdateState()

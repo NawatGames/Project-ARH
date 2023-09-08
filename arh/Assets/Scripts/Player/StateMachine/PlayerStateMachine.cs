@@ -18,19 +18,16 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private bool _isMovementPressed;
     [SerializeField] private bool _isJumpPressed;
     [SerializeField] private bool _isGrounded;
-    [SerializeField] private bool _isFalling;
-    [SerializeField] private bool _requiresNewJumpPress;
     [SerializeField] private bool _canDoubleJump;
 
 
-    [SerializeField] private float _coyoteTimer;
     [SerializeField] private float _currentCoyoteTime;
     [SerializeField] private bool _isCoyoteTimeActive;
 
-    [SerializeField] private float _bufferTime;
     [SerializeField] private float _currentBufferTime;
     [SerializeField] private bool _isBufferTimeActive;
     
+    [SerializeField] private PlayerData _data;
     
     private PlayerBaseState _currentState;
     private PlayerStateFactory _states;
@@ -46,6 +43,11 @@ public class PlayerStateMachine : MonoBehaviour
         get { return _rb; }
         set { _rb = value; }
     }
+
+    public PlayerData PlayerData
+    {
+        get => _data;
+    }
     public bool IsJumpPressed
     {
         get { return _isJumpPressed; }
@@ -56,16 +58,6 @@ public class PlayerStateMachine : MonoBehaviour
     {
         get { return _isGrounded; }
         set { _isGrounded = value;}
-    }
-    public bool IsFalling
-    {
-        get { return _isFalling; }
-    }
-
-    public bool RequiresNewJumpPress
-    {
-        get { return _requiresNewJumpPress; }
-        set { _requiresNewJumpPress = value; }
     }
 
     public Vector2 CurrentMovement
@@ -78,59 +70,48 @@ public class PlayerStateMachine : MonoBehaviour
     {
         get { return _currentMovementInput; }
     }
-    public float AppliedMovementSpeed
-    {
-        get { return _appliedMovementSpeed; }
-    }
+    
     public bool IsMovementPressed
     {
         get { return _isMovementPressed; }
         set { _isMovementPressed = value; }
     }
     
-    public float AppliedJumpForce
-    {
-        get { return _appliedJumpForce; }
-    }
-
-    public float CoyoteTimer
-    {
-        get { return _coyoteTimer; }
-    }
-
     public float CurrentCoyoteTime
     {
         get => _currentCoyoteTime;
         set => _currentCoyoteTime = value;
     }
+    
     public bool OnCoyoteTime
     {
         get => _isCoyoteTimeActive;
         set => _isCoyoteTimeActive = value;
     }
-
-    public float BufferTimer
-    {
-        get => _bufferTime;
-    }
-
+    
     public float CurrentBufferTime
     {
         get => _currentBufferTime;
         set => _currentBufferTime = value;
     }
-
+    
     public bool OnBufferTime
     {
         get => _isBufferTimeActive;
         set => _isBufferTimeActive = value;
     }
-
+    
     public bool CanDoubleJump
     {
         get => _canDoubleJump;
         set => _canDoubleJump = value;
     }
+    
+    
+    
+    
+    
+    
     private void Awake()
     {
         _playerInput = new PlayerInput();
@@ -188,7 +169,6 @@ public class PlayerStateMachine : MonoBehaviour
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         _isJumpPressed = context.ReadValueAsButton();
-        _requiresNewJumpPress = false;
     }
     public void OnInteractInput(InputAction.CallbackContext context)
     {
