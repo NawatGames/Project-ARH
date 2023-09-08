@@ -6,14 +6,13 @@ using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    [SerializeField] private PlayerData _data;
     private Collision _collisionContext;
     private Rigidbody2D _rb;
     private PlayerInput _playerInput;
 
     [SerializeField] private Vector2 _currentMovementInput;
     [SerializeField] Vector2 _currentMovement;
-    [SerializeField] private float _appliedMovementSpeed;
-    [SerializeField] private float _appliedJumpForce;
 
     [SerializeField] private bool _isMovementPressed;
     [SerializeField] private bool _isJumpPressed;
@@ -26,22 +25,20 @@ public class PlayerStateMachine : MonoBehaviour
 
     [SerializeField] private float _currentBufferTime;
     [SerializeField] private bool _isBufferTimeActive;
-    
-    [SerializeField] private PlayerData _data;
-    
+
+
     private PlayerBaseState _currentState;
     private PlayerStateFactory _states;
     
     //Getters and Setters
-    public PlayerBaseState CurrentState
-    {
-        get { return _currentState; }
-        set { _currentState = value; }
-    }
-    public Rigidbody2D Rigidbody2D
+    public Rigidbody2D Rb
     {
         get { return _rb; }
         set { _rb = value; }
+    }
+    public PlayerBaseState CurrentState
+    {
+        set { _currentState = value; }
     }
 
     public PlayerData PlayerData

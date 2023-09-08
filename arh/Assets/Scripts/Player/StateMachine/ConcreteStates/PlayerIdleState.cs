@@ -19,7 +19,7 @@ public class PlayerIdleState : PlayerBaseState
     public override void PhysicsUpdateState()
     {
         //Debug.Log("Physics Update Called!");
-        Ctx.Rigidbody2D.velocity = new Vector2(0f, Ctx.Rigidbody2D.velocity.y);
+        Ctx.Rb.velocity = new Vector2(0f, Ctx.Rb.velocity.y);
 
     }
     public override void ExitState()
