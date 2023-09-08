@@ -33,8 +33,8 @@ public class PlayerStateMachine : MonoBehaviour
     //Getters and Setters
     public Rigidbody2D Rb
     {
-        get { return _rb; }
-        set { _rb = value; }
+        get => _rb;
+        set => _rb = value;
     }
     public PlayerBaseState CurrentState
     {
@@ -47,20 +47,20 @@ public class PlayerStateMachine : MonoBehaviour
     }
     public bool IsJumpPressed
     {
-        get { return _isJumpPressed; }
+        get => _isJumpPressed;
         set => _isJumpPressed = value;
     }
 
     public bool IsGrounded
     {
-        get { return _isGrounded; }
-        set { _isGrounded = value;}
+        get => _isGrounded;
+        set => _isGrounded = value;
     }
 
     public Vector2 CurrentMovement
     {
-        get { return _currentMovement;}
-        set { _currentMovement = value;}
+        get => _currentMovement;
+        set => _currentMovement = value;
     }
     
     public Vector2 CurrentMovementInput
@@ -70,8 +70,8 @@ public class PlayerStateMachine : MonoBehaviour
     
     public bool IsMovementPressed
     {
-        get { return _isMovementPressed; }
-        set { _isMovementPressed = value; }
+        get => _isMovementPressed;
+        set => _isMovementPressed = value;
     }
     
     public float CurrentCoyoteTime
@@ -103,10 +103,6 @@ public class PlayerStateMachine : MonoBehaviour
         get => _canDoubleJump;
         set => _canDoubleJump = value;
     }
-    
-    
-    
-    
     
     
     private void Awake()
