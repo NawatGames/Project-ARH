@@ -621,19 +621,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3de30845475b7429787fc9d3b58d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _data: {fileID: 11400000, guid: 62d8db40dd86ea0489bc58ee12acb4a2, type: 2}
   _currentMovementInput: {x: 0, y: 0}
   _currentMovement: {x: 0, y: 0}
-  _appliedMovementSpeed: 8
-  _appliedJumpForce: 11.81
   _isMovementPressed: 0
   _isJumpPressed: 0
   _isGrounded: 0
-  _isFalling: 0
-  _requiresNewJumpPress: 0
-  _coyoteTimer: 0.2
+  _canDoubleJump: 0
   _currentCoyoteTime: 0
   _isCoyoteTimeActive: 0
-  _bufferTime: 0.2
   _currentBufferTime: 0
   _isBufferTimeActive: 0
 --- !u!114 &1658068545

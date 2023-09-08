@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6803f1eefded82409f57ee0a3938fc1, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  _appliedMovementSpeed: 0
-  _appliedJumpForce: 0
-  _coyoteTimer: 0
-  _bufferTime: 0
+  _appliedMovementSpeed: 8
+  _appliedJumpForce: 12
+  _coyoteTimer: 0.2
+  _bufferTime: 0.2
