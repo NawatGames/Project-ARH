@@ -11,7 +11,8 @@ public class PlayerData : ScriptableObject
     [Header("Jump Variables")]
     [SerializeField] private float _appliedJumpForce;
     [SerializeField] private float _coyoteTimer;
-    [SerializeField] private float _bufferTime;
+    [SerializeField] private float _bufferTimer;
+    [SerializeField] private float jumpCutTimer;
 
     
     // Getters and Setter
@@ -29,6 +30,12 @@ public class PlayerData : ScriptableObject
     }
     public float BufferTimer
     {
-        get => _bufferTime;
+        get => _bufferTimer;
     }
+
+    public float JumpCutTimer
+    {
+        get => jumpCutTimer;
+    }
+    
 }

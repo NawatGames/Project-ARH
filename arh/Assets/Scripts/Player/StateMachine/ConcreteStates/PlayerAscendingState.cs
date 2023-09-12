@@ -17,29 +17,38 @@ namespace Player.StateMachine
         {
             //Debug.Log("HELLO FROM ASCENDINGSTATE");
             Ctx.IsJumpPressed = false;
-            Ctx.Rb.velocity = new Vector2(Ctx.Rb.velocity.x, 0f);
-            HandleJump();
+            Ctx.IsJumping = true;
+            Ctx.CurrentJumpCutTime = Ctx.PlayerData.JumpCutTimer;
+            Ctx.Rb.velocity = new Vector2(Ctx.Rb.velocity.x, 0f); 
+            //HandleJump();
 
         }
         public override void UpdateState()
         {
             CheckSwitchStates();
+            
 
         }
         public override void PhysicsUpdateState()
         {
+            if (Ctx.IsJumping)
+            {
+                if (Ctx.CurrentJumpCutTime >= 0f)
+                {
+                    HandleJump();
+                    Ctx.CurrentJumpCutTime -= Time.deltaTime;
+                }
+                
+            }
         
         }
         public override void ExitState()
         {
-            // if (Ctx.IsJumpPressed)
-            // {
-            //     Ctx.RequiresNewJumpPress = true;
-            // }
+            Ctx.CurrentJumpCutTime = 0f;
         }
         public override void CheckSwitchStates()
         {
-            if (Ctx.IsJumpPressed && Ctx.CanDoubleJump ) //&& !Ctx.RequiresNewJumpPress
+            if (Ctx.IsJumpPressed && Ctx.CanDoubleJump )
             {
                 Debug.Log("DoubleJump");
                 Ctx.CanDoubleJump = false;
@@ -66,7 +75,8 @@ namespace Player.StateMachine
 
         void HandleJump()
         {   //Debug.Log("JUMP FUNCTION EXECUTED!");
-            Ctx.Rb.AddForce(Vector2.up * Ctx.PlayerData.AppliedJumpForce,ForceMode2D.Impulse);
+            Ctx.Rb.velocity = new Vector2(Ctx.Rb.velocity.x, Ctx.PlayerData.AppliedJumpForce);
+            //Ctx.Rb.AddForce(Vector2.up * Ctx.PlayerData.AppliedJumpForce,ForceMode2D.Impulse);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Player.StateMachine.ConcreteStates
 
         public override void EnterState()
         {
-            Debug.Log("HELLO FROM GROUNDSTATE");
+            //Debug.Log("HELLO FROM GROUNDSTATE");
         }
 
         public override void UpdateState()

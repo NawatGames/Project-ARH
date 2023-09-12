@@ -19,6 +19,8 @@ public class PlayerStateMachine : MonoBehaviour
     [SerializeField] private bool _isGrounded;
     [SerializeField] private bool _canDoubleJump;
 
+    [SerializeField] private float _currentJumpCutTime;
+    [SerializeField] private bool _isJumping;
 
     [SerializeField] private float _currentCoyoteTime;
     [SerializeField] private bool _isCoyoteTimeActive;
@@ -103,7 +105,18 @@ public class PlayerStateMachine : MonoBehaviour
         get => _canDoubleJump;
         set => _canDoubleJump = value;
     }
-    
+
+    public float CurrentJumpCutTime
+    {
+        get => _currentJumpCutTime;
+        set => _currentJumpCutTime = value;
+    }
+
+    public bool IsJumping
+    {
+        get => _isJumping;
+        set => _isJumping = value;
+    }
     
     private void Awake()
     {
@@ -161,7 +174,12 @@ public class PlayerStateMachine : MonoBehaviour
     }
     public void OnJumpInput(InputAction.CallbackContext context)
     {
+        _isJumping = true;
         _isJumpPressed = context.ReadValueAsButton();
+        if (context.canceled)
+        {
+            _isJumping = false;
+        }
     }
     public void OnInteractInput(InputAction.CallbackContext context)
     {
