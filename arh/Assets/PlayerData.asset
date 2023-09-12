@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   _appliedMovementSpeed: 8
-  _appliedJumpForce: 12
+  _appliedJumpForce: 9
   _coyoteTimer: 0.2
-  _bufferTime: 0.2
+  _bufferTimer: 0.2
+  jumpCutTimer: 0.2
