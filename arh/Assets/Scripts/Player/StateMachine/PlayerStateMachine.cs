@@ -2,144 +2,188 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : MonoBehaviour
 {
+    [SerializeField] private PlayerData _data;
+    private Collision _collisionContext;
     private Rigidbody2D _rb;
-    private Collision _coll;
-    private SpriteRenderer _sr;
     private PlayerInput _playerInput;
 
-    private Vector2 _dir;
-    private int _side;
+    [SerializeField] private Vector2 _currentMovementInput;
+    [SerializeField] Vector2 _currentMovement;
 
-    private bool _isMovementPressed;
-    private bool _isJumpPressed;
-    private bool _isInteractPressed;
+    [SerializeField] private bool _isMovementPressed;
+    [SerializeField] private bool _isJumpPressed;
+    [SerializeField] private bool _isGrounded;
+    [SerializeField] private bool _canDoubleJump;
 
-    [Space] [Header("Stats")] public float movementSpeed = 10;
-    public float jumpForce = 50;
-    public float fallMultiplier = 2.5f;
-    public float lowJumpMultiplier = 2f;
+    [SerializeField] private float _currentJumpCutTime;
+    [SerializeField] private bool _isJumping;
 
-    public UnityEvent isInteractingEvent;
+    [SerializeField] private float _currentCoyoteTime;
+    [SerializeField] private bool _isCoyoteTimeActive;
 
-    // state variables
+    [SerializeField] private float _currentBufferTime;
+    [SerializeField] private bool _isBufferTimeActive;
+
+
     private PlayerBaseState _currentState;
     private PlayerStateFactory _states;
-
-    // getters and setters
+    
+    //Getters and Setters
+    public Rigidbody2D Rb
+    {
+        get => _rb;
+        set => _rb = value;
+    }
     public PlayerBaseState CurrentState
     {
-        get => _currentState;
-        set => _currentState = value;
+        set { _currentState = value; }
     }
 
-
-    public bool IsMovementPressed
+    public PlayerData PlayerData
     {
-        get => _isMovementPressed;
+        get => _data;
     }
-
     public bool IsJumpPressed
     {
         get => _isJumpPressed;
+        set => _isJumpPressed = value;
     }
 
-    public bool IsInteractPressed
+    public bool IsGrounded
     {
-        get => _isInteractPressed;
+        get => _isGrounded;
+        set => _isGrounded = value;
     }
 
-    public Vector2 getDir
+    public Vector2 CurrentMovement
     {
-        get => _dir;
+        get => _currentMovement;
+        set => _currentMovement = value;
     }
-
-    public Rigidbody2D getRB
+    
+    public Vector2 CurrentMovementInput
     {
-        get => _rb;
+        get { return _currentMovementInput; }
     }
-
-    public Collision getColl
+    
+    public bool IsMovementPressed
     {
-        get => _coll;
+        get => _isMovementPressed;
+        set => _isMovementPressed = value;
     }
-
-    public SpriteRenderer getSR
+    
+    public float CurrentCoyoteTime
     {
-        get => _sr;
+        get => _currentCoyoteTime;
+        set => _currentCoyoteTime = value;
     }
-
-    public float getFallMultiplier
+    
+    public bool OnCoyoteTime
     {
-        get => fallMultiplier;
+        get => _isCoyoteTimeActive;
+        set => _isCoyoteTimeActive = value;
     }
-
-    public float getLowJumpMultiplier
+    
+    public float CurrentBufferTime
     {
-        get => lowJumpMultiplier;
+        get => _currentBufferTime;
+        set => _currentBufferTime = value;
     }
-
-    public float getJumpForce
+    
+    public bool OnBufferTime
     {
-        get => jumpForce;
+        get => _isBufferTimeActive;
+        set => _isBufferTimeActive = value;
     }
-
-    public int getSide
+    
+    public bool CanDoubleJump
     {
-        get => _side;
-        set => _side = value;
+        get => _canDoubleJump;
+        set => _canDoubleJump = value;
     }
 
+    public float CurrentJumpCutTime
+    {
+        get => _currentJumpCutTime;
+        set => _currentJumpCutTime = value;
+    }
+
+    public bool IsJumping
+    {
+        get => _isJumping;
+        set => _isJumping = value;
+    }
+    
     private void Awake()
     {
+        _playerInput = new PlayerInput();
+        _rb = GetComponent<Rigidbody2D>();
+        _collisionContext = GetComponent<Collision>();
+
+
         _states = new PlayerStateFactory(this);
         _currentState = _states.Grounded();
         _currentState.EnterState();
 
-        _playerInput = new PlayerInput();
 
-        _rb = GetComponent<Rigidbody2D>();
-        _coll = GetComponent<Collision>();
-        _sr = GetComponentInChildren<SpriteRenderer>();
+        _playerInput.Gameplay.Walk.started += OnMomeventInput;
+        _playerInput.Gameplay.Walk.canceled += OnMomeventInput;
+        _playerInput.Gameplay.Walk.performed += OnMomeventInput;
+        _playerInput.Gameplay.Jump.started += OnJumpInput;
+        _playerInput.Gameplay.Jump.canceled += OnJumpInput;
+        _playerInput.Gameplay.Jump.performed += OnJumpInput;
+        _playerInput.Gameplay.Interact.started += OnInteractInput;
+        _playerInput.Gameplay.Interact.canceled += OnInteractInput;
+        _playerInput.Gameplay.Interact.performed += OnInteractInput;
+
+
+
     }
 
-    private void Update()
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         _currentState.UpdateStates();
-        Walk(_dir);
+        _isGrounded = _collisionContext.onGround;
+        
+        if (_isGrounded)
+        {
+            CanDoubleJump = true;
+        }
     }
 
-    private void Walk(Vector2 dir)
+    private void FixedUpdate()
     {
-        _rb.velocity = new Vector2(dir.x * movementSpeed, _rb.velocity.y);
+        _currentState.PhysicsUpdateStates();
     }
 
-    // callback handler function to set the player input values
-    public void OnWalkInput(InputAction.CallbackContext context)
+    public void OnMomeventInput(InputAction.CallbackContext context)
     {
-        _dir = context.ReadValue<Vector2>();
-        _isMovementPressed = _dir.x != 0f || _dir.y != 0f;
+        _currentMovementInput = context.ReadValue<Vector2>();
+        _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
     }
-
-    // callback handler function for jump buttons
     public void OnJumpInput(InputAction.CallbackContext context)
     {
+        _isJumping = true;
         _isJumpPressed = context.ReadValueAsButton();
+        if (context.canceled)
+        {
+            _isJumping = false;
+        }
     }
-
-    // callback handler function for interact button
     public void OnInteractInput(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            _isInteractPressed = context.ReadValueAsButton();
-            isInteractingEvent.Invoke();
-            //Debug.Log("apertou");
-        }
+        
     }
 
     private void OnEnable()

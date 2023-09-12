@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Player.StateMachine;
+using Player.StateMachine.ConcreteStates;
 
 public class PlayerStateFactory
 {
@@ -21,9 +20,14 @@ public class PlayerStateFactory
         return new PlayerWalkState(_context, this);
     }
 
-    public PlayerBaseState Jump()
+    public PlayerBaseState Ascend()
     {
-        return new PlayerJumpState(_context, this);
+        return new PlayerAscendingState(_context, this);
+    }
+
+    public PlayerBaseState Falling()
+    {
+        return new PlayerFallingState(_context, this);
     }
 
     public PlayerBaseState Grounded()

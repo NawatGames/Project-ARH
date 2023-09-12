@@ -40,12 +40,12 @@ public class ButtomBehavior : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerStateMachine.isInteractingEvent.AddListener(ButtonActivation);
+       //_playerStateMachine.isInteractingEvent.AddListener(ButtonActivation);
     }
 
     private void OnDisable()
     {
-        _playerStateMachine.isInteractingEvent.RemoveListener(ButtonActivation);
+        //_playerStateMachine.isInteractingEvent.RemoveListener(ButtonActivation);
 
     }
 
