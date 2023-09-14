@@ -1308,7 +1308,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 55be2c569cf34e646bcd724b53f9b5f0, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 0
@@ -1370,11 +1370,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3de30845475b7429787fc9d3b58d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerData: {fileID: 0}
+  playerData: {fileID: 11400000, guid: 3c0b5b6960f389c4c868444e02e5eff7, type: 2}
+  sprite: {fileID: 1255679174}
   jumpBufferText: {fileID: 1659589804}
   coyoteTimeText: {fileID: 776871907}
   jumpCountText: {fileID: 883936261}
-  sprite: {fileID: 1255679174}
   jumpCanceledEvent:
     m_PersistentCalls:
       m_Calls: []

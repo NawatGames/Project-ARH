@@ -12,18 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9cf8ad406432abbe274ebce2667fa, type: 3}
   m_Name: AstronautData
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
-  moveSpeed: 0
-  acceleration: 0
-  deceleration: 0
-  velocityPower: 0
-  frictionAmount: 0
-  jumpForce: 0
-  extraJumps: 0
-  jumpCutMultiplier: 0
-  coyoteTime: 0
-  jumpBufferTime: 0
-  fallGravityMultiplier: 0
-  maxFallSpeed: 0
-  jumpApexThreshold: 0
-  apexBonus: 0
+  moveSpeed: 15
+  acceleration: 7
+  deceleration: 7
+  velocityPower: 0.9
+  frictionAmount: 0.2
+  jumpForce: 15
+  extraJumps: 1
+  jumpCutMultiplier: 0.5
+  coyoteTime: 0.1
+  jumpBufferTime: 0.1
+  fallGravityMultiplier: 2
+  maxFallSpeed: 30
+  jumpApexThreshold: 5
+  apexBonus: 10
