@@ -2,7 +2,7 @@ namespace Player.StateMachine
 {
     public abstract class PlayerBaseState
     {
-        private bool _isRootState = false;
+        private bool _isRootState;
         private PlayerBaseState _currentSubState;
         private PlayerBaseState _currentSuperState;
 
@@ -16,46 +16,37 @@ namespace Player.StateMachine
 
         protected PlayerStateFactory Factory { get; }
 
-        public PlayerBaseState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        protected PlayerBaseState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
         {
             Ctx = currentContext;
             Factory = playerStateFactory;
         }
     
         public abstract void EnterState();
-        public abstract void UpdateState();
-        public abstract void ExitState();
+        protected abstract void UpdateState();
+        protected abstract void ExitState();
         public abstract void CheckSwitchStates();
         public abstract void InitializeSubState();
-
-        public abstract void PhysicsUpdateState();
+        protected abstract void PhysicsUpdateState();
 
         public void UpdateStates()
         {
             UpdateState();
-            if (_currentSubState != null)
-            {
-                _currentSubState.UpdateStates();
-            }
+            _currentSubState?.UpdateStates();
         }
 
         public void PhysicsUpdateStates()
         {
             PhysicsUpdateState();
-            if (_currentSubState != null)
-            {
-                _currentSubState.PhysicsUpdateState();
-            }
+            _currentSubState?.PhysicsUpdateState();
         }
 
         public void ExitStates()
         {
             ExitState();
-            if (_currentSubState != null)
-            {
-                _currentSubState.ExitStates();
-            }
+            _currentSubState?.ExitStates();
         }
+        
         protected void SwitchState(PlayerBaseState newState)
         {
             ExitState();
@@ -66,21 +57,21 @@ namespace Player.StateMachine
             {
                 Ctx.CurrentState = newState;
             }
-            else if (_currentSuperState != null)
+            else
             {
-                _currentSuperState.SetSubState(newState);
+                _currentSuperState?.SetSubState(newState);
             }
         }
-        protected void SetSuperState(PlayerBaseState newSuperState)
+
+        private void SetSuperState(PlayerBaseState newSuperState)
         {
             _currentSuperState = newSuperState;
         }
+        
         protected void SetSubState(PlayerBaseState newSubState)
         {
             _currentSubState = newSubState;
             newSubState.SetSuperState(this);
         }
-    
-
     }
 }

@@ -10,18 +10,22 @@ namespace Player.StateMachine.ConcreteStates
     
         public override void EnterState()
         {
-            //Debug.Log("HELLO FROM WALKSTATE");
+
         }
     
-        public override void UpdateState()
+        // ReSharper disable Unity.PerformanceAnalysis
+        protected override void UpdateState()
         {
-            //Debug.Log("Update Called!");
+            if (Ctx.CurrentMovementInput > 0 && !Ctx.IsFacingRight || Ctx.CurrentMovementInput < 0 && Ctx.IsFacingRight)
+            {
+                Flip();
+            }
             CheckSwitchStates();
         }
 
-        public override void PhysicsUpdateState()
+        protected override void PhysicsUpdateState()
         {
-            var vel = Ctx.Rigidbody2D.velocity;
+            var vel = Ctx.Rb.velocity;
             
             #region Walk
             
@@ -30,9 +34,8 @@ namespace Player.StateMachine.ConcreteStates
             var accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Ctx.Acceleration : Ctx.Deceleration;
             var movement = Mathf.Pow(MathF.Abs(speedDif) * accelRate, Ctx.VelocityPower) * Mathf.Sign(speedDif);
             
-            Ctx.Rigidbody2D.AddForce(movement * Vector2.right);
+            Ctx.Rb.AddForce(movement * Vector2.right);
             #endregion
-            
             
             #region Friction
             
@@ -40,19 +43,19 @@ namespace Player.StateMachine.ConcreteStates
             {
                 var amount = Mathf.Min(Mathf.Abs(vel.x), Mathf.Abs(Ctx.FrictionAmount));
                 amount *= Mathf.Sign(vel.x);
-                Ctx.Rigidbody2D.AddForce(Vector2.right * -amount, ForceMode2D.Impulse); 
+                Ctx.Rb.AddForce(Vector2.right * -amount, ForceMode2D.Impulse); 
             }
             #endregion
         }
-        
-        public override void ExitState()
+
+        protected override void ExitState()
         {
-        
+            
         }
     
         public override void CheckSwitchStates()
         {
-            if (Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f)
+            if (Mathf.Abs(Ctx.Rb.velocity.x) < 0.01f)
             {
                 SwitchState(Factory.Idle());
             }
@@ -61,6 +64,14 @@ namespace Player.StateMachine.ConcreteStates
         public override void InitializeSubState()
         {
     
+        }
+        
+        private void Flip()
+        {
+            var tr = Ctx.Sprite.transform;
+            var localScale = tr.localScale;
+            tr.localScale = new Vector3(-localScale.x, localScale.y, localScale.z);
+            Ctx.IsFacingRight = !Ctx.IsFacingRight;
         }
     }
 }

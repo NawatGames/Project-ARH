@@ -9,23 +9,25 @@ namespace Player.StateMachine.ConcreteStates
         
         public override void EnterState()
         {
-            //Debug.Log("HELLO FROM IDLESTATE");
 
         }
-        public override void UpdateState()
+        
+        // ReSharper disable Unity.PerformanceAnalysis
+        protected override void UpdateState()
         {
             CheckSwitchStates();
         }
-        public override void PhysicsUpdateState()
-        {
-            //Debug.Log("Physics Update Called!");
-            Ctx.Rigidbody2D.velocity = new Vector2(0f, Ctx.Rigidbody2D.velocity.y);
 
+        protected override void PhysicsUpdateState()
+        {
+            Ctx.Rb.velocity = new Vector2(0f, Ctx.Rb.velocity.y);
         }
-        public override void ExitState()
+
+        protected override void ExitState()
         {
     
         }
+        
         public override void CheckSwitchStates()
         {
             if (!(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f))
@@ -33,6 +35,7 @@ namespace Player.StateMachine.ConcreteStates
                 SwitchState(Factory.Walk());
             }
         }
+        
         public override void InitializeSubState()
         {
     

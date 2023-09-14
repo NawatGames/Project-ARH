@@ -1,166 +1,82 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Player.StateMachine
 {
     public class PlayerStateMachine : MonoBehaviour
     {
+        [SerializeField] private PlayerData.PlayerData playerData;
+        [SerializeField] private GameObject sprite;
+
         private LayerMaskCollision _layerMaskCollision;
+        private PlayerStateFactory _states;
         private PlayerInput _playerInput;
 
-        [Header("Movement")] [SerializeField] private float moveSpeed;
-        [SerializeField] private float acceleration;
-        [SerializeField] private float deceleration;
-        [SerializeField] private float velocityPower;
-        [Space] [SerializeField] private float frictionAmount;
+        [Space] public Text jumpBufferText;
+        public Text coyoteTimeText;
+        public Text jumpCountText;
 
-        [Space]
-
-        [Header("Jump")]
-        [SerializeField] private float jumpForce;
-        [SerializeField] private float jumpCutMultiplier;
-        [Space] [SerializeField] private float coyoteTime;
-        [SerializeField] private float jumpBufferTime;
-        [Space] [SerializeField] private float fallGravityMultiplier;
-        [SerializeField] private float maxFallSpeed;
-        
-        [SerializeField] private bool _isMovementPressed;
-        [SerializeField] private bool _isJumpPressed;
-        [SerializeField] private bool _isGrounded;
-        [SerializeField] private bool _isFalling;
-        [SerializeField] private bool _requiresNewJumpPress;
-        [SerializeField] private bool _canDoubleJump;
-
-
-        [SerializeField] private float _currentCoyoteTime;
-        [SerializeField] private bool _isCoyoteTimeActive;
-
-        [SerializeField] private float _currentBufferTime;
-        [SerializeField] private bool _isBufferTimeActive;
-        
-        private PlayerStateFactory _states;
-    
+        [Space] public UnityEvent jumpCanceledEvent;
         
         #region Getters and Setters
-        public PlayerBaseState CurrentState { get; set; }
 
-        public Rigidbody2D Rigidbody2D { get; set; }
-
-        public bool IsJumpPressed
-        {
-            get { return _isJumpPressed; }
-            set => _isJumpPressed = value;
-        }
-
-        public bool IsGrounded
-        {
-            get { return _isGrounded; }
-            set { _isGrounded = value;}
-        }
-        public bool IsFalling
-        {
-            get { return _isFalling; }
-        }
-
-        public bool RequiresNewJumpPress
-        {
-            get { return _requiresNewJumpPress; }
-            set { _requiresNewJumpPress = value; }
-        }
-
-        public bool IsMovementPressed
-        {
-            get => _isMovementPressed;
-            set => _isMovementPressed = value;
-        }
-    
-        public float JumpForce => jumpForce;
-
-        public float CoyoteTime => coyoteTime;
-
-        public float CurrentCoyoteTime
-        {
-            get => _currentCoyoteTime;
-            set => _currentCoyoteTime = value;
-        }
-        public bool OnCoyoteTime
-        {
-            get => _isCoyoteTimeActive;
-            set => _isCoyoteTimeActive = value;
-        }
-
-        public float BufferTimer
-        {
-            get => jumpBufferTime;
-        }
-
-        public float CurrentBufferTime
-        {
-            get => _currentBufferTime;
-            set => _currentBufferTime = value;
-        }
-
-        public bool OnBufferTime
-        {
-            get => _isBufferTimeActive;
-            set => _isBufferTimeActive = value;
-        }
-
-        public bool CanDoubleJump
-        {
-            get => _canDoubleJump;
-            set => _canDoubleJump = value;
-        }
-
-        public float MoveSpeed => moveSpeed;
-
-        public float Acceleration => acceleration;
-
-        public float Deceleration => deceleration;
-
-        public float FrictionAmount => frictionAmount;
-        
+        // Movement
+        public float MoveSpeed => playerData.moveSpeed;
+        public float Acceleration => playerData.acceleration;
+        public float Deceleration => playerData.deceleration;
+        public float VelocityPower => playerData.velocityPower;
+        public float FrictionAmount => playerData.frictionAmount;
         public float CurrentMovementInput { get; private set; }
+        public bool IsFacingRight { get; set; }
 
-        public float VelocityPower => velocityPower;
+        // Jump
+        public float JumpForce => playerData.jumpForce;
+        public float JumpCutMultiplier => playerData.jumpCutMultiplier;
+        public float FallGravityMultiplier => playerData.fallGravityMultiplier;
+        public float MaxFallSpeed => playerData.maxFallSpeed;
+        public float JumpApexThreshold => playerData.jumpApexThreshold;
+        public float ApexBonus => playerData.apexBonus;
+        public float NormalGravityScale { get; private set; }
+        public bool IsGrounded { get; private set; }
 
-        public float JumpCutMultiplier => jumpCutMultiplier;
+        // Counters
+        public float CoyoteTimeCounter { get; set; }
+        public float JumpBufferCounter { get; set; }
+        public int ExtraJumpsCounter { get; set; }
 
-        public float FallGravityMultiplier => fallGravityMultiplier;
-
-        public float MaxFallSpeed => maxFallSpeed;
+        public GameObject Sprite => sprite;
+        public PlayerBaseState CurrentState { get; set; }
+        public Rigidbody2D Rb { get; private set; }
         
         #endregion
         
         private void Awake()
         {
             _playerInput = new PlayerInput();
-            Rigidbody2D = GetComponent<Rigidbody2D>();
+            Rb = GetComponent<Rigidbody2D>();
             _layerMaskCollision = GetComponent<LayerMaskCollision>();
 
+            NormalGravityScale = Rb.gravityScale;
+            CoyoteTimeCounter = playerData.coyoteTime;
+            ExtraJumpsCounter = playerData.extraJumps;
+            IsFacingRight = true;
+            
+            // Initialize StateMachine
             _states = new PlayerStateFactory(this);
             CurrentState = _states.Grounded();
             CurrentState.EnterState();
+        }
 
-            _playerInput.Gameplay.Walk.started += OnMoveInput;
-            _playerInput.Gameplay.Walk.canceled += OnMoveInput;
-            _playerInput.Gameplay.Walk.performed += OnMoveInput;
-            _playerInput.Gameplay.Jump.started += OnJumpInput;
-            _playerInput.Gameplay.Jump.canceled += OnJumpInput;
-            _playerInput.Gameplay.Jump.performed += OnJumpInput;
-            _playerInput.Gameplay.Interact.started += OnInteractInput;
-            _playerInput.Gameplay.Interact.canceled += OnInteractInput;
-            _playerInput.Gameplay.Interact.performed += OnInteractInput;
-        }
-        
-        void Start()
-        {
-        
-        }
-        
-        void Update()
+        private void Update()
         {
             CurrentState.UpdateStates();
+            JumpBufferCounter = Mathf.Clamp(JumpBufferCounter - Time.deltaTime, 0, playerData.jumpBufferTime);
+
+            coyoteTimeText.text = "CoyoteTime: "+CoyoteTimeCounter;
+            jumpBufferText.text = "JumpBuffer: "+JumpBufferCounter;
+            jumpCountText.text = "JumpCount: " + ExtraJumpsCounter;
         }
 
         private void FixedUpdate()
@@ -168,24 +84,27 @@ namespace Player.StateMachine
             CurrentState.PhysicsUpdateStates();
         }
 
-        public void OnMoveInput(InputAction.CallbackContext context)
+        public void OnWalkInput(InputAction.CallbackContext context)
         {
             CurrentMovementInput = context.ReadValue<float>();
-            _isMovementPressed = CurrentMovementInput != 0;
         }
+        
         public void OnJumpInput(InputAction.CallbackContext context)
         {
-            _isJumpPressed = context.ReadValueAsButton();
-            _requiresNewJumpPress = false;
+            if (context.performed)
+            {
+                JumpBufferCounter = playerData.jumpBufferTime;
+            }
+
+            if (context.canceled)
+            {
+                jumpCanceledEvent.Invoke();
+            }
         }
+        
         public void OnInteractInput(InputAction.CallbackContext context)
         {
-        
-        }
-
-        private void OnIsGroundedChanged(bool arg0)
-        {
-            _isGrounded = arg0;
+            
         }
 
         private void OnEnable()
@@ -198,6 +117,26 @@ namespace Player.StateMachine
         {
             _playerInput.Gameplay.Disable();
             _layerMaskCollision.isGroundedChangedEvent.RemoveListener(OnIsGroundedChanged);
+        }
+        
+        private void OnIsGroundedChanged(bool arg0)
+        {
+            IsGrounded = arg0;
+        }
+
+        public void ResetCoyoteTime()
+        {
+            CoyoteTimeCounter = playerData.coyoteTime;
+        }
+
+        public void ResetJumpCount()
+        {
+            ExtraJumpsCounter = playerData.extraJumps;
+        }
+
+        public void SetVelocity(float x, float y)
+        {
+            Rb.velocity = new Vector2(x, y);
         }
     }
 }

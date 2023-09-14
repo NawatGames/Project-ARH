@@ -26,6 +26,11 @@ namespace Player.StateMachine
             return new PlayerAscendingState(_context, this);
         }
 
+        public PlayerBaseState Apex()
+        {
+            return new PlayerApexState(_context, this);
+        }
+        
         public PlayerBaseState Falling()
         {
             return new PlayerFallingState(_context, this);

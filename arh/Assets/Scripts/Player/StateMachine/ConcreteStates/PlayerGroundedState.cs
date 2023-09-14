@@ -13,61 +13,33 @@ namespace Player.StateMachine.ConcreteStates
 
         public override void EnterState()
         {
-            Debug.Log("HELLO FROM GROUNDSTATE");
-            Ctx.CanDoubleJump = true;
+            Ctx.ResetJumpCount();
         }
 
-        public override void UpdateState()
+        // ReSharper disable Unity.PerformanceAnalysis
+        protected override void UpdateState()
         {
+            Ctx.ResetCoyoteTime();
             CheckSwitchStates();
-            if (Ctx.IsGrounded)
-            {
-                Ctx.CurrentCoyoteTime = Ctx.CoyoteTime;
-                Ctx.OnCoyoteTime = true;
-            }
-
-            if (!Ctx.IsGrounded && !Ctx.IsJumpPressed)
-            {
-                Ctx.CurrentCoyoteTime = Mathf.Clamp(Ctx.CurrentCoyoteTime - Time.deltaTime, 0f, Ctx.CoyoteTime);
-
-                if (Ctx.CurrentCoyoteTime == 0f)
-                {
-                    Ctx.OnCoyoteTime = false;
-                    //Debug.Log("Where out Coyote Time!");
-                }
-                else
-                {
-                    Ctx.OnCoyoteTime = true;
-                    //Debug.Log("Where on Coyote Time!");
-                }
-            }
         }
 
-        public override void PhysicsUpdateState()
+        protected override void PhysicsUpdateState()
         {
+            
         }
 
-        public override void ExitState()
+        protected override void ExitState()
         {
-            Ctx.CurrentCoyoteTime = 0f;
-            Ctx.OnCoyoteTime = false;
+
         }
 
         public override void CheckSwitchStates()
         {
-            //Se o player apertar o botao de pulo, ele dever ir para o estado pulo!
-            if (Ctx.IsJumpPressed && Ctx.CurrentCoyoteTime > 0) //&& !Ctx.RequiresNewJumpPress
-            {
-                SwitchState(Factory.Ascend());
-            }
-
-            if (!Ctx.OnCoyoteTime && !Ctx.IsGrounded)
-            {
-                SwitchState(Factory.Falling());
-            }
+            if (Ctx.JumpBufferCounter > 0.01f) SwitchState(Factory.Ascend());
+            else if (!Ctx.IsGrounded) SwitchState(Factory.Falling());
         }
 
-        public override void InitializeSubState()
+        public sealed override void InitializeSubState()
         {
             SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
         }
