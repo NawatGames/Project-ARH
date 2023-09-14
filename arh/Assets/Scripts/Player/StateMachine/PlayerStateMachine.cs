@@ -14,10 +14,6 @@ namespace Player.StateMachine
         private PlayerStateFactory _states;
         private PlayerInput _playerInput;
 
-        [Space] public Text jumpBufferText;
-        public Text coyoteTimeText;
-        public Text jumpCountText;
-
         [Space] public UnityEvent jumpCanceledEvent;
         
         #region Getters and Setters
@@ -73,10 +69,6 @@ namespace Player.StateMachine
         {
             CurrentState.UpdateStates();
             JumpBufferCounter = Mathf.Clamp(JumpBufferCounter - Time.deltaTime, 0, playerData.jumpBufferTime);
-
-            coyoteTimeText.text = "CoyoteTime: "+CoyoteTimeCounter;
-            jumpBufferText.text = "JumpBuffer: "+JumpBufferCounter;
-            jumpCountText.text = "JumpCount: " + ExtraJumpsCounter;
         }
 
         private void FixedUpdate()

@@ -20,7 +20,7 @@ MonoBehaviour:
   jumpForce: 15
   extraJumps: 1
   jumpCutMultiplier: 0.5
-  coyoteTime: 0.1
+  coyoteTime: 0.2
   jumpBufferTime: 0.1
   fallGravityMultiplier: 2
   maxFallSpeed: 30
