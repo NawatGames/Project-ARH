@@ -1,82 +1,79 @@
 using UnityEngine;
 
-namespace Player.StateMachine
+namespace Player.StateMachine.ConcreteStates
 {
     public class PlayerAscendingState : PlayerBaseState
     {
         public PlayerAscendingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
             : base(currentContext, playerStateFactory)
-        
         {
             IsRootState = true;
             InitializeSubState();
-
-
         }
+        
         public override void EnterState()
         {
-            //Debug.Log("HELLO FROM ASCENDINGSTATE");
-            Ctx.IsJumpPressed = false;
-            Ctx.IsJumping = true;
-            Ctx.CurrentJumpCutTime = Ctx.PlayerData.JumpCutTimer;
-            Ctx.Rb.velocity = new Vector2(Ctx.Rb.velocity.x, 0f); 
-            //HandleJump();
-
+            Ctx.jumpCanceledEvent.AddListener(JumpCut);
+            
+            Ctx.JumpBufferCounter = 0;
+            Ctx.CoyoteTimeCounter = 0;
+            
+            Jump();
         }
-        public override void UpdateState()
+
+        protected override void UpdateState()
         {
             CheckSwitchStates();
-            
+        }
+
+        protected override void PhysicsUpdateState()
+        {
 
         }
-        public override void PhysicsUpdateState()
+
+        protected override void ExitState()
         {
-            if (Ctx.IsJumping)
-            {
-                if (Ctx.CurrentJumpCutTime >= 0f)
-                {
-                    HandleJump();
-                    Ctx.CurrentJumpCutTime -= Time.deltaTime;
-                }
-                
-            }
+            Ctx.jumpCanceledEvent.RemoveListener(JumpCut);
+        }
         
-        }
-        public override void ExitState()
-        {
-            Ctx.CurrentJumpCutTime = 0f;
-        }
+        // ReSharper disable Unity.PerformanceAnalysis
         public override void CheckSwitchStates()
         {
-            if (Ctx.IsJumpPressed && Ctx.CanDoubleJump )
+            #region Double Jump
+            
+            if (Ctx.JumpBufferCounter > 0.01f && Ctx.ExtraJumpsCounter > 0)
+
             {
-                Debug.Log("DoubleJump");
-                Ctx.CanDoubleJump = false;
+                Ctx.ExtraJumpsCounter -= 1;
                 SwitchState(Factory.Ascend());
-
-                //HandleJump();
             }
-            if (Ctx.Rb.velocity.y < 0)
+            
+            #endregion
+            
+            if (Ctx.Rb.velocity.y < Ctx.JumpApexThreshold)
             {
-                SwitchState(Factory.Falling());
+                SwitchState(Factory.Apex());
             }
         }
-        public override void InitializeSubState()
+        
+        public sealed override void InitializeSubState()
         {
-            if (!Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Idle());
-            }
-            else if (Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Walk());
-            }
+            SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
         }
 
-        void HandleJump()
-        {   //Debug.Log("JUMP FUNCTION EXECUTED!");
-            Ctx.Rb.velocity = new Vector2(Ctx.Rb.velocity.x, Ctx.PlayerData.AppliedJumpForce);
-            //Ctx.Rb.AddForce(Vector2.up * Ctx.PlayerData.AppliedJumpForce,ForceMode2D.Impulse);
+        private void Jump()
+        {
+            Ctx.Rb.velocity = new Vector2(Ctx.Rb.velocity.x, 0f);
+            Ctx.Rb.AddForce(Vector2.up * Ctx.JumpForce,ForceMode2D.Impulse);
+        }
+
+        private void JumpCut()
+        {
+            var vel = Ctx.Rb.velocity;
+            if (vel.y > 0.01f)
+            {
+                Ctx.Rb.AddForce(Vector2.down * (vel.y * (1 - Ctx.JumpCutMultiplier)), ForceMode2D.Impulse);
+            }
         }
     }
 }

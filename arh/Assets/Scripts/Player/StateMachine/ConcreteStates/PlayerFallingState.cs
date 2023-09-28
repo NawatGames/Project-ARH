@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.StateMachine
+namespace Player.StateMachine.ConcreteStates
 {
     public class PlayerFallingState : PlayerBaseState
     {
@@ -10,75 +10,55 @@ namespace Player.StateMachine
             IsRootState = true;
             InitializeSubState();
         }
-
-
+        
         public override void EnterState()
         {
-            //Debug.Log("HELLO FROM FALLINGSTATE");
+            Ctx.Rb.gravityScale *= Ctx.FallGravityMultiplier;
         }
 
-        public override void UpdateState()
+        protected override void UpdateState()
         {
             CheckSwitchStates();
-
-            if (Ctx.IsJumpPressed)
-            {
-                Ctx.CurrentBufferTime = Ctx.PlayerData.BufferTimer;
-                Ctx.OnBufferTime = true;
-            }
             
-            Ctx.CurrentBufferTime = Mathf.Clamp(Ctx.CurrentBufferTime - Time.deltaTime, 0, Ctx.PlayerData.BufferTimer);
-
-            if (Ctx.CurrentBufferTime == 0f)
-            {
-                Ctx.OnBufferTime = false;
-            }
-            else
-            {
-                Ctx.OnBufferTime = true;
-            }
+            Ctx.CoyoteTimeCounter = Mathf.Clamp(Ctx.CoyoteTimeCounter - Time.deltaTime, 0f, Ctx.CoyoteTimeCounter);
         }
 
-        public override void ExitState()
+        protected override void ExitState()
         {
-            Ctx.CurrentBufferTime = 0f;
-            Ctx.OnBufferTime = false;
+            Ctx.Rb.gravityScale = Ctx.NormalGravityScale;
         }
 
+        // ReSharper disable Unity.PerformanceAnalysis
         public override void CheckSwitchStates()
         {
+            if (Ctx.JumpBufferCounter > 0.01f)
+            {
+                if (Ctx.CoyoteTimeCounter > 0.01f)
+                {
+                    SwitchState(Factory.Ascend());
+                }
+                else if (Ctx.ExtraJumpsCounter > 0)
+                {
+                    Ctx.ExtraJumpsCounter -= 1;
+                    SwitchState(Factory.Ascend());
+                }
+            }
             
-            if (Ctx.IsJumpPressed && Ctx.CanDoubleJump)
-            {
-                Debug.Log("DoubleJump");
-                Ctx.CanDoubleJump = false;
-                SwitchState(Factory.Ascend());
-            }
-            else if (Ctx.OnBufferTime && Ctx.IsGrounded)
-            {
-                SwitchState(Factory.Ascend());
-            }
-            else if (Ctx.IsGrounded && !Ctx.OnBufferTime)
-            {
-                SwitchState(Factory.Grounded());
-            }
-
+            if (Ctx.IsGrounded) SwitchState(Factory.Grounded());
         }
 
-        public override void InitializeSubState()
+        public sealed override void InitializeSubState()
         {
-            if (!Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Idle());
-            }
-            else if (Ctx.IsMovementPressed)
-            {
-                SetSubState(Factory.Walk());
-            }
+            SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
         }
 
-        public override void PhysicsUpdateState()
+        protected override void PhysicsUpdateState()
         {
+            #region Fall Gravity + Clamped Fall Speed
+            var vel = Ctx.Rb.velocity;
+            Ctx.Rb.gravityScale = Ctx.NormalGravityScale * Ctx.FallGravityMultiplier;
+            Ctx.Rb.velocity = new Vector2(vel.x, Mathf.Max(vel.y, -Ctx.MaxFallSpeed));
+            #endregion
         }
     }
 }
