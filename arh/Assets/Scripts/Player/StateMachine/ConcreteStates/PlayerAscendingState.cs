@@ -28,7 +28,7 @@ namespace Player.StateMachine.ConcreteStates
 
         protected override void PhysicsUpdateState()
         {
-            
+
         }
 
         protected override void ExitState()
@@ -42,10 +42,12 @@ namespace Player.StateMachine.ConcreteStates
             #region Double Jump
             
             if (Ctx.JumpBufferCounter > 0.01f && Ctx.ExtraJumpsCounter > 0)
+
             {
                 Ctx.ExtraJumpsCounter -= 1;
                 SwitchState(Factory.Ascend());
             }
+            
             #endregion
             
             if (Ctx.Rb.velocity.y < Ctx.JumpApexThreshold)
