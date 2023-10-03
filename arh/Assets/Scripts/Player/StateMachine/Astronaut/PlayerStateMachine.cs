@@ -13,7 +13,7 @@ namespace Player.StateMachine
 
         private LayerMaskCollision _layerMaskCollision;
         private PlayerStateFactory _states;
-        private PlayerInput _playerInput;
+        private PlayerInputMap _playerInput;
 
         [Space] public UnityEvent jumpCanceledEvent;
         
@@ -51,7 +51,7 @@ namespace Player.StateMachine
         
         private void Awake()
         {
-            _playerInput = new PlayerInput();
+            _playerInput = new PlayerInputMap();
             Rb = GetComponent<Rigidbody2D>();
             _layerMaskCollision = GetComponent<LayerMaskCollision>();
 

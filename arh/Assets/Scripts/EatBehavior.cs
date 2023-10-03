@@ -10,7 +10,7 @@ public class EatBehavior : MonoBehaviour
 
     [SerializeField] private bool _objectIsInRange = false;
     [SerializeField] private bool _eatButtonWasPressed = false;
-    [SerializeField] private bool _objectWasAte;
+    [SerializeField] private bool _objectWasEaten;
 
     [SerializeField] private float _throwForce;
     private Color _edibleObjectBaseColor;
@@ -25,7 +25,7 @@ public class EatBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (_objectWasAte == false)
+        if (_objectWasEaten == false)
         {
             if (_edibleObject != null)
             {
@@ -38,7 +38,7 @@ public class EatBehavior : MonoBehaviour
                         if (_objectIsInRange == true)
                         {
                             // Consome o Objeto
-                            _objectWasAte = true;
+                            _objectWasEaten = true;
                             _eatButtonWasPressed = false;
                             _edibleObject.SetActive(false);
                             Debug.Log("Comi o Objeto");
@@ -49,13 +49,13 @@ public class EatBehavior : MonoBehaviour
             }
         }
 
-        if (_objectWasAte == true)
+        if (_objectWasEaten == true)
         {
             _edibleObject.transform.position = gameObject.transform.position;
             if (_eatButtonWasPressed == true)
             {
                 // Cospe o Objeto com uma certa força
-                _objectWasAte = false;
+                _objectWasEaten = false;
                 _eatButtonWasPressed = false;
                 _edibleObject.SetActive(true);
 
@@ -69,7 +69,7 @@ public class EatBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_objectWasAte)
+        if (!_objectWasEaten)
         {
             if (_objectIsInRange == false)
             {
@@ -83,7 +83,7 @@ public class EatBehavior : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!_objectWasAte)
+        if (!_objectWasEaten)
         {
             _objectIsInRange = false;
             _edibleObject = null;

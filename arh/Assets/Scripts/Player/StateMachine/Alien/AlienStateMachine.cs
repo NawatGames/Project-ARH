@@ -13,11 +13,14 @@ public class AlienStateMachine : MonoBehaviour
 
     private LayerMaskCollision _layerMaskCollision;
     private AlienStateFactory _states;
-    private PlayerInput _playerInput;
+    private PlayerInputMap _playerInput;
     
     [Space] public UnityEvent jumpCanceledEvent;
-    
+    public UnityEvent isInteractingEvent;
+
     #region Getters and Setters
+    
+    private bool _isInteractPressed { get; set; }
 
     // Movement
     public float MoveSpeed => playerData.moveSpeed;
@@ -51,7 +54,7 @@ public class AlienStateMachine : MonoBehaviour
 
     private void Awake()
     {
-        _playerInput = new PlayerInput();
+        _playerInput = new PlayerInputMap();
         Rb = GetComponent<Rigidbody2D>();
         _layerMaskCollision = GetComponent<LayerMaskCollision>();
 
@@ -98,7 +101,12 @@ public class AlienStateMachine : MonoBehaviour
     
     public void OnInteractInput(InputAction.CallbackContext context)
     {
-            
+        if (context.performed)
+        {
+            _isInteractPressed = context.ReadValueAsButton();
+            isInteractingEvent.Invoke();
+            //Debug.Log("apertou");
+        }
     }
     
     private void OnEnable()
