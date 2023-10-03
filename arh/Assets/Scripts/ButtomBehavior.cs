@@ -24,7 +24,7 @@ public class ButtomBehavior : MonoBehaviour
     private void Awake()
     {
         _renderer = GetComponent<SpriteRenderer>();
-        _playerGameObject = GameObject.FindWithTag("Player");
+        _playerGameObject = GameObject.FindWithTag("Astronaut");
         _astronautStateMachine = _playerGameObject.GetComponent<AstronautStateMachine>();
     }
 
