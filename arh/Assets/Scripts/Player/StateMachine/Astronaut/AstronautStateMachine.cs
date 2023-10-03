@@ -81,7 +81,7 @@ namespace Player.StateMachine
 
         public void OnWalkInput(InputAction.CallbackContext context)
         {        
-            Debug.Log("astronauta andando");
+            //Debug.Log("astronauta andando");
             CurrentMovementInput = context.ReadValue<float>();
         }
         
@@ -104,7 +104,7 @@ namespace Player.StateMachine
             {
                 _isInteractPressed = context.ReadValueAsButton();
                 isInteractingEvent.Invoke();
-                //Debug.Log("Interagiu");
+                 Debug.Log("Astronauta Interagiu");
             }
         }
 

@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - JetpackPickup
   - Astronaut
+  - Alien
+  - Food
   layers:
   - Default
   - TransparentFX

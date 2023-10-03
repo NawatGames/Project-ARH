@@ -82,7 +82,7 @@ public class AlienStateMachine : MonoBehaviour
     
     public void OnWalkInput(InputAction.CallbackContext context)
     {
-        Debug.Log("alien andando");
+        //Debug.Log("alien andando");
         CurrentMovementInput = context.ReadValue<float>();
     }
     
@@ -105,7 +105,7 @@ public class AlienStateMachine : MonoBehaviour
         {
             _isInteractPressed = context.ReadValueAsButton();
             isInteractingEvent.Invoke();
-            //Debug.Log("Interagiu");
+            Debug.Log("Alien Interagiu");
         }
     }
     
