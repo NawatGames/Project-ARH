@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class ButtomBehavior : MonoBehaviour
 {
-    [SerializeField] private AstronautStateMachine astronautStateMachine;
+    [SerializeField] private AstronautStateMachine _astronautStateMachine;
     [SerializeField] private GameObject _playerGameObject;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private bool _isInRange = false;
@@ -25,7 +25,7 @@ public class ButtomBehavior : MonoBehaviour
     {
         _renderer = GetComponent<SpriteRenderer>();
         _playerGameObject = GameObject.FindWithTag("Player");
-        astronautStateMachine = _playerGameObject.GetComponent<AstronautStateMachine>();
+        _astronautStateMachine = _playerGameObject.GetComponent<AstronautStateMachine>();
     }
 
 
@@ -41,18 +41,18 @@ public class ButtomBehavior : MonoBehaviour
 
     private void OnEnable()
     {
-       //_playerStateMachine.isInteractingEvent.AddListener(ButtonActivation);
+       _astronautStateMachine.isInteractingEvent.AddListener(ButtonActivation);
     }
 
     private void OnDisable()
     {
-        //_playerStateMachine.isInteractingEvent.RemoveListener(ButtonActivation);
+        _astronautStateMachine.isInteractingEvent.RemoveListener(ButtonActivation);
 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Astronaut"))
         {
             _isInRange = true;
             //Debug.Log("Posso apertar o botao!");
@@ -63,7 +63,7 @@ public class ButtomBehavior : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Astronaut"))
         {
             _isInRange = false;
 

@@ -43,7 +43,7 @@ public class EatBehavior : MonoBehaviour
                             _eatButtonWasPressed = false;
                             _edibleObject.SetActive(false);
                             Debug.Log("Comi o Objeto");
-                }
+                        }
 
                     }
                 }
