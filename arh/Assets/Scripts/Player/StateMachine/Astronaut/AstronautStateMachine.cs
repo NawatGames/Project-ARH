@@ -5,20 +5,22 @@ using UnityEngine.UI;
 
 namespace Player.StateMachine
 {
-    public class PlayerStateMachine : MonoBehaviour
+    public class AstronautStateMachine : MonoBehaviour
     {
         
         [SerializeField] private PlayerData.PlayerData playerData;
         [SerializeField] private GameObject sprite;
 
         private LayerMaskCollision _layerMaskCollision;
-        private PlayerStateFactory _states;
+        private AstronautStateFactory _states;
         private PlayerInputMap _playerInput;
 
         [Space] public UnityEvent jumpCanceledEvent;
+        public UnityEvent isInteractingEvent;
         
         #region Getters and Setters
-
+        private bool _isInteractPressed { get; set; }
+        
         // Movement
         public float MoveSpeed => playerData.moveSpeed;
         public float Acceleration => playerData.acceleration;
@@ -44,7 +46,7 @@ namespace Player.StateMachine
         public int ExtraJumpsCounter { get; set; }
 
         public GameObject Sprite => sprite;
-        public PlayerBaseState CurrentState { get; set; }
+        public AstronautBaseState CurrentState { get; set; }
         public Rigidbody2D Rb { get; private set; }
         
         #endregion
@@ -61,7 +63,7 @@ namespace Player.StateMachine
             IsFacingRight = true;
             
             // Initialize StateMachine
-            _states = new PlayerStateFactory(this);
+            _states = new AstronautStateFactory(this);
             CurrentState = _states.Grounded();
             CurrentState.EnterState();
         }
@@ -98,7 +100,12 @@ namespace Player.StateMachine
         
         public void OnInteractInput(InputAction.CallbackContext context)
         {
-            
+            if (context.performed)
+            {
+                _isInteractPressed = context.ReadValueAsButton();
+                isInteractingEvent.Invoke();
+                //Debug.Log("Interagiu");
+            }
         }
 
         private void OnEnable()

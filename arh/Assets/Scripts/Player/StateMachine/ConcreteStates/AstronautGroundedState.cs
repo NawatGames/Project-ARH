@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace Player.StateMachine.ConcreteStates
 {
-    public class PlayerApexState : PlayerBaseState
+    public class AstronautGroundedState : AstronautBaseState
     {
-        public PlayerApexState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-            : base(currentContext, playerStateFactory)
+        public AstronautGroundedState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
+            : base(currentContext, astronautStateFactory)
         {
             IsRootState = true;
             InitializeSubState();
@@ -13,12 +13,13 @@ namespace Player.StateMachine.ConcreteStates
 
         public override void EnterState()
         {
-
+            Ctx.ResetJumpCount();
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
         protected override void UpdateState()
         {
+            Ctx.ResetCoyoteTime();
             CheckSwitchStates();
         }
 
@@ -34,21 +35,8 @@ namespace Player.StateMachine.ConcreteStates
 
         public override void CheckSwitchStates()
         {
-            #region Double Jump
-            
-            if (Ctx.JumpBufferCounter > 0.01f && Ctx.ExtraJumpsCounter > 0)
-            {
-                Ctx.ExtraJumpsCounter -= 1;
-                SwitchState(Factory.Ascend());
-            }
-            #endregion
-            
-            if (Ctx.Rb.velocity.y < -Ctx.JumpApexThreshold)
-            {
-                SwitchState(Factory.Falling());
-            }
-            
-            if (Ctx.IsGrounded) SwitchState(Factory.Grounded());
+            if (Ctx.JumpBufferCounter > 0.01f) SwitchState(Factory.Ascend());
+            else if (!Ctx.IsGrounded) SwitchState(Factory.Falling());
         }
 
         public sealed override void InitializeSubState()

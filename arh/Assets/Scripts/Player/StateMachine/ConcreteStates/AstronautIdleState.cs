@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace Player.StateMachine.ConcreteStates
 {
-    public class PlayerIdleState : PlayerBaseState
+    public class AstronautIdleState : AstronautBaseState
     {
-        public PlayerIdleState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-            : base(currentContext, playerStateFactory){}
+        public AstronautIdleState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
+            : base(currentContext, astronautStateFactory){}
         
         public override void EnterState()
         {

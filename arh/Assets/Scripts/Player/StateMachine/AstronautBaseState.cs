@@ -1,10 +1,10 @@
 namespace Player.StateMachine
 {
-    public abstract class PlayerBaseState
+    public abstract class AstronautBaseState
     {
         private bool _isRootState;
-        private PlayerBaseState _currentSubState;
-        private PlayerBaseState _currentSuperState;
+        private AstronautBaseState _currentSubState;
+        private AstronautBaseState _currentSuperState;
 
         // Getters And Setters
         protected bool IsRootState
@@ -12,14 +12,14 @@ namespace Player.StateMachine
             set => _isRootState = value;
         }
     
-        protected PlayerStateMachine Ctx { get; }
+        protected AstronautStateMachine Ctx { get; }
 
-        protected PlayerStateFactory Factory { get; }
+        protected AstronautStateFactory Factory { get; }
 
-        protected PlayerBaseState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
+        protected AstronautBaseState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
         {
             Ctx = currentContext;
-            Factory = playerStateFactory;
+            Factory = astronautStateFactory;
         }
     
         public abstract void EnterState();
@@ -47,7 +47,7 @@ namespace Player.StateMachine
             _currentSubState?.ExitStates();
         }
         
-        protected void SwitchState(PlayerBaseState newState)
+        protected void SwitchState(AstronautBaseState newState)
         {
             ExitState();
         
@@ -63,12 +63,12 @@ namespace Player.StateMachine
             }
         }
 
-        private void SetSuperState(PlayerBaseState newSuperState)
+        private void SetSuperState(AstronautBaseState newSuperState)
         {
             _currentSuperState = newSuperState;
         }
         
-        protected void SetSubState(PlayerBaseState newSubState)
+        protected void SetSubState(AstronautBaseState newSubState)
         {
             _currentSubState = newSubState;
             newSubState.SetSuperState(this);

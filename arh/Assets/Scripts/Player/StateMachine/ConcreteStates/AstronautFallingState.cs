@@ -2,10 +2,10 @@ using UnityEngine;
 
 namespace Player.StateMachine.ConcreteStates
 {
-    public class PlayerFallingState : PlayerBaseState
+    public class AstronautFallingState : AstronautBaseState
     {
-        public PlayerFallingState(PlayerStateMachine currentContext, PlayerStateFactory playerStateFactory)
-            : base(currentContext, playerStateFactory)
+        public AstronautFallingState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
+            : base(currentContext, astronautStateFactory)
         {
             IsRootState = true;
             InitializeSubState();

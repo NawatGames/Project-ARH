@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EatBehavior : MonoBehaviour
 {
+    [SerializeField] private AlienStateMachine _ctx;
     [SerializeField] private GameObject _edibleObject;
 
     [SerializeField] private bool _objectIsInRange = false;

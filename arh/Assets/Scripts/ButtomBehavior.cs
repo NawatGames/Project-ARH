@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 
 public class ButtomBehavior : MonoBehaviour
 {
-    [SerializeField] private PlayerStateMachine _playerStateMachine;
+    [SerializeField] private AstronautStateMachine astronautStateMachine;
     [SerializeField] private GameObject _playerGameObject;
     [SerializeField] private SpriteRenderer _renderer;
     [SerializeField] private bool _isInRange = false;
@@ -25,7 +25,7 @@ public class ButtomBehavior : MonoBehaviour
     {
         _renderer = GetComponent<SpriteRenderer>();
         _playerGameObject = GameObject.FindWithTag("Player");
-        _playerStateMachine = _playerGameObject.GetComponent<PlayerStateMachine>();
+        astronautStateMachine = _playerGameObject.GetComponent<AstronautStateMachine>();
     }
 
 
