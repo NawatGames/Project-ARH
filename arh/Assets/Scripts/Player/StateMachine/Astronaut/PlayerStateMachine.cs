@@ -7,6 +7,7 @@ namespace Player.StateMachine
 {
     public class PlayerStateMachine : MonoBehaviour
     {
+        
         [SerializeField] private PlayerData.PlayerData playerData;
         [SerializeField] private GameObject sprite;
 
@@ -77,7 +78,8 @@ namespace Player.StateMachine
         }
 
         public void OnWalkInput(InputAction.CallbackContext context)
-        {
+        {        
+            Debug.Log("astronauta andando");
             CurrentMovementInput = context.ReadValue<float>();
         }
         
@@ -101,13 +103,13 @@ namespace Player.StateMachine
 
         private void OnEnable()
         {
-            _playerInput.Gameplay.Enable();
+            _playerInput.AstronautGameplay.Enable();
             _layerMaskCollision.isGroundedChangedEvent.AddListener(OnIsGroundedChanged);
         }
 
         private void OnDisable()
         {
-            _playerInput.Gameplay.Disable();
+            _playerInput.AstronautGameplay.Disable();
             _layerMaskCollision.isGroundedChangedEvent.RemoveListener(OnIsGroundedChanged);
         }
         
