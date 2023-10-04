@@ -104,7 +104,7 @@ namespace Player.StateMachine
             {
                 _isInteractPressed = context.ReadValueAsButton();
                 isInteractingEvent.Invoke();
-                 Debug.Log("Astronauta Interagiu");
+                 //Debug.Log("Astronauta Interagiu");
             }
         }
 

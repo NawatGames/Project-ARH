@@ -105,7 +105,7 @@ public class AlienStateMachine : MonoBehaviour
         {
             _isInteractPressed = context.ReadValueAsButton();
             isInteractingEvent.Invoke();
-            Debug.Log("Alien Interagiu");
+            //Debug.Log("Alien Interagiu");
         }
     }
     

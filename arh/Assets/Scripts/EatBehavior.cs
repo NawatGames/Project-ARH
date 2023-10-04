@@ -32,7 +32,6 @@ public class EatBehavior : MonoBehaviour
             _objectWasEaten = false;
             _edibleObject.SetActive(true);
 
-            //_edibleObject.transform.position = _edibleObject.transform.position;
             if (_alienStateMachine.Sprite.transform.localScale.x <= 0)
             {
                 _edibleObjectRigidBody.velocity = new Vector2(_throwForce * -1, _edibleObjectRigidBody.velocity.y);
@@ -44,14 +43,14 @@ public class EatBehavior : MonoBehaviour
 
             }
 
-            Debug.Log("Cuspi o Objeto");
+            //Debug.Log("Cuspi o Objeto");
         }
         else if (_objectIsInRange && !_objectWasEaten)
         {
             _objectWasEaten = true;
             _edibleObject.SetActive(false);
             _edibleObjectRigidBody = _edibleObject.GetComponent<Rigidbody2D>();
-            Debug.Log("Comi o Objeto");
+            //Debug.Log("Comi o Objeto");
         }
 
     }
@@ -73,7 +72,7 @@ public class EatBehavior : MonoBehaviour
             _edibleObject = other.gameObject;
 
             _objectIsInRange = true;
-            Debug.Log("encostei em algo!");
+            //Debug.Log("Food Is In Range!");
         }
     }
 
