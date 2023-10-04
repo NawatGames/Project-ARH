@@ -18,6 +18,8 @@ public class AlienCrouchState : AlienBaseState
         
         Ctx.ResetJumpCount();
 
+        Ctx.animator.SetBool("IsShrinking", true);
+
     }
 
     protected override void UpdateState()
@@ -31,6 +33,7 @@ public class AlienCrouchState : AlienBaseState
         var size = Ctx.BoxCollider.size;
         size = new Vector2(size.x, size.y / Ctx._crouchSizeMultiplier);
         Ctx.BoxCollider.size = size;
+        Ctx.animator.SetBool("IsShrinking", false);
     }
 
     public override void CheckSwitchStates()

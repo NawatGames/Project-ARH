@@ -10,6 +10,7 @@ public class AlienStateMachine : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
     [SerializeField] private GameObject _visualSprite;
+    public Animator animator;
 
     private LayerMaskCollision _layerMaskCollision;
     private BoxCollider2D _boxCollider;
@@ -65,6 +66,7 @@ public class AlienStateMachine : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         BoxCollider = GetComponent<BoxCollider2D>();
         _layerMaskCollision = GetComponent<LayerMaskCollision>();
+        animator = _visualSprite.GetComponent<Animator>();
 
         NormalGravityScale = Rb.gravityScale;
         CoyoteTimeCounter = playerData.coyoteTime;

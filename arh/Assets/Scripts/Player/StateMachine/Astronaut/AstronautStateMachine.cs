@@ -10,6 +10,7 @@ namespace Player.StateMachine
         
         [SerializeField] private PlayerData.PlayerData playerData;
         [SerializeField] private GameObject sprite;
+        public Animator animator;
 
         private LayerMaskCollision _layerMaskCollision;
         private AstronautStateFactory _states;
@@ -56,6 +57,7 @@ namespace Player.StateMachine
             _playerInput = new PlayerInputMap();
             Rb = GetComponent<Rigidbody2D>();
             _layerMaskCollision = GetComponent<LayerMaskCollision>();
+            animator = sprite.GetComponent<Animator>();
 
             NormalGravityScale = Rb.gravityScale;
             CoyoteTimeCounter = playerData.coyoteTime;

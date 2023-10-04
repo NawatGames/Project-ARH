@@ -10,7 +10,7 @@ public class AlienWalkState : AlienBaseState
     
         public override void EnterState()
         {
-
+            Ctx.animator.SetBool("IsRunning", true);
         }
     
         // ReSharper disable Unity.PerformanceAnalysis
@@ -50,7 +50,7 @@ public class AlienWalkState : AlienBaseState
 
         protected override void ExitState()
         {
-            
+            Ctx.animator.SetBool("IsRunning", false);
         }
     
         public override void CheckSwitchStates()
