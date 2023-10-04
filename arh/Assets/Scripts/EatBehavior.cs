@@ -58,45 +58,10 @@ public class EatBehavior : MonoBehaviour
 
     void Update()
     {
-        // if (_objectWasEaten == false)
-        // {
-        //     if (_edibleObject != null)
-        //     {
-        //         if (_edibleObject.GetComponent<Rigidbody2D>() != null)
-        //         {
-        //             _edibleObjectRigidBody = _edibleObject.GetComponent<Rigidbody2D>();
-        //             
-        //             if (_eatButtonWasPressed == true)
-        //             {
-        //                 if (_objectIsInRange == true)
-        //                 {
-        //                     // Consome o Objeto
-        //                     _objectWasEaten = true;
-        //                     _eatButtonWasPressed = false;
-        //                     _edibleObject.SetActive(false);
-        //                     Debug.Log("Comi o Objeto");
-        //                 }
-        //
-        //             }
-        //         }
-        //     }
-        //}
-    
+
         if (_objectWasEaten)
         {
             _edibleObject.transform.position = gameObject.transform.position;
-            // if (_eatButtonWasPressed == true)
-            // {
-            //     // Cospe o Objeto com uma certa força
-            //     _objectWasEaten = false;
-            //     _eatButtonWasPressed = false;
-            //     _edibleObject.SetActive(true);
-            //
-            //     _edibleObject.transform.position = _edibleObject.transform.position;
-            //     _edibleObjectRigidBody.velocity = new Vector2(_throwForce, _edibleObjectRigidBody.velocity.y);
-            //
-            //     Debug.Log("Cuspi o Objeto");
-            // }
         }
         
     }
