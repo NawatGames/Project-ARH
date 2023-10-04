@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9cf8ad406432abbe274ebce2667fa, type: 3}
   m_Name: AlienData
   m_EditorClassIdentifier: 
+  _crouchSizeMultiplier: 0.75
   moveSpeed: 15
   acceleration: 7
   deceleration: 7
   velocityPower: 0.9
   frictionAmount: 0.2
-  jumpForce: 15
-  extraJumps: 1
+  jumpForce: 10
+  extraJumps: 0
   jumpCutMultiplier: 0.5
   coyoteTime: 0.2
   jumpBufferTime: 0.1
