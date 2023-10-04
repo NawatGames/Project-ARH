@@ -35,6 +35,8 @@ public class AlienGroundedState : AlienBaseState
     {
         if (Ctx.JumpBufferCounter > 0.01f) SwitchState(Factory.Ascend());
         else if (!Ctx.IsGrounded) SwitchState(Factory.Falling());
+        
+        if(Ctx.IsCrouchingPressed) SwitchState((Factory.Crouch()));
     }
 
     public sealed override void InitializeSubState()

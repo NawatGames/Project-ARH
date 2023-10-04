@@ -12,16 +12,22 @@ public class AlienStateMachine : MonoBehaviour
     [SerializeField] private GameObject _visualSprite;
 
     private LayerMaskCollision _layerMaskCollision;
+    private BoxCollider2D _boxCollider;
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
     
     [Space] public UnityEvent jumpCanceledEvent;
     public UnityEvent isInteractingEvent;
 
-    #region Getters and Setters
-    
-    private bool _isInteractPressed { get; set; }
+    public bool _isCrouchPressed; 
+    public bool _isInteractPressed;
 
+    
+    #region Getters and Setters
+
+    public bool IsCrouchingPressed => _isCrouchPressed;
+    public float _crouchSizeMultiplier => playerData._crouchSizeMultiplier;
+    
     // Movement
     public float MoveSpeed => playerData.moveSpeed;
     public float Acceleration => playerData.acceleration;
@@ -49,6 +55,7 @@ public class AlienStateMachine : MonoBehaviour
     public GameObject Sprite => _visualSprite;
     public AlienBaseState CurrentState { get; set; }
     public Rigidbody2D Rb { get; private set; }
+    public BoxCollider2D BoxCollider { get; set; }
         
     #endregion
 
@@ -56,6 +63,7 @@ public class AlienStateMachine : MonoBehaviour
     {
         _playerInput = new PlayerInputMap();
         Rb = GetComponent<Rigidbody2D>();
+        BoxCollider = GetComponent<BoxCollider2D>();
         _layerMaskCollision = GetComponent<LayerMaskCollision>();
 
         NormalGravityScale = Rb.gravityScale;
@@ -105,7 +113,26 @@ public class AlienStateMachine : MonoBehaviour
         {
             _isInteractPressed = context.ReadValueAsButton();
             isInteractingEvent.Invoke();
-            Debug.Log("Alien Interagiu");
+            //Debug.Log("Alien Interagiu");
+        }
+
+        if (context.canceled)
+        {
+            _isInteractPressed = false;
+        }
+    }
+
+    public void OnCrouchInput(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            _isCrouchPressed = context.ReadValueAsButton();
+            Debug.Log("Alien Agachou");
+
+        }
+        if (context.canceled)
+        {
+            _isCrouchPressed = false;
         }
     }
     

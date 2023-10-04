@@ -8,6 +8,8 @@ namespace Player.PlayerData
         private LayerMaskCollision _layerMaskCollision;
         private PlayerInputMap _playerInput;
 
+        public float _crouchSizeMultiplier;
+
         [Header("Movement")]
         public float moveSpeed;
         public float acceleration;

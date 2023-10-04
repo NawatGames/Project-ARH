@@ -39,4 +39,9 @@ using Player.StateMachine.ConcreteStates;
         {
             return new AlienGroundedState(_context, this);
         }
+
+        public AlienBaseState Crouch()
+        {
+            return new AlienCrouchState(_context, this);
+        }
     }
