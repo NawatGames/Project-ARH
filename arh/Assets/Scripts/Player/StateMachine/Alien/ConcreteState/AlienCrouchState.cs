@@ -12,9 +12,15 @@ public class AlienCrouchState : AlienBaseState
     public override void EnterState()
     {
         Debug.Log("Hello from CrouchState");
+        
+        var offset = Ctx.BoxCollider.offset;
+        
         var size = Ctx.BoxCollider.size;
         size = new Vector2(size.x, size.y * Ctx._crouchSizeMultiplier);
         Ctx.BoxCollider.size = size;
+        
+        offset = new Vector2(offset.x,  -Ctx._crouchSizeMultiplier / 6);
+        Ctx.BoxCollider.offset = offset;
         
         Ctx.ResetJumpCount();
 
@@ -28,9 +34,14 @@ public class AlienCrouchState : AlienBaseState
 
     protected override void ExitState()
     {
+        var offset = Ctx.BoxCollider.offset;
+
         var size = Ctx.BoxCollider.size;
         size = new Vector2(size.x, size.y / Ctx._crouchSizeMultiplier);
         Ctx.BoxCollider.size = size;
+        
+        offset = new Vector2(offset.x, 0f);
+        Ctx.BoxCollider.offset = offset;
     }
 
     public override void CheckSwitchStates()
