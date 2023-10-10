@@ -16,10 +16,10 @@ public class AlienCrouchState : AlienBaseState
         var offset = Ctx.BoxCollider.offset;
 
         var size = Ctx.BoxCollider.size;
-        size = new Vector2(size.x, size.y - Ctx._crouchSizeMultiplier);
+        size = new Vector2(size.x, size.y - Ctx._crouchSizeReduction);
         Ctx.BoxCollider.size = size;
 
-        offset = new Vector2(offset.x, offset.y - (Ctx._crouchSizeMultiplier / 2));
+        offset = new Vector2(offset.x, offset.y - (Ctx._crouchSizeReduction / 2));
         Ctx.BoxCollider.offset = offset;
 
 
@@ -37,10 +37,10 @@ public class AlienCrouchState : AlienBaseState
         var offset = Ctx.BoxCollider.offset;
 
         var size = Ctx.BoxCollider.size;
-        size = new Vector2(size.x, size.y + Ctx._crouchSizeMultiplier);
+        size = new Vector2(size.x, size.y + Ctx._crouchSizeReduction);
         Ctx.BoxCollider.size = size;
 
-        offset = new Vector2(offset.x, offset.y + (Ctx._crouchSizeMultiplier / 2));
+        offset = new Vector2(offset.x, offset.y + (Ctx._crouchSizeReduction / 2));
         Ctx.BoxCollider.offset = offset;
     }
 

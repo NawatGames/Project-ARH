@@ -26,7 +26,7 @@ public class AlienStateMachine : MonoBehaviour
     #region Getters and Setters
 
     public bool IsCrouchingPressed => _isCrouchPressed;
-    public float _crouchSizeMultiplier => playerData._crouchSizeMultiplier;
+    public float _crouchSizeReduction => playerData.crouchSizeReduction;
     
     // Movement
     public float MoveSpeed => playerData.moveSpeed;
