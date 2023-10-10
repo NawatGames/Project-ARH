@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AlienCrouchState : AlienBaseState
 {
-    
-    public AlienCrouchState(AlienStateMachine currentContext, AlienStateFactory alienStateFactory) : base(currentContext, alienStateFactory)
+    public AlienCrouchState(AlienStateMachine currentContext, AlienStateFactory alienStateFactory) : base(
+        currentContext, alienStateFactory)
     {
         IsRootState = true;
         InitializeSubState();
@@ -12,18 +12,18 @@ public class AlienCrouchState : AlienBaseState
     public override void EnterState()
     {
         Debug.Log("Hello from CrouchState");
-        
-        var offset = Ctx.BoxCollider.offset;
-        
-        var size = Ctx.BoxCollider.size;
-        size = new Vector2(size.x, size.y * Ctx._crouchSizeMultiplier);
-        Ctx.BoxCollider.size = size;
-        
-        offset = new Vector2(offset.x,  -Ctx._crouchSizeMultiplier / 6);
-        Ctx.BoxCollider.offset = offset;
-        
-        Ctx.ResetJumpCount();
 
+        var offset = Ctx.BoxCollider.offset;
+
+        var size = Ctx.BoxCollider.size;
+        size = new Vector2(size.x, size.y - Ctx._crouchSizeMultiplier);
+        Ctx.BoxCollider.size = size;
+
+        offset = new Vector2(offset.x, offset.y - (Ctx._crouchSizeMultiplier / 2));
+        Ctx.BoxCollider.offset = offset;
+
+
+        Ctx.ResetJumpCount();
     }
 
     protected override void UpdateState()
@@ -37,20 +37,24 @@ public class AlienCrouchState : AlienBaseState
         var offset = Ctx.BoxCollider.offset;
 
         var size = Ctx.BoxCollider.size;
-        size = new Vector2(size.x, size.y / Ctx._crouchSizeMultiplier);
+        size = new Vector2(size.x, size.y + Ctx._crouchSizeMultiplier);
         Ctx.BoxCollider.size = size;
-        
-        offset = new Vector2(offset.x, 0f);
+
+        offset = new Vector2(offset.x, offset.y + (Ctx._crouchSizeMultiplier / 2));
         Ctx.BoxCollider.offset = offset;
     }
 
     public override void CheckSwitchStates()
     {
-        if (!Ctx._isCrouchPressed)
+        if (!Ctx.lmCollision._isHittingRoof)
         {
-            SwitchState(Factory.Grounded());
+            if (!Ctx._isCrouchPressed)
+            {
+                SwitchState(Factory.Grounded());
+            }
         }
-        else if (!Ctx.IsGrounded)
+
+        if (!Ctx.IsGrounded)
         {
             SwitchState(Factory.Falling());
         }

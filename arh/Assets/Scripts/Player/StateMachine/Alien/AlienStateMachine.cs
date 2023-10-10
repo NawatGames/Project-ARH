@@ -10,8 +10,8 @@ public class AlienStateMachine : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
     [SerializeField] private GameObject _visualSprite;
+    [SerializeField] private LayerMaskCollision _layerMaskCollision;
 
-    private LayerMaskCollision _layerMaskCollision;
     private BoxCollider2D _boxCollider;
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
@@ -56,7 +56,13 @@ public class AlienStateMachine : MonoBehaviour
     public AlienBaseState CurrentState { get; set; }
     public Rigidbody2D Rb { get; private set; }
     public BoxCollider2D BoxCollider { get; set; }
-        
+
+    public LayerMaskCollision lmCollision
+    {
+        get { return _layerMaskCollision; }
+        set { _layerMaskCollision = value; }
+    }
+
     #endregion
 
     private void Awake()

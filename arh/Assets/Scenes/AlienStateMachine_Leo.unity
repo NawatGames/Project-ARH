@@ -571,7 +571,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517353420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.6684222, y: 1.6396662, z: 0.017045796}
+  m_LocalPosition: {x: -2.68, y: 1.22, z: 0.017045796}
   m_LocalScale: {x: 1.6903785, y: 2.4091733, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1398,6 +1398,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 624563981954928013, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: _layerMaskCollision
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 624563981954928014, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
       propertyPath: m_Name
       value: Alien
@@ -1445,6 +1449,26 @@ PrefabInstance:
     - target: {fileID: 624563981954928015, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
       propertyPath: m_ActionEvents.Array.data[6].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 624563981954928117, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 624563981954928117, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: size.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 624563981954928117, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: topOffset.y
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 624563981954928117, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: leftOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 624563981954928117, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1364802620623620899, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
       propertyPath: m_Layer
