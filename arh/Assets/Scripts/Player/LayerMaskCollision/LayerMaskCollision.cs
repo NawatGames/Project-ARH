@@ -32,7 +32,7 @@ public class LayerMaskCollision : MonoBehaviour
             isGroundedChangedEvent.Invoke(_isGrounded);
         }
         var wasHittingRoof = _isHittingRoof;
-        _isHittingRoof = Physics2D.OverlapBox((Vector2)transform.position + topOffset, size, groundLayer);
+        _isHittingRoof = Physics2D.OverlapBox((Vector2)transform.position + topOffset, size, 0f,groundLayer);
 
     }
 
