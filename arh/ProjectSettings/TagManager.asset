@@ -7,6 +7,9 @@ TagManager:
   - FallingPlatform
   - Ground
   - JetpackPickup
+  - Astronaut
+  - Alien
+  - Food
   layers:
   - Default
   - TransparentFX
@@ -14,8 +17,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Astronaut
+  - Alien
   - 
   - 
   - 

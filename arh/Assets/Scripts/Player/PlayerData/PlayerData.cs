@@ -6,8 +6,10 @@ namespace Player.PlayerData
     public class PlayerData : ScriptableObject
     {
         private LayerMaskCollision _layerMaskCollision;
-        private PlayerInput _playerInput;
-        
+        private PlayerInputMap _playerInput;
+
+        public float crouchSizeReduction;
+
         [Header("Movement")]
         public float moveSpeed;
         public float acceleration;
