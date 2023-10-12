@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player.PlayerData;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -11,23 +12,24 @@ public class AlienStateMachine : MonoBehaviour
     [SerializeField] private PlayerData playerData;
     [SerializeField] private GameObject _visualSprite;
     [SerializeField] private LayerMaskCollision _layerMaskCollision;
+    [SerializeField] private EatBehavior _eatBehavior;
 
     private BoxCollider2D _boxCollider;
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
-    
+
     [Space] public UnityEvent jumpCanceledEvent;
     public UnityEvent isInteractingEvent;
 
-    public bool _isCrouchPressed; 
+    public bool _isCrouchPressed;
     public bool _isInteractPressed;
 
-    
+
     #region Getters and Setters
 
     public bool IsCrouchingPressed => _isCrouchPressed;
     public float _crouchSizeReduction => playerData.crouchSizeReduction;
-    
+
     // Movement
     public float MoveSpeed => playerData.moveSpeed;
     public float Acceleration => playerData.acceleration;
@@ -57,13 +59,15 @@ public class AlienStateMachine : MonoBehaviour
     public Rigidbody2D Rb { get; private set; }
     public BoxCollider2D BoxCollider { get; set; }
 
-    public LayerMaskCollision lmCollision
+    public LayerMaskCollision lmCollision => _layerMaskCollision;
+
+    public EatBehavior EatContext
     {
-        get { return _layerMaskCollision; }
-        set { _layerMaskCollision = value; }
+        get => _eatBehavior;
     }
 
-    #endregion
+
+#endregion
 
     private void Awake()
     {
@@ -71,6 +75,7 @@ public class AlienStateMachine : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         BoxCollider = GetComponent<BoxCollider2D>();
         _layerMaskCollision = GetComponent<LayerMaskCollision>();
+        _eatBehavior = GetComponentInChildren<EatBehavior>();
 
         NormalGravityScale = Rb.gravityScale;
         CoyoteTimeCounter = playerData.coyoteTime;
@@ -133,7 +138,7 @@ public class AlienStateMachine : MonoBehaviour
         if (context.performed)
         {
             _isCrouchPressed = context.ReadValueAsButton();
-            Debug.Log("Alien Agachou");
+            //Debug.Log("Alien Agachou");
 
         }
         if (context.canceled)

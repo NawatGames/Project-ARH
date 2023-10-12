@@ -11,6 +11,7 @@ public class AlienGroundedState : AlienBaseState
 
     public override void EnterState()
     {
+        Ctx.EatContext.AlienCanEat = true;
         Ctx.ResetJumpCount();
     }
 

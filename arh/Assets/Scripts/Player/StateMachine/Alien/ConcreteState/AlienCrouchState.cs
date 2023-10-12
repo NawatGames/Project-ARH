@@ -11,7 +11,9 @@ public class AlienCrouchState : AlienBaseState
 
     public override void EnterState()
     {
-        Debug.Log("Hello from CrouchState");
+        //Debug.Log("Hello from CrouchState");
+        
+        Ctx.EatContext.AlienCanEat = false;
 
         var offset = Ctx.BoxCollider.offset;
 
@@ -34,6 +36,7 @@ public class AlienCrouchState : AlienBaseState
 
     protected override void ExitState()
     {
+
         var offset = Ctx.BoxCollider.offset;
 
         var size = Ctx.BoxCollider.size;

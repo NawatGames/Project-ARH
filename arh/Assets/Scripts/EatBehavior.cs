@@ -11,12 +11,23 @@ public class EatBehavior : MonoBehaviour
 
     [SerializeField] private GameObject _edibleObject;
 
+    [SerializeField] private bool _alienCanEat;
     [SerializeField] private bool _objectIsInRange = false;
     [SerializeField] private bool _objectWasEaten;
 
     [SerializeField] private float _throwForce;
     private Rigidbody2D _edibleObjectRigidBody;
 
+
+    #region Getters And Setters
+
+    public bool AlienCanEat
+    {
+        get => _alienCanEat;
+        set => _alienCanEat = value;
+    }
+
+    #endregion
 
     private void Awake()
     {
@@ -45,7 +56,7 @@ public class EatBehavior : MonoBehaviour
 
             //Debug.Log("Cuspi o Objeto");
         }
-        else if (_objectIsInRange && !_objectWasEaten)
+        else if (_alienCanEat && _objectIsInRange && !_objectWasEaten)
         {
             _objectWasEaten = true;
             _edibleObject.SetActive(false);
