@@ -7,13 +7,13 @@ public class LayerMaskCollision : MonoBehaviour
     public LayerMask groundLayer;
 
     [Space]
-    private bool _isGrounded;
+    private bool _isGrounded, _isHittingRoof;
 
     [Space]
     [Header("Collision")]
 
     public float collisionRadius = 0.25f;
-    public Vector2 bottomOffset, rightOffset, leftOffset;
+    public Vector2 bottomOffset, rightOffset, leftOffset, topOffset, size;
     private Color _debugCollisionColor = Color.red;
 
     public UnityEvent<bool> isGroundedChangedEvent;
@@ -27,17 +27,21 @@ public class LayerMaskCollision : MonoBehaviour
         {
             isGroundedChangedEvent.Invoke(_isGrounded);
         }
+
+        var wasHittingRoof = _isHittingRoof;
+        _isHittingRoof = Physics2D.OverlapBox((Vector2)transform.position + topOffset, size, 0f, groundLayer);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
 
-        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset };
+        var positions = new Vector2[] { bottomOffset, rightOffset, leftOffset, topOffset };
 
         var pos = transform.position;
         Gizmos.DrawWireSphere((Vector2)pos  + bottomOffset, collisionRadius);
         Gizmos.DrawWireSphere((Vector2)pos + rightOffset, collisionRadius);
         Gizmos.DrawWireSphere((Vector2)pos + leftOffset, collisionRadius);
+        Gizmos.DrawWireCube((Vector2)pos + topOffset, size);
     }
 }
