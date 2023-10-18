@@ -7,7 +7,7 @@ public class LayerMaskCollision : MonoBehaviour
     public LayerMask groundLayer;
 
     [Space]
-    private bool _isGrounded, _isHittingRoof;
+    public bool _isGrounded, _isHittingRoof;
 
     [Space]
     [Header("Collision")]

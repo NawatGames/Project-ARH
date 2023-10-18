@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba9cf8ad406432abbe274ebce2667fa, type: 3}
   m_Name: AlienData
   m_EditorClassIdentifier: 
-  _crouchSizeMultiplier: 0.75
+  _crouchSizeReduction: 0.4
   moveSpeed: 15
   acceleration: 7
   deceleration: 7

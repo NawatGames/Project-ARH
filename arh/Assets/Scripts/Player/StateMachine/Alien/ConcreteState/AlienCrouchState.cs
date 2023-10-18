@@ -36,7 +36,7 @@ public class AlienCrouchState : AlienBaseState
         var size = Ctx.BoxCollider.size;
         var offset = Ctx.BoxCollider.offset;
         size = new Vector2(size.x, size.y + Ctx._crouchSizeReduction);
-        offset = new Vector2(offset.x, offset.y - (Ctx._crouchSizeReduction/2));
+        offset = new Vector2(offset.x, offset.y + (Ctx._crouchSizeReduction/2));
         Ctx.BoxCollider.size = size;
         Ctx.BoxCollider.offset = offset;
         Ctx.animator.SetBool("IsShrinking", false);
@@ -44,11 +44,15 @@ public class AlienCrouchState : AlienBaseState
 
     public override void CheckSwitchStates()
     {
-        if (!Ctx._isCrouchPressed)
+        if(!Ctx.lmCollision._isHittingRoof)
         {
-            SwitchState(Factory.Grounded());
+            if (!Ctx._isCrouchPressed)
+            {
+                SwitchState(Factory.Grounded());
+            }
         }
-        else if (!Ctx.IsGrounded)
+        
+        if (!Ctx.IsGrounded)
         {
             SwitchState(Factory.Falling());
         }
