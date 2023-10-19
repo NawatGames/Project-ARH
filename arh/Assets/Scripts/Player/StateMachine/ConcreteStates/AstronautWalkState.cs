@@ -10,7 +10,7 @@ namespace Player.StateMachine.ConcreteStates
     
         public override void EnterState()
         {
-            Ctx.animator.SetBool("IsRunning", true);
+            Ctx.animator.SetTrigger("startRunning");
         }
     
         // ReSharper disable Unity.PerformanceAnalysis
@@ -50,7 +50,7 @@ namespace Player.StateMachine.ConcreteStates
 
         protected override void ExitState()
         {
-            Ctx.animator.SetBool("IsRunning", false);
+            
         }
     
         public override void CheckSwitchStates()

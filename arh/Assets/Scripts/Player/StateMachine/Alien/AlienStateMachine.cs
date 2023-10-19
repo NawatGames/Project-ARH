@@ -10,15 +10,15 @@ public class AlienStateMachine : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
     [SerializeField] private GameObject _visualSprite;
-    public Animator animator;
+    [HideInInspector] public Animator animator;
 
-    public LayerMaskCollision _layerMaskCollision;
+    [HideInInspector] public LayerMaskCollision _layerMaskCollision;
     private BoxCollider2D _boxCollider;
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
-    
-    [Space] public UnityEvent jumpCanceledEvent;
-    public UnityEvent isInteractingEvent;
+
+    [HideInInspector] public UnityEvent jumpCanceledEvent;
+    [HideInInspector] public UnityEvent isInteractingEvent;
 
     public bool _isCrouchPressed; 
     public bool _isInteractPressed;

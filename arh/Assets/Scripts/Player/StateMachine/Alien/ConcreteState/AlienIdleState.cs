@@ -9,7 +9,7 @@ public class AlienIdleState : AlienBaseState
         
     public override void EnterState()
     {
-
+        Ctx.animator.SetTrigger("startIdle");
     }
         
     // ReSharper disable Unity.PerformanceAnalysis

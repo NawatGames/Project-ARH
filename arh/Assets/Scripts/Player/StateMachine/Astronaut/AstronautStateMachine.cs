@@ -10,14 +10,14 @@ namespace Player.StateMachine
         
         [SerializeField] private PlayerData.PlayerData playerData;
         [SerializeField] private GameObject sprite;
-        public Animator animator;
+        [HideInInspector] public Animator animator;
 
         private LayerMaskCollision _layerMaskCollision;
         private AstronautStateFactory _states;
         private PlayerInputMap _playerInput;
 
-        [Space] public UnityEvent jumpCanceledEvent;
-        public UnityEvent isInteractingEvent;
+        [HideInInspector] public UnityEvent jumpCanceledEvent;
+        [HideInInspector] public UnityEvent isInteractingEvent;
         
         #region Getters and Setters
         private bool _isInteractPressed { get; set; }
