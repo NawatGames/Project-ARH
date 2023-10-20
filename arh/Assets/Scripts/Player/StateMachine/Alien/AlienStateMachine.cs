@@ -12,9 +12,9 @@ public class AlienStateMachine : MonoBehaviour
     [SerializeField] private GameObject _visualSprite;
     [HideInInspector] public Animator animator;
 
-    [HideInInspector] public LayerMaskCollision _layerMaskCollision;
-
     [HideInInspector] public AlienAnimationEvents animationEventsScript;
+    
+    [SerializeField] private LayerMaskCollision _layerMaskCollision;
 
     private BoxCollider2D _boxCollider;
     private AlienStateFactory _states;
@@ -32,9 +32,8 @@ public class AlienStateMachine : MonoBehaviour
 
     // Crouch
     public bool IsCrouchingPressed => _isCrouchPressed;
-    public float _crouchSizeReduction => playerData._crouchSizeReduction;
+    public float _crouchSizeReduction => playerData.crouchSizeReduction;
     public bool IsStandingUp { get; set; } = false;
-
     
     // Movement
     public float MoveSpeed => playerData.moveSpeed;
@@ -65,7 +64,7 @@ public class AlienStateMachine : MonoBehaviour
     public Rigidbody2D Rb { get; private set; }
     public BoxCollider2D BoxCollider { get; set; }
     public LayerMaskCollision LmCollision => _layerMaskCollision;
-        
+
     #endregion
 
     private void Awake()

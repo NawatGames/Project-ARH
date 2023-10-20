@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class AlienCrouchState : AlienBaseState
 {
-    
-    public AlienCrouchState(AlienStateMachine currentContext, AlienStateFactory alienStateFactory) : base(currentContext, alienStateFactory)
+    public AlienCrouchState(AlienStateMachine currentContext, AlienStateFactory alienStateFactory) : base(
+        currentContext, alienStateFactory)
     {
         IsRootState = true;
     }
@@ -52,23 +52,24 @@ public class AlienCrouchState : AlienBaseState
             if (!Ctx._isCrouchPressed && !Ctx.IsStandingUp)
             {
                 Ctx.IsStandingUp = true;
-                Ctx.animator.SetTrigger("startStandingUp"); // Isso automáticamente causará a troca para o estado Grounded (assim q animação terminar - evento)
+                Ctx.animator.SetTrigger("startStandingUp"); // Isso automï¿½ticamente causarï¿½ a troca para o estado Grounded (assim q animaï¿½ï¿½o terminar - evento)
             }
         }
 
         if(Ctx.IsStandingUp && Ctx.LmCollision._isHittingRoof) // Caso ele saia do teto, comece a levantar e volte pro teto
         {
             Ctx.IsStandingUp = false;
-            Ctx.animator.SetTrigger("startIdleShrunk"); // volta à posição agachado
+            Ctx.animator.SetTrigger("startIdleShrunk"); // volta ï¿½ posiï¿½ï¿½o agachado
         }
         
+
         if (!Ctx.IsGrounded)
         {
             SwitchState(Factory.Falling());
         }
     }
 
-    private void goToGroundedState() // Função que escuta o evento no fim da animação de stand up
+    private void goToGroundedState() // Funï¿½ï¿½o que escuta o evento no fim da animaï¿½ï¿½o de stand up
     {
         Ctx.IsStandingUp = false;
 
