@@ -10,13 +10,14 @@ namespace Player.StateMachine
         
         [SerializeField] private PlayerData.PlayerData playerData;
         [SerializeField] private GameObject sprite;
+        [HideInInspector] public Animator animator;
 
         private LayerMaskCollision _layerMaskCollision;
         private AstronautStateFactory _states;
         private PlayerInputMap _playerInput;
 
-        [Space] public UnityEvent jumpCanceledEvent;
-        public UnityEvent isInteractingEvent;
+        [HideInInspector] public UnityEvent jumpCanceledEvent;
+        [HideInInspector] public UnityEvent isInteractingEvent;
         
         #region Getters and Setters
         private bool _isInteractPressed { get; set; }
@@ -56,6 +57,7 @@ namespace Player.StateMachine
             _playerInput = new PlayerInputMap();
             Rb = GetComponent<Rigidbody2D>();
             _layerMaskCollision = GetComponent<LayerMaskCollision>();
+            animator = sprite.GetComponent<Animator>();
 
             NormalGravityScale = Rb.gravityScale;
             CoyoteTimeCounter = playerData.coyoteTime;
@@ -65,6 +67,7 @@ namespace Player.StateMachine
             // Initialize StateMachine
             _states = new AstronautStateFactory(this);
             CurrentState = _states.Grounded();
+            CurrentState.InitializeSubState();
             CurrentState.EnterState();
         }
 

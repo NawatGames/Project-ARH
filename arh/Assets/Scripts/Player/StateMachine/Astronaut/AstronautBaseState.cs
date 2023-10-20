@@ -41,11 +41,11 @@ namespace Player.StateMachine
             _currentSubState?.PhysicsUpdateState();
         }
 
-        public void ExitStates()
+        /*public void ExitStates()
         {
             ExitState();
             _currentSubState?.ExitStates();
-        }
+        }*/
         
         protected void SwitchState(AstronautBaseState newState)
         {
@@ -55,6 +55,8 @@ namespace Player.StateMachine
 
             if (_isRootState)
             {
+                newState._currentSubState = _currentSubState; // mantém o subState
+                _currentSubState.SetSuperState(newState); // faz do novo estado o superState do sub atual
                 Ctx.CurrentState = newState;
             }
             else
@@ -73,5 +75,6 @@ namespace Player.StateMachine
             _currentSubState = newSubState;
             newSubState.SetSuperState(this);
         }
+        
     }
 }

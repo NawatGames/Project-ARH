@@ -8,7 +8,6 @@ namespace Player.StateMachine.ConcreteStates
             : base(currentContext, astronautStateFactory)
         {
             IsRootState = true;
-            InitializeSubState();
         }
 
         public override void EnterState()
@@ -53,7 +52,6 @@ namespace Player.StateMachine.ConcreteStates
 
         public sealed override void InitializeSubState()
         {
-            SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
         }
     }
 }

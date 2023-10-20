@@ -9,7 +9,14 @@ public class AlienIdleState : AlienBaseState
         
     public override void EnterState()
     {
-
+        if (Ctx.CurrentState is AlienCrouchState && !Ctx.IsStandingUp)
+        {
+            Ctx.animator.SetTrigger("startIdleShrunk");
+        }
+        else if (!Ctx.IsStandingUp) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
+        {
+            Ctx.animator.SetTrigger("startIdle");
+        }
     }
         
     // ReSharper disable Unity.PerformanceAnalysis

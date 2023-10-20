@@ -10,7 +10,14 @@ public class AlienWalkState : AlienBaseState
     
         public override void EnterState()
         {
-
+            if(Ctx.CurrentState is AlienCrouchState && !Ctx.IsStandingUp)
+            {
+                Ctx.animator.SetTrigger("startRunShrunk");
+            }
+            else if(!Ctx.IsStandingUp) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
+        {
+                Ctx.animator.SetTrigger("startRunning");
+            }
         }
     
         // ReSharper disable Unity.PerformanceAnalysis
@@ -50,12 +57,12 @@ public class AlienWalkState : AlienBaseState
 
         protected override void ExitState()
         {
-            
+
         }
     
         public override void CheckSwitchStates()
         {
-            if (Mathf.Abs(Ctx.Rb.velocity.x) < 0.01f)
+            if (Mathf.Abs(Ctx.Rb.velocity.x) < 0.01f && Mathf.Abs(Ctx.CurrentMovementInput) < 0.1)
             {
                 SwitchState(Factory.Idle());
             }

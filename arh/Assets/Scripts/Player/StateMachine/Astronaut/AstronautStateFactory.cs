@@ -23,7 +23,7 @@ namespace Player.StateMachine
 
         public AstronautBaseState Ascend()
         {
-            return new AstrounautAscendingState(_context, this);
+            return new AstronautAscendingState(_context, this);
         }
 
         public AstronautBaseState Apex()
