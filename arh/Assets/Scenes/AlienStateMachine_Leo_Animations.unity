@@ -720,7 +720,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3.817391
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -744,7 +744,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 886970185}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.7, y: -1.53, z: -10}
+  m_LocalPosition: {x: 7.65, y: -1.53, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -836,6 +836,18 @@ PrefabInstance:
     - target: {fileID: 6446490991675213847, guid: 9255dec5097c91544a6277e3bfca8e00, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446490991675213932, guid: 9255dec5097c91544a6277e3bfca8e00, type: 3}
+      propertyPath: bottomOffset.x
+      value: -0.02186048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446490991675213932, guid: 9255dec5097c91544a6277e3bfca8e00, type: 3}
+      propertyPath: bottomOffset.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6446490991675213932, guid: 9255dec5097c91544a6277e3bfca8e00, type: 3}
+      propertyPath: collisionRadius
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9255dec5097c91544a6277e3bfca8e00, type: 3}
@@ -1019,6 +1031,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64e6e7836c65ae5419c00193244c0df6, type: 3}
+--- !u!1 &1514719967 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 624563981283063666, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+  m_PrefabInstance: {fileID: 4314522173337777091}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1514719971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1514719967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6891ee1173f30c24881777efd8c721b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alienStandUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1754570677
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,7 +1404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 624563981954928011, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.33
+      value: -3.27
       objectReference: {fileID: 0}
     - target: {fileID: 624563981954928011, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
       propertyPath: m_LocalPosition.z

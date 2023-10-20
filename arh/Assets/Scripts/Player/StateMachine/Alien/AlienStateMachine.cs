@@ -13,6 +13,9 @@ public class AlienStateMachine : MonoBehaviour
     [HideInInspector] public Animator animator;
 
     [HideInInspector] public LayerMaskCollision _layerMaskCollision;
+
+    [HideInInspector] public AlienAnimationEvents animationEventsScript;
+
     private BoxCollider2D _boxCollider;
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
@@ -20,14 +23,18 @@ public class AlienStateMachine : MonoBehaviour
     [HideInInspector] public UnityEvent jumpCanceledEvent;
     [HideInInspector] public UnityEvent isInteractingEvent;
 
-    public bool _isCrouchPressed; 
+
+    public bool _isCrouchPressed;
     public bool _isInteractPressed;
 
     
     #region Getters and Setters
 
+    // Crouch
     public bool IsCrouchingPressed => _isCrouchPressed;
     public float _crouchSizeReduction => playerData._crouchSizeReduction;
+    public bool IsStandingUp { get; set; } = false;
+
     
     // Movement
     public float MoveSpeed => playerData.moveSpeed;
@@ -57,7 +64,7 @@ public class AlienStateMachine : MonoBehaviour
     public AlienBaseState CurrentState { get; set; }
     public Rigidbody2D Rb { get; private set; }
     public BoxCollider2D BoxCollider { get; set; }
-    public LayerMaskCollision lmCollision => _layerMaskCollision;
+    public LayerMaskCollision LmCollision => _layerMaskCollision;
         
     #endregion
 
@@ -68,6 +75,7 @@ public class AlienStateMachine : MonoBehaviour
         BoxCollider = GetComponent<BoxCollider2D>();
         _layerMaskCollision = GetComponent<LayerMaskCollision>();
         animator = _visualSprite.GetComponent<Animator>();
+        animationEventsScript = _visualSprite.GetComponent<AlienAnimationEvents>();
 
         NormalGravityScale = Rb.gravityScale;
         CoyoteTimeCounter = playerData.coyoteTime;
@@ -77,6 +85,7 @@ public class AlienStateMachine : MonoBehaviour
         // Initialize StateMachine
         _states = new AlienStateFactory(this);
         CurrentState = _states.Grounded();
+        CurrentState.InitializeSubState();
         CurrentState.EnterState();
     }
     
@@ -130,8 +139,6 @@ public class AlienStateMachine : MonoBehaviour
         if (context.performed)
         {
             _isCrouchPressed = context.ReadValueAsButton();
-            Debug.Log("Alien Agachou");
-
         }
         if (context.canceled)
         {

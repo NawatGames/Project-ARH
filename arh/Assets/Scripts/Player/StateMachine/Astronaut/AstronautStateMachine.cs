@@ -67,6 +67,7 @@ namespace Player.StateMachine
             // Initialize StateMachine
             _states = new AstronautStateFactory(this);
             CurrentState = _states.Grounded();
+            CurrentState.InitializeSubState();
             CurrentState.EnterState();
         }
 

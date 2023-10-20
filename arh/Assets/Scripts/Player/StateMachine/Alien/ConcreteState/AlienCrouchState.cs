@@ -6,12 +6,14 @@ public class AlienCrouchState : AlienBaseState
     public AlienCrouchState(AlienStateMachine currentContext, AlienStateFactory alienStateFactory) : base(currentContext, alienStateFactory)
     {
         IsRootState = true;
-        InitializeSubState();
     }
 
     public override void EnterState()
     {
         Debug.Log("Hello from CrouchState");
+
+        Ctx.animationEventsScript.alienStandUpEvent.AddListener(goToGroundedState);
+
         var size = Ctx.BoxCollider.size;
         var offset = Ctx.BoxCollider.offset;
         size = new Vector2(size.x, size.y - Ctx._crouchSizeReduction);
@@ -39,16 +41,25 @@ public class AlienCrouchState : AlienBaseState
         offset = new Vector2(offset.x, offset.y + (Ctx._crouchSizeReduction/2));
         Ctx.BoxCollider.size = size;
         Ctx.BoxCollider.offset = offset;
+
+        Ctx.animationEventsScript.alienStandUpEvent.RemoveListener(goToGroundedState);
     }
 
     public override void CheckSwitchStates()
     {
-        if(!Ctx.lmCollision._isHittingRoof)
+        if(!Ctx.LmCollision._isHittingRoof)
         {
-            if (!Ctx._isCrouchPressed)
+            if (!Ctx._isCrouchPressed && !Ctx.IsStandingUp)
             {
-                SwitchState(Factory.Grounded());
+                Ctx.IsStandingUp = true;
+                Ctx.animator.SetTrigger("startStandingUp"); // Isso automáticamente causará a troca para o estado Grounded (assim q animação terminar - evento)
             }
+        }
+
+        if(Ctx.IsStandingUp && Ctx.LmCollision._isHittingRoof) // Caso ele saia do teto, comece a levantar e volte pro teto
+        {
+            Ctx.IsStandingUp = false;
+            Ctx.animator.SetTrigger("startIdleShrunk"); // volta à posição agachado
         }
         
         if (!Ctx.IsGrounded)
@@ -57,9 +68,24 @@ public class AlienCrouchState : AlienBaseState
         }
     }
 
+    private void goToGroundedState() // Função que escuta o evento no fim da animação de stand up
+    {
+        Ctx.IsStandingUp = false;
+
+        SwitchState(Factory.Grounded());
+        if(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f && Ctx.Rb.velocity.x < 0.01f)
+        {
+            Ctx.animator.SetTrigger("startIdle");
+        }
+        else
+        {
+            Ctx.animator.SetTrigger("startRunning");
+        }
+    }
+
     public override void InitializeSubState()
     {
-        SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
+
     }
 
     protected override void PhysicsUpdateState()

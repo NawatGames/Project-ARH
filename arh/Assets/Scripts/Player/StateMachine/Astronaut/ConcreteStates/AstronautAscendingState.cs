@@ -2,13 +2,12 @@ using UnityEngine;
 
 namespace Player.StateMachine.ConcreteStates
 {
-    public class AstrounautAscendingState : AstronautBaseState
+    public class AstronautAscendingState : AstronautBaseState
     {
-        public AstrounautAscendingState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
+        public AstronautAscendingState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
             : base(currentContext, astronautStateFactory)
         {
             IsRootState = true;
-            InitializeSubState();
         }
         
         public override void EnterState()
@@ -58,7 +57,6 @@ namespace Player.StateMachine.ConcreteStates
         
         public sealed override void InitializeSubState()
         {
-            SetSubState(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f ? Factory.Idle() : Factory.Walk());
         }
 
         private void Jump()

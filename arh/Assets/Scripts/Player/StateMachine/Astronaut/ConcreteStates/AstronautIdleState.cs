@@ -10,6 +10,7 @@ namespace Player.StateMachine.ConcreteStates
         public override void EnterState()
         {
             Ctx.animator.SetTrigger("startIdle");
+            Debug.Log("IDLEE");
         }
         
         // ReSharper disable Unity.PerformanceAnalysis

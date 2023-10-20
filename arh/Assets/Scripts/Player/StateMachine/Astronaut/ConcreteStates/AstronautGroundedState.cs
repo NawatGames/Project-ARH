@@ -8,7 +8,6 @@ namespace Player.StateMachine.ConcreteStates
             : base(currentContext, astronautStateFactory)
         {
             IsRootState = true;
-            InitializeSubState();
         }
 
         public override void EnterState()

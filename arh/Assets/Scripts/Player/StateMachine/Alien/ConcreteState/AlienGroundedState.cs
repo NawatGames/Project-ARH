@@ -6,7 +6,6 @@ public class AlienGroundedState : AlienBaseState
         : base(currentContext, alienStateFactory)
     {
         IsRootState = true;
-        InitializeSubState();
     }
 
     public override void EnterState()
