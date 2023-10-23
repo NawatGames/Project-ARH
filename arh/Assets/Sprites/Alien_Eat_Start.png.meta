@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 335b35743f52fba4d863e63d2ee009fa
+guid: 8c36924c9bf601642ba68ef151761b05
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,12 +33,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_0
+      name: Alien_Eat_Start_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1d06fff3f11f204a9df9d662edc24e2
-      internalID: -150952880
+      spriteID: ec94abae1a51e53428bfa6bd4c660f64
+      internalID: -1944235887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_1
+      name: Alien_Eat_Start_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a27f39d500c9b64fa361f87ffc0df63
-      internalID: 1059714195
+      spriteID: e44b857c45a45724582c1caed1102b80
+      internalID: -781449682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_2
+      name: Alien_Eat_Start_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,113 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7055cd95ad3eace4daf908bd0e99904e
-      internalID: -1812060608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1b8bf0ac32f19ba4884d04cff17218c7
-      internalID: 98791913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9db37a5b568e5674a9ef57c4ff0faa8a
-      internalID: -186418355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fccd1499c5b66c445b7cf19db256674b
-      internalID: -1860487291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00953589e7d6a474f9d022b07422a4d6
-      internalID: 1565258338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa0c34b4e5a0f0540bbc8d7f27f95ced
-      internalID: -29521090
+      spriteID: 37e05eedc02174b48887a0b82630e20d
+      internalID: -1210153399
       vertices: []
       indices: 
       edges: []
@@ -283,14 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Alien_lowering-Sheet_0: -150952880
-      Alien_lowering-Sheet_1: 1059714195
-      Alien_lowering-Sheet_2: -1812060608
-      Alien_lowering-Sheet_3: 98791913
-      Alien_lowering-Sheet_4: -186418355
-      Alien_lowering-Sheet_5: -1860487291
-      Alien_lowering-Sheet_6: 1565258338
-      Alien_lowering-Sheet_7: -29521090
+      Alien_Eat_Start_0: -1944235887
+      Alien_Eat_Start_1: -781449682
+      Alien_Eat_Start_2: -1210153399
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
