@@ -37,7 +37,7 @@ public class EatBehavior : MonoBehaviour
 
     public void EatObject()
     {
-        if (_objectWasEaten)
+        if (_objectWasEaten && _alienCanEat)
         {
             // Cospe o Objeto com uma certa força
             _objectWasEaten = false;
