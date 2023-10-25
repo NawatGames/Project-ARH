@@ -49,6 +49,7 @@ namespace Player.StateMachine
         public GameObject Sprite => sprite;
         public AstronautBaseState CurrentState { get; set; }
         public Rigidbody2D Rb { get; private set; }
+        public SoundEffectAudioPlayer audioPlayer { get; private set; }
         
         #endregion
         
@@ -56,6 +57,7 @@ namespace Player.StateMachine
         {
             _playerInput = new PlayerInputMap();
             Rb = GetComponent<Rigidbody2D>();
+            audioPlayer = GetComponent<SoundEffectAudioPlayer>();
             _layerMaskCollision = GetComponent<LayerMaskCollision>();
             animator = sprite.GetComponent<Animator>();
 
