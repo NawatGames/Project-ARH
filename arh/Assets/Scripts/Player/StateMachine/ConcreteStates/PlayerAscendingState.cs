@@ -19,6 +19,7 @@ namespace Player.StateMachine.ConcreteStates
             Ctx.CoyoteTimeCounter = 0;
             
             Jump();
+            Ctx.audioPlayer.PlayJump();
         }
 
         protected override void UpdateState()
