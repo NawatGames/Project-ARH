@@ -1383,6 +1383,18 @@ PrefabInstance:
       propertyPath: size.x
       value: 0.67
       objectReference: {fileID: 0}
+    - target: {fileID: 2641296809457265092, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: _isGrounded
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641296809457265092, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: bottomOffset.y
+      value: -0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641296809457265092, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: collisionRadius
+      value: 0.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
 --- !u!1001 &8335313524245345824
