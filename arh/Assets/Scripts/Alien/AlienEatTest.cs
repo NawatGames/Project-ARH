@@ -6,29 +6,39 @@ using DG.Tweening.Core;
 
 public class AlienEatTest : MonoBehaviour
 {
-    public GameObject AlienNeck;
-    public GameObject AlienHead;
-    public Animator AlienAnimator;
-    public SpriteRenderer AlienRenderer;
-    public bool IsEating;
+    public GameObject alienNeck;
+    public GameObject alienHead;
+    public Animator alienAnimator;
+    public SpriteRenderer alienRenderer;
+    public bool isEating;
+    public float headMoveTime = 1.0f;
+    public float foodSize;
+    public float headMoveDistance;
+    private Vector2 originalNeckScale;
+    private Vector3 originalHeadPos;
 
     void Awake()
     {
-        IsEating = false;
-        AlienAnimator = gameObject.GetComponent<Animator>();
-        AlienRenderer = gameObject.GetComponent<SpriteRenderer>();
+        isEating = false;
+        alienAnimator = gameObject.GetComponent<Animator>();
+        alienRenderer = gameObject.GetComponent<SpriteRenderer>();
+        originalHeadPos = alienHead.transform.position;
+        originalNeckScale = alienNeck.transform.localScale;
+        headMoveDistance = foodSize/8;
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.F))
         {
-            if(IsEating == false)
+            if(isEating == false)
             {
-                IsEating = true;
-                AlienAnimator.SetBool("StartedEating", true);
-                AlienNeck.GetComponent<SpriteRenderer>().enabled = true;
+                isEating = true;
+                alienAnimator.SetBool("StartedEating", true);
+                alienNeck.GetComponent<SpriteRenderer>().enabled = true;
                 StartCoroutine(EatStartCountdown());
+                isEating = false;
+                alienAnimator.SetBool("FinishedEating", false);
             }
         }
     }
@@ -36,6 +46,16 @@ public class AlienEatTest : MonoBehaviour
     IEnumerator EatStartCountdown()
     {
         yield return new WaitForSeconds(0.73f);
-        AlienHead.GetComponent<SpriteRenderer>().enabled = true;
+        alienHead.GetComponent<SpriteRenderer>().enabled = true;
+        yield return new WaitForSeconds(0.5f);
+        alienHead.transform.DOMoveY(headMoveDistance, headMoveTime);
+        alienNeck.transform.DOScaleY(foodSize, 0.5f);
+        yield return new WaitForSeconds(1.5f);
+        alienHead.transform.position = originalHeadPos;
+        alienNeck.transform.localScale = originalNeckScale;
+        alienNeck.GetComponent<SpriteRenderer>().enabled = false;
+        alienHead.GetComponent<SpriteRenderer>().enabled = false;
+        alienAnimator.SetBool("FinishedEating", true);
+        alienAnimator.SetBool("StartedEating", false);
     }
 }
