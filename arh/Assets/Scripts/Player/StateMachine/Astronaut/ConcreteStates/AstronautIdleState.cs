@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.StateMachine.ConcreteStates
+namespace Player.StateMachine.Astronaut.ConcreteStates
 {
     public class AstronautIdleState : AstronautBaseState
     {
@@ -9,14 +9,21 @@ namespace Player.StateMachine.ConcreteStates
         
         public override void EnterState()
         {
-            Ctx.animator.SetTrigger("startIdle");
-            Debug.Log("IDLEE");
+            if (Ctx.CurrentState is AstronautGroundedState)
+            {
+                Ctx.ChangeAnimation("AstronautIdle");
+            }
         }
         
         // ReSharper disable Unity.PerformanceAnalysis
         protected override void UpdateState()
         {
             CheckSwitchStates();
+            
+            if (Ctx.CurrentState is AstronautGroundedState)
+            {
+                Ctx.ChangeAnimation("AstronautIdle");
+            }
         }
 
         protected override void PhysicsUpdateState()

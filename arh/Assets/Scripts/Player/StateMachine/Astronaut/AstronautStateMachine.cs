@@ -1,9 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-namespace Player.StateMachine
+namespace Player.StateMachine.Astronaut
 {
     public class AstronautStateMachine : MonoBehaviour
     {
@@ -15,12 +14,13 @@ namespace Player.StateMachine
         private LayerMaskCollision _layerMaskCollision;
         private AstronautStateFactory _states;
         private PlayerInputMap _playerInput;
+        private string currentAnimation;
 
         [HideInInspector] public UnityEvent jumpCanceledEvent;
         [HideInInspector] public UnityEvent isInteractingEvent;
         
         #region Getters and Setters
-        private bool _isInteractPressed { get; set; }
+        private bool IsInteractPressed { get; set; }
         
         // Movement
         public float MoveSpeed => playerData.moveSpeed;
@@ -107,7 +107,7 @@ namespace Player.StateMachine
         {
             if (context.performed)
             {
-                _isInteractPressed = context.ReadValueAsButton();
+                IsInteractPressed = context.ReadValueAsButton();
                 isInteractingEvent.Invoke();
                  //Debug.Log("Astronauta Interagiu");
             }
@@ -143,6 +143,15 @@ namespace Player.StateMachine
         public void SetVelocity(float x, float y)
         {
             Rb.velocity = new Vector2(x, y);
+        }
+
+        public void ChangeAnimation(string newAnimation)
+        {
+            if (currentAnimation == newAnimation) return;
+         
+            // Debug.Log("Animation Changed");
+            animator.Play(newAnimation);
+            currentAnimation = newAnimation;
         }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.StateMachine.ConcreteStates
+namespace Player.StateMachine.Astronaut.ConcreteStates
 {
     public class AstronautFallingState : AstronautBaseState
     {
@@ -12,7 +12,10 @@ namespace Player.StateMachine.ConcreteStates
         
         public override void EnterState()
         {
+            Debug.Log("ASTRONAUT FALLING");
+            
             Ctx.Rb.gravityScale *= Ctx.FallGravityMultiplier;
+            Ctx.ChangeAnimation("AstronautFalling");
         }
 
         protected override void UpdateState()
