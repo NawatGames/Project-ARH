@@ -6,8 +6,34 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/AlienStateMachine_Leo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/AlienStateMachine_Leo.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/LayerMaskCollision/LayerMaskCollision.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/LayerMaskCollision/LayerMaskCollision.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ButtomBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ButtomBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienStateFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienStateFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienAscendingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienCrouchState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienCrouchState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienFallingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautApexState.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautApexState.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animations/AstronautJumping.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Animations/AstronautJumping.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautIdle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautIdle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautJumping.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautJumping.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +76,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;player__statemachine__leo__e__andre&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;astronaut-jump-animation-andre&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -68,7 +94,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programas\Unity\Editor\2021.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\kaive\Documents\NAWAT\Project-ARH\arh -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kaive\Documents\NAWAT\Project-ARH\arh" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -157,6 +183,9 @@
       <workItem from="1696937053943" duration="5410000" />
       <workItem from="1696982305124" duration="2616000" />
       <workItem from="1697056121456" duration="726000" />
+      <workItem from="1698272086336" duration="2395000" />
+      <workItem from="1698792666891" duration="5844000" />
+      <workItem from="1698873874765" duration="308000" />
     </task>
     <servers />
   </component>

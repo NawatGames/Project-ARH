@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Player.StateMachine.ConcreteStates
+namespace Player.StateMachine.Astronaut.ConcreteStates
 {
     public class AstronautWalkState : AstronautBaseState
     {
@@ -10,7 +10,10 @@ namespace Player.StateMachine.ConcreteStates
     
         public override void EnterState()
         {
-            Ctx.animator.SetTrigger("startRunning");
+            if (Ctx.CurrentState is AstronautGroundedState)
+            {
+                Ctx.ChangeAnimation("AstronautWalk");
+            }
         }
     
         // ReSharper disable Unity.PerformanceAnalysis
@@ -21,6 +24,11 @@ namespace Player.StateMachine.ConcreteStates
                 Flip();
             }
             CheckSwitchStates();
+            
+            if (Ctx.CurrentState is AstronautGroundedState)
+            {
+                Ctx.ChangeAnimation("AstronautWalk");
+            }
         }
 
         protected override void PhysicsUpdateState()
