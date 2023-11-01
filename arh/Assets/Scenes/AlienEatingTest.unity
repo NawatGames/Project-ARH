@@ -307,6 +307,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 754192746}
     - target: {fileID: 1654482005148028577, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
+      propertyPath: headMoveTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654482005148028577, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
       propertyPath: alienAnimator
       value: 
       objectReference: {fileID: 958095496}

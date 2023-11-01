@@ -11,7 +11,7 @@ public class AlienEatTest : MonoBehaviour
     public Animator alienAnimator;
     public SpriteRenderer alienRenderer;
     public bool isEating;
-    public float headMoveTime = 1.0f;
+    public float headMoveTime;
     public float foodSize;
     public float headMoveDistance;
     private Vector2 originalNeckScale;
@@ -22,13 +22,14 @@ public class AlienEatTest : MonoBehaviour
         isEating = false;
         alienAnimator = gameObject.GetComponent<Animator>();
         alienRenderer = gameObject.GetComponent<SpriteRenderer>();
-        originalHeadPos = alienHead.transform.position;
         originalNeckScale = alienNeck.transform.localScale;
-        headMoveDistance = foodSize/8;
+        headMoveDistance = foodSize/2;
     }
 
     void Update()
     {
+        headMoveDistance = foodSize/2;
+
         if(Input.GetKeyDown(KeyCode.F))
         {
             if(isEating == false)
@@ -47,11 +48,14 @@ public class AlienEatTest : MonoBehaviour
     {
         yield return new WaitForSeconds(0.73f);
         alienHead.GetComponent<SpriteRenderer>().enabled = true;
+        originalHeadPos = alienHead.transform.position;
+        Debug.Log(originalHeadPos.ToString());
         yield return new WaitForSeconds(0.5f);
-        alienHead.transform.DOMoveY(headMoveDistance, headMoveTime);
+        alienHead.transform.DOLocalMoveY(headMoveDistance, headMoveTime);
         alienNeck.transform.DOScaleY(foodSize, 0.5f);
-        yield return new WaitForSeconds(1.5f);
-        alienHead.transform.position = originalHeadPos;
+        yield return new WaitForSeconds(1.0f);
+        //alienHead.transform.DOLocalMoveY(originalHeadPos.y, headMoveTime);
+        alienHead.transform.DOLocalMoveY(-0.0378f, headMoveTime);
         alienNeck.transform.localScale = originalNeckScale;
         alienNeck.GetComponent<SpriteRenderer>().enabled = false;
         alienHead.GetComponent<SpriteRenderer>().enabled = false;
