@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienCrouchState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienCrouchState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Alien_lowering-Sheet.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Alien_lowering-Sheet.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerData/AstronautData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerData/AstronautData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Alien.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Alien.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,6 +161,8 @@
       <workItem from="1696982305124" duration="2616000" />
       <workItem from="1697056121456" duration="726000" />
       <workItem from="1698274569069" duration="3844000" />
+      <workItem from="1698710841817" duration="656000" />
+      <workItem from="1698756575548" duration="2213000" />
     </task>
     <servers />
   </component>
