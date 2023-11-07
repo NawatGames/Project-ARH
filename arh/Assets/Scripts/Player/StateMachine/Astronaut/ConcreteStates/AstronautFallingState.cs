@@ -41,6 +41,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
                 }
                 else if (Ctx.ExtraJumpsCounter > 0)
                 {
+                    // Double Jump
                     Ctx.ExtraJumpsCounter -= 1;
                     SwitchState(Factory.Ascend());
                 }
@@ -51,6 +52,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
 
         public sealed override void InitializeSubState()
         {
+            
         }
 
         protected override void PhysicsUpdateState()

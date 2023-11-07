@@ -42,22 +42,17 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
         // ReSharper disable Unity.PerformanceAnalysis
         public override void CheckSwitchStates()
         {
-            #region Double Jump
-            
             if (Ctx.JumpBufferCounter > 0.01f && Ctx.ExtraJumpsCounter > 0)
             {
+                // Double Jump
                 Ctx.ExtraJumpsCounter -= 1;
                 SwitchState(Factory.Ascend());
             }
-            
-            #endregion
             
             if (Ctx.Rb.velocity.y < 0)
             {
                 SwitchState(Factory.Falling());
             }
-            
-            // if (Ctx.IsGrounded) SwitchState(Factory.Grounded());
         }
         
         public sealed override void InitializeSubState()
