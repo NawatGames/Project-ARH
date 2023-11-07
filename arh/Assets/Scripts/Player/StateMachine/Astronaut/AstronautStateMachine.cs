@@ -36,8 +36,6 @@ namespace Player.StateMachine.Astronaut
         public float JumpCutMultiplier => playerData.jumpCutMultiplier;
         public float FallGravityMultiplier => playerData.fallGravityMultiplier;
         public float MaxFallSpeed => playerData.maxFallSpeed;
-        public float JumpApexThreshold => playerData.jumpApexThreshold;
-        public float ApexBonus => playerData.apexBonus;
         public float NormalGravityScale { get; private set; }
         public bool IsGrounded { get; private set; }
 
@@ -145,10 +143,16 @@ namespace Player.StateMachine.Astronaut
 
         public void ChangeAnimation(string newAnimation)
         {
+            if (newAnimation == "AstronautAscending")
+            {
+                animator.Play(newAnimation, -1, 0f);
+                currentAnimation = newAnimation;
+                return;
+            }
+            
             if (currentAnimation == newAnimation) return;
-         
-            // Debug.Log("Animation Changed");
-            animator.Play(newAnimation);
+            
+            animator.Play(newAnimation, -1, 0f);
             currentAnimation = newAnimation;
         }
     }
