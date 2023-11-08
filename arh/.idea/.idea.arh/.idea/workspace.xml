@@ -6,9 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerData/AstronautData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerData/AstronautData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Alien.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Alien.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +53,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;astronaut-jump-animation-andre&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;player__statemachine__leo__e__andre&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -69,7 +71,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="E:\Programas\Unity\Editor\2021.3.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\kaive\Documents\NAWAT\Project-ARH\arh -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kaive\Documents\NAWAT\Project-ARH\arh" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -158,11 +160,10 @@
       <workItem from="1696937053943" duration="5410000" />
       <workItem from="1696982305124" duration="2616000" />
       <workItem from="1697056121456" duration="726000" />
-      <workItem from="1698272086336" duration="2395000" />
-      <workItem from="1698792666891" duration="5844000" />
-      <workItem from="1698873874765" duration="1115000" />
-      <workItem from="1698906764344" duration="1163000" />
-      <workItem from="1699315778531" duration="333000" />
+      <workItem from="1698274569069" duration="3844000" />
+      <workItem from="1698710841817" duration="656000" />
+      <workItem from="1698756575548" duration="2213000" />
+      <workItem from="1698881012208" duration="611000" />
     </task>
     <servers />
   </component>
