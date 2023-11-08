@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Player.StateMachine;
+using Player.StateMachine.Astronaut;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;

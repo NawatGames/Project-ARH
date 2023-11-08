@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.StateMachine.ConcreteStates
+namespace Player.StateMachine.Astronaut.ConcreteStates
 {
     public class AstronautFallingState : AstronautBaseState
     {
@@ -12,7 +12,10 @@ namespace Player.StateMachine.ConcreteStates
         
         public override void EnterState()
         {
+            Debug.Log("ASTRONAUT FALLING");
+            
             Ctx.Rb.gravityScale *= Ctx.FallGravityMultiplier;
+            Ctx.ChangeAnimation("AstronautFalling");
         }
 
         protected override void UpdateState()
@@ -38,6 +41,7 @@ namespace Player.StateMachine.ConcreteStates
                 }
                 else if (Ctx.ExtraJumpsCounter > 0)
                 {
+                    // Double Jump
                     Ctx.ExtraJumpsCounter -= 1;
                     SwitchState(Factory.Ascend());
                 }
@@ -48,6 +52,7 @@ namespace Player.StateMachine.ConcreteStates
 
         public sealed override void InitializeSubState()
         {
+            
         }
 
         protected override void PhysicsUpdateState()
