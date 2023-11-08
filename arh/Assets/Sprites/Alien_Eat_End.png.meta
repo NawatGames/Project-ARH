@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fe38d501799f62745a5f14aed417b49d
+guid: 52c8920cbd3ee0d44b73031e6337a5bf
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -33,12 +33,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_0
+      name: Alien_Eat_End 1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dc136284d19f4fb45bf68af51d137858
-      internalID: -2060956724
+      spriteID: fd0ed98b2477b5b499b5c8cf2bc90806
+      internalID: -1757016378
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_1
+      name: Alien_Eat_End 1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9d556a664f2f66148a8880d596fc3866
-      internalID: -1523010952
+      spriteID: 0647369314ec3a04bae95a89dd67fd1d
+      internalID: -1025808237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_2
+      name: Alien_Eat_End 1_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffdcfe88833256749b6ef105dcfa4742
-      internalID: -1240609357
+      spriteID: e9753c2d3a9283a45a86338cbddb95a5
+      internalID: 2012162223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_3
+      name: Alien_Eat_End 1_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3720d39471494a458b9790832c5d91f
-      internalID: -2086138560
+      spriteID: 4033c12e00b2f7842a767709ec13e8f3
+      internalID: -925110400
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_4
+      name: Alien_Eat_End 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -203,113 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a03318cddd09e03409cafc2c70ca4dad
-      internalID: -1752781984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 444a1f746e752654faf4ed22f84d6ccd
-      internalID: 1340609550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb78e2c5acd91944d80ebea74f503b82
-      internalID: 1477115475
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b87830324ebaedd44b33833985bc7a19
-      internalID: 2068240711
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_8
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 529a19861efee33449f0d644f0cbbfcd
-      internalID: 1862129419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_Idle_2.0_32p_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 303bae8d70b589b49a33f7fc5d00383d
-      internalID: 1407280032
+      spriteID: e3b3e3cd30bb23e43bc7d8677b183806
+      internalID: -1778138339
       vertices: []
       indices: 
       edges: []
@@ -325,16 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Alien_Idle_2.0_32p_0: -2060956724
-      Alien_Idle_2.0_32p_1: -1523010952
-      Alien_Idle_2.0_32p_2: -1240609357
-      Alien_Idle_2.0_32p_3: -2086138560
-      Alien_Idle_2.0_32p_4: -1752781984
-      Alien_Idle_2.0_32p_5: 1340609550
-      Alien_Idle_2.0_32p_6: 1477115475
-      Alien_Idle_2.0_32p_7: 2068240711
-      Alien_Idle_2.0_32p_8: 1862129419
-      Alien_Idle_2.0_32p_9: 1407280032
+      Alien_Eat_End 1_0: -1757016378
+      Alien_Eat_End 1_1: -1025808237
+      Alien_Eat_End 1_2: 2012162223
+      Alien_Eat_End 1_3: -925110400
+      Alien_Eat_End 1_4: -1778138339
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
