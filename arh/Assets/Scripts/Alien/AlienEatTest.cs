@@ -56,9 +56,11 @@ public class AlienEatTest : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         alienHead.transform.DOLocalMoveY(-0.0378f, headMoveTime);
         alienNeck.transform.DOScaleY(originalNeckScale.y, 0.5f);
+        //comentar os dois tween de cima e descomentar o localscale de baixo se quiser que corte direto pro final da ainmação
         yield return new WaitForSeconds(0.5f);
         alienNeck.GetComponent<SpriteRenderer>().enabled = false;
         alienHead.GetComponent<SpriteRenderer>().enabled = false;
+        //alienNeck.transform.DOScaleY(originalNeckScale.y, 0.5f);
         alienAnimator.SetBool("FinishedEating", true);
         alienAnimator.SetBool("StartedEating", false);
     }
