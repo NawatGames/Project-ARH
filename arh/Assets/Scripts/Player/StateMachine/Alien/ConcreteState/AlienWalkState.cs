@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Player.StateMachine.Alien;
 using UnityEngine;
 
 public class AlienWalkState : AlienBaseState
@@ -16,7 +15,7 @@ public class AlienWalkState : AlienBaseState
                 Ctx.animator.SetTrigger("startRunShrunk");
             }
             else if(!Ctx.IsStandingUp) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
-            {
+        {
                 Ctx.animator.SetTrigger("startRunning");
             }
         }

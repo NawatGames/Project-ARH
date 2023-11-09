@@ -1,4 +1,3 @@
-using Player.StateMachine.Alien;
 using UnityEngine;
 
 public class AlienCrouchState : AlienBaseState

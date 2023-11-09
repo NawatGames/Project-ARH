@@ -1,5 +1,4 @@
 using Player.StateMachine;
-using Player.StateMachine.Alien;
 using UnityEngine;
 
 public abstract class AlienBaseState
@@ -56,7 +55,7 @@ public abstract class AlienBaseState
 
         if (_isRootState)
         {
-            newState._currentSubState = _currentSubState; // mantÃ©m o subState
+            newState._currentSubState = _currentSubState; // mantém o subState
             _currentSubState.SetSuperState(newState); // faz do novo estado o superState do sub atual
             Ctx.CurrentState = newState;
         }

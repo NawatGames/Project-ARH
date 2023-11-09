@@ -1,7 +1,6 @@
 using Player.StateMachine.Alien.ConcreteState;
+using Player.StateMachine.ConcreteStates;
 
-namespace Player.StateMachine.Alien
-{
     public class AlienStateFactory
     {
         private readonly AlienStateMachine _context;
@@ -46,4 +45,3 @@ namespace Player.StateMachine.Alien
             return new AlienCrouchState(_context, this);
         }
     }
-}
