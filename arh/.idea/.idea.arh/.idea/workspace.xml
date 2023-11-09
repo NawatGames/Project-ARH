@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerData/AstronautData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerData/AstronautData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Alien.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Alien.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Animations/Astronaut/AstronautRun.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/pasta/Player.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,24 +19,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f712b1dc50b4468388b9c5f95d0d0eaf159e00/6c/117fe089/Component.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Desktop/FrontFootAnimationHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$USER_HOME$/Desktop/MemberAnimationHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatBehavior.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienBaseState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/AlienStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienApexState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienCrouchState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Alien/ConcreteState/AlienGroundedState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Utilities/DelegateHelpers.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatBehavior.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 6
-}</component>
   <component name="ProjectId" id="2PzZgyCxm44d2J4aWhl2QoWV8MC" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -47,13 +33,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent">
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+  </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;player__statemachine__leo__e__andre&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;astronaut-jump-animation-andre&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -71,7 +61,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Programas\Unity\Editor\2021.3.25f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.25f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath C:\Users\kaive\Documents\NAWAT\Project-ARH\arh -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\kaive\Documents\NAWAT\Project-ARH\arh" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -160,10 +150,11 @@
       <workItem from="1696937053943" duration="5410000" />
       <workItem from="1696982305124" duration="2616000" />
       <workItem from="1697056121456" duration="726000" />
-      <workItem from="1698274569069" duration="3844000" />
-      <workItem from="1698710841817" duration="656000" />
-      <workItem from="1698756575548" duration="2213000" />
-      <workItem from="1698881012208" duration="611000" />
+      <workItem from="1698272086336" duration="2395000" />
+      <workItem from="1698792666891" duration="5844000" />
+      <workItem from="1698873874765" duration="1115000" />
+      <workItem from="1698906764344" duration="1163000" />
+      <workItem from="1699315778531" duration="333000" />
     </task>
     <servers />
   </component>
