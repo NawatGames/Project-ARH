@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 335b35743f52fba4d863e63d2ee009fa
+guid: 14a24f345a6c9c84e9ed6d9b8d11c2b3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_0
+      name: Alien Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1d06fff3f11f204a9df9d662edc24e2
-      internalID: -150952880
+      spriteID: 3fe445e1dca348449b702c0937ff9d73
+      internalID: -1086544868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_1
+      name: Alien Idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2a27f39d500c9b64fa361f87ffc0df63
-      internalID: 1059714195
+      spriteID: 29ef35186dc87b144b02bbd5712ac772
+      internalID: 1890550735
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_2
+      name: Alien Idle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7055cd95ad3eace4daf908bd0e99904e
-      internalID: -1812060608
+      spriteID: 576bcd43f32cc604db3dfa2fed5d0556
+      internalID: -1675741295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_3
+      name: Alien Idle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b8bf0ac32f19ba4884d04cff17218c7
-      internalID: 98791913
+      spriteID: 5cc43d9bf96b32b4cb6c21807e8c40a2
+      internalID: 2113208341
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Alien_lowering-Sheet_4
+      name: Alien Idle_4
       rect:
         serializedVersion: 2
         x: 128
@@ -203,71 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9db37a5b568e5674a9ef57c4ff0faa8a
-      internalID: -186418355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fccd1499c5b66c445b7cf19db256674b
-      internalID: -1860487291
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00953589e7d6a474f9d022b07422a4d6
-      internalID: 1565258338
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Alien_lowering-Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: aa0c34b4e5a0f0540bbc8d7f27f95ced
-      internalID: -29521090
+      spriteID: a24f5b337b07a094bbe66ec2abb640c8
+      internalID: 1502088728
       vertices: []
       indices: 
       edges: []
@@ -283,14 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Alien_lowering-Sheet_0: -150952880
-      Alien_lowering-Sheet_1: 1059714195
-      Alien_lowering-Sheet_2: -1812060608
-      Alien_lowering-Sheet_3: 98791913
-      Alien_lowering-Sheet_4: -186418355
-      Alien_lowering-Sheet_5: -1860487291
-      Alien_lowering-Sheet_6: 1565258338
-      Alien_lowering-Sheet_7: -29521090
+      Alien Idle_0: -1086544868
+      Alien Idle_1: 1890550735
+      Alien Idle_2: -1675741295
+      Alien Idle_3: 2113208341
+      Alien Idle_4: 1502088728
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
