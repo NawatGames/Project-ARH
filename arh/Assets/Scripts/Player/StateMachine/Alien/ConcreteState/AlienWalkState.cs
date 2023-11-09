@@ -63,7 +63,7 @@ public class AlienWalkState : AlienBaseState
     
         public override void CheckSwitchStates()
         {
-            if (Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f)
+            if (Mathf.Abs(Ctx.Rb.velocity.x) < 0.01f && Mathf.Abs(Ctx.CurrentMovementInput) < 0.1)
             {
                 SwitchState(Factory.Idle());
             }
