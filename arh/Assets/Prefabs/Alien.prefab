@@ -80,9 +80,9 @@ MonoBehaviour:
     m_Bits: 8
   _isGrounded: 0
   _isHittingRoof: 0
-  size: {x: 0.79, y: 0.1}
-  collisionRadius: 0.37
-  bottomOffset: {x: 0, y: -0.13}
+  size: {x: 0.67, y: 0.1}
+  collisionRadius: 0.25
+  bottomOffset: {x: 0, y: -0.26}
   rightOffset: {x: 0, y: 0}
   leftOffset: {x: 0, y: 0}
   topOffset: {x: 0.06, y: 0.46}
