@@ -1,6 +1,6 @@
-using Player.StateMachine.Astronaut.ConcreteStates;
+using Player.StateMachine.ConcreteStates;
 
-namespace Player.StateMachine.Astronaut
+namespace Player.StateMachine
 {
     public class AstronautStateFactory
     {
@@ -24,6 +24,11 @@ namespace Player.StateMachine.Astronaut
         public AstronautBaseState Ascend()
         {
             return new AstronautAscendingState(_context, this);
+        }
+
+        public AstronautBaseState Apex()
+        {
+            return new AstronautApexState(_context, this);
         }
         
         public AstronautBaseState Falling()

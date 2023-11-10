@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
-namespace Player.StateMachine.Astronaut
+namespace Player.StateMachine
 {
     public class AstronautStateMachine : MonoBehaviour
     {
@@ -14,13 +15,12 @@ namespace Player.StateMachine.Astronaut
         private LayerMaskCollision _layerMaskCollision;
         private AstronautStateFactory _states;
         private PlayerInputMap _playerInput;
-        private string currentAnimation;
 
         [HideInInspector] public UnityEvent jumpCanceledEvent;
         [HideInInspector] public UnityEvent isInteractingEvent;
         
         #region Getters and Setters
-        private bool IsInteractPressed { get; set; }
+        private bool _isInteractPressed { get; set; }
         
         // Movement
         public float MoveSpeed => playerData.moveSpeed;
@@ -36,6 +36,8 @@ namespace Player.StateMachine.Astronaut
         public float JumpCutMultiplier => playerData.jumpCutMultiplier;
         public float FallGravityMultiplier => playerData.fallGravityMultiplier;
         public float MaxFallSpeed => playerData.maxFallSpeed;
+        public float JumpApexThreshold => playerData.jumpApexThreshold;
+        public float ApexBonus => playerData.apexBonus;
         public float NormalGravityScale { get; private set; }
         public bool IsGrounded { get; private set; }
 
@@ -47,7 +49,6 @@ namespace Player.StateMachine.Astronaut
         public GameObject Sprite => sprite;
         public AstronautBaseState CurrentState { get; set; }
         public Rigidbody2D Rb { get; private set; }
-        public SoundEffectAudioPlayer audioPlayer { get; private set; }
         
         #endregion
         
@@ -55,7 +56,6 @@ namespace Player.StateMachine.Astronaut
         {
             _playerInput = new PlayerInputMap();
             Rb = GetComponent<Rigidbody2D>();
-            audioPlayer = GetComponent<SoundEffectAudioPlayer>();
             _layerMaskCollision = GetComponent<LayerMaskCollision>();
             animator = sprite.GetComponent<Animator>();
 
@@ -105,7 +105,7 @@ namespace Player.StateMachine.Astronaut
         {
             if (context.performed)
             {
-                IsInteractPressed = context.ReadValueAsButton();
+                _isInteractPressed = context.ReadValueAsButton();
                 isInteractingEvent.Invoke();
                  //Debug.Log("Astronauta Interagiu");
             }
@@ -141,21 +141,6 @@ namespace Player.StateMachine.Astronaut
         public void SetVelocity(float x, float y)
         {
             Rb.velocity = new Vector2(x, y);
-        }
-
-        public void ChangeAnimation(string newAnimation)
-        {
-            if (newAnimation == "AstronautAscending")
-            {
-                animator.Play(newAnimation, -1, 0f);
-                currentAnimation = newAnimation;
-                return;
-            }
-            
-            if (currentAnimation == newAnimation) return;
-            
-            animator.Play(newAnimation, -1, 0f);
-            currentAnimation = newAnimation;
         }
     }
 }

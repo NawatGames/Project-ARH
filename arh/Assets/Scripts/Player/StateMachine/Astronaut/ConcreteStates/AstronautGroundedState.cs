@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.StateMachine.Astronaut.ConcreteStates
+namespace Player.StateMachine.ConcreteStates
 {
     public class AstronautGroundedState : AstronautBaseState
     {
@@ -12,10 +12,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
 
         public override void EnterState()
         {
-            Debug.Log("ASTRONAUT GROUNDED!");
-            
             Ctx.ResetJumpCount();
-            Ctx.ChangeAnimation("AstronautIdle");
         }
 
         // ReSharper disable Unity.PerformanceAnalysis
@@ -23,13 +20,11 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
         {
             Ctx.ResetCoyoteTime();
             CheckSwitchStates();
-
-            // Ctx.ChangeAnimation(Ctx.Rb.velocity.x != 0 ? "AstronautWalk" : "AstronautIdle");
         }
 
         protected override void PhysicsUpdateState()
         {
-
+            
         }
 
         protected override void ExitState()

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Player.StateMachine.Alien;
 using UnityEngine;
 
 public class AlienIdleState : AlienBaseState

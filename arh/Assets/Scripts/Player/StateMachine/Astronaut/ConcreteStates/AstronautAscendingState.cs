@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Player.StateMachine.Astronaut.ConcreteStates
+namespace Player.StateMachine.ConcreteStates
 {
     public class AstronautAscendingState : AstronautBaseState
     {
@@ -12,16 +12,12 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
         
         public override void EnterState()
         {
-            Debug.Log("ASTRONAUT ASCENDING");
-            
             Ctx.jumpCanceledEvent.AddListener(JumpCut);
             
             Ctx.JumpBufferCounter = 0;
             Ctx.CoyoteTimeCounter = 0;
             
             Jump();
-            
-            Ctx.ChangeAnimation("AstronautAscending");
         }
 
         protected override void UpdateState()
@@ -42,22 +38,25 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
         // ReSharper disable Unity.PerformanceAnalysis
         public override void CheckSwitchStates()
         {
+            #region Double Jump
+            
             if (Ctx.JumpBufferCounter > 0.01f && Ctx.ExtraJumpsCounter > 0)
+
             {
-                // Double Jump
                 Ctx.ExtraJumpsCounter -= 1;
                 SwitchState(Factory.Ascend());
             }
             
-            if (Ctx.Rb.velocity.y < 0)
+            #endregion
+            
+            if (Ctx.Rb.velocity.y < Ctx.JumpApexThreshold)
             {
-                SwitchState(Factory.Falling());
+                SwitchState(Factory.Apex());
             }
         }
         
         public sealed override void InitializeSubState()
         {
-            
         }
 
         private void Jump()
