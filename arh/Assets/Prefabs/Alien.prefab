@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -2060956724, guid: e23c11da28929c64f83d4255363d17fc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -122,8 +122,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e26421d11b092ff4da880f927e6cc27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AlienNeck: {fileID: 3589440309864604998}
-  AlienHead: {fileID: 2481744189443000593}
+  alienNeck: {fileID: 3589440309864604998}
+  alienHead: {fileID: 2481744189443000593}
+  alienAnimator: {fileID: 1088314859017641239}
+  alienRenderer: {fileID: 624563981283063667}
+  isEating: 0
+  headMoveTime: 0.5
+  foodSize: 2
+  headMoveDistance: 0
 --- !u!1 &624563981954928014
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,6 +303,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4347618a-5cd0-4b09-82a4-d5a9674811a0
     m_ActionName: AlienGameplay/Interact[/Keyboard/leftBracket]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 13753330-b91b-4317-b626-48656418b027
+    m_ActionName: AlienGameplay/Crouch[/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: AlienGameplay
@@ -451,8 +461,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2481744189443000593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0308, y: -0.0071, z: 0}
-  m_LocalScale: {x: 3.15, y: 3, z: 1}
+  m_LocalPosition: {x: -0.0311, y: -0.0378, z: 0}
+  m_LocalScale: {x: 3.124, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 624563981283063676}
