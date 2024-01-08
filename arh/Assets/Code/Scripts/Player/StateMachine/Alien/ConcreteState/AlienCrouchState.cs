@@ -15,12 +15,12 @@ public class AlienCrouchState : AlienBaseState
 
         Ctx.animationEventsScript.alienStandUpEvent.AddListener(goToGroundedState);
 
-        var size = Ctx.BoxCollider.size;
-        var offset = Ctx.BoxCollider.offset;
+        var size = Ctx.CapsuleCollider.size;
+        var offset = Ctx.CapsuleCollider.offset;
         size = new Vector2(size.x, size.y - Ctx._crouchSizeReduction);
         offset = new Vector2(offset.x, offset.y - (Ctx._crouchSizeReduction/2));
-        Ctx.BoxCollider.size = size;
-        Ctx.BoxCollider.offset = offset;
+        Ctx.CapsuleCollider.size = size;
+        Ctx.CapsuleCollider.offset = offset;
         
         Ctx.ResetJumpCount();
 
@@ -36,12 +36,12 @@ public class AlienCrouchState : AlienBaseState
 
     protected override void ExitState()
     {
-        var size = Ctx.BoxCollider.size;
-        var offset = Ctx.BoxCollider.offset;
+        var size = Ctx.CapsuleCollider.size;
+        var offset = Ctx.CapsuleCollider.offset;
         size = new Vector2(size.x, size.y + Ctx._crouchSizeReduction);
         offset = new Vector2(offset.x, offset.y + (Ctx._crouchSizeReduction/2));
-        Ctx.BoxCollider.size = size;
-        Ctx.BoxCollider.offset = offset;
+        Ctx.CapsuleCollider.size = size;
+        Ctx.CapsuleCollider.offset = offset;
 
         Ctx.animationEventsScript.alienStandUpEvent.RemoveListener(goToGroundedState);
     }

@@ -17,7 +17,6 @@ public class AlienStateMachine : MonoBehaviour
     
     [SerializeField] private LayerMaskCollision _layerMaskCollision;
 
-    private BoxCollider2D _boxCollider;
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
 
@@ -63,7 +62,7 @@ public class AlienStateMachine : MonoBehaviour
     public GameObject Sprite => _visualSprite;
     public AlienBaseState CurrentState { get; set; }
     public Rigidbody2D Rb { get; private set; }
-    public BoxCollider2D BoxCollider { get; set; }
+    public CapsuleCollider2D CapsuleCollider { get; set; }
     public LayerMaskCollision LmCollision => _layerMaskCollision;
 
     #endregion
@@ -72,7 +71,7 @@ public class AlienStateMachine : MonoBehaviour
     {
         _playerInput = new PlayerInputMap();
         Rb = GetComponent<Rigidbody2D>();
-        BoxCollider = GetComponent<BoxCollider2D>();
+        CapsuleCollider = GetComponent<CapsuleCollider2D>();
         _layerMaskCollision = GetComponent<LayerMaskCollision>();
         animator = _visualSprite.GetComponent<Animator>();
         animationEventsScript = _visualSprite.GetComponent<AlienAnimationEvents>();

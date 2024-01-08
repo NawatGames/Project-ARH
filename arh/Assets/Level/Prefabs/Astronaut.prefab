@@ -118,8 +118,8 @@ GameObject:
   - component: {fileID: 6446490991675213933}
   - component: {fileID: 6446490991675213932}
   - component: {fileID: 6446490991675213846}
-  - component: {fileID: 6446490991675213840}
   - component: {fileID: 6446490991675213841}
+  - component: {fileID: 5894208526308786039}
   m_Layer: 6
   m_Name: Astronaut
   m_TagString: Astronaut
@@ -183,7 +183,7 @@ MonoBehaviour:
   _isHittingRoof: 0
   size: {x: 0, y: 0}
   collisionRadius: 0.3
-  bottomOffset: {x: -0.02186048, y: -1}
+  bottomOffset: {x: 0, y: -0.73}
   rightOffset: {x: 0, y: 0}
   leftOffset: {x: 0, y: 0}
   topOffset: {x: 0, y: 0}
@@ -284,32 +284,6 @@ MonoBehaviour:
   m_DefaultActionMap: AstronautGameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!61 &6446490991675213840
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6446490991675213847}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.02186048, y: -0.16941822}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6065123, y: 1.6448824}
-  m_EdgeRadius: 0
 --- !u!50 &6446490991675213841
 Rigidbody2D:
   serializedVersion: 4
@@ -331,3 +305,19 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!70 &5894208526308786039
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6446490991675213847}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.012, y: -0.172}
+  m_Size: {x: 0.63655, y: 1.6676}
+  m_Direction: 0
