@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 624563981283063667}
   - component: {fileID: 1088314859017641239}
   - component: {fileID: 1654482005148028577}
-  m_Layer: 0
+  - component: {fileID: 1514719971}
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2060956724, guid: e23c11da28929c64f83d4255363d17fc, type: 3}
+  m_Sprite: {fileID: -1924728786, guid: 2f3cfdfb1dce13448b0056cf7db40ef3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -130,6 +131,21 @@ MonoBehaviour:
   headMoveTime: 0.5
   foodSize: 2
   headMoveDistance: 0
+--- !u!114 &1514719971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624563981283063666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6891ee1173f30c24881777efd8c721b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alienStandUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &624563981954928014
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +160,7 @@ GameObject:
   - component: {fileID: 624563981954928015}
   - component: {fileID: 624563981954928009}
   - component: {fileID: 624563981954928008}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Alien
   m_TagString: Alien
   m_Icon: {fileID: 0}
@@ -209,12 +225,12 @@ MonoBehaviour:
     m_Bits: 8
   _isGrounded: 0
   _isHittingRoof: 0
-  size: {x: 0.67, y: 0.1}
+  size: {x: 0.9, y: 0.1}
   collisionRadius: 0.25
   bottomOffset: {x: 0, y: -0.26}
   rightOffset: {x: 0, y: 0}
   leftOffset: {x: 0, y: 0}
-  topOffset: {x: 0, y: 0}
+  topOffset: {x: 0, y: 0.45}
   isGroundedChangedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -304,7 +320,19 @@ MonoBehaviour:
     m_ActionId: 4347618a-5cd0-4b09-82a4-d5a9674811a0
     m_ActionName: AlienGameplay/Interact[/Keyboard/leftBracket]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 624563981954928013}
+        m_TargetAssemblyTypeName: AlienStateMachine, Assembly-CSharp
+        m_MethodName: OnCrouchInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 13753330-b91b-4317-b626-48656418b027
     m_ActionName: AlienGameplay/Crouch[/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
@@ -370,7 +398,7 @@ GameObject:
   - component: {fileID: 5785492124820140664}
   - component: {fileID: 2584378857751911543}
   - component: {fileID: 5866239246164210638}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eat Point
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -385,7 +413,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364802620623620899}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0579996, y: 0, z: 0}
+  m_LocalPosition: {x: 1.531, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -409,7 +437,7 @@ MonoBehaviour:
   _edibleObject: {fileID: 0}
   _objectIsInRange: 0
   _objectWasEaten: 0
-  _throwForce: 0
+  _throwForce: 5
 --- !u!61 &5866239246164210638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -420,7 +448,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

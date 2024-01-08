@@ -281,6 +281,10 @@ PrefabInstance:
       value: button 3
       objectReference: {fileID: 0}
     - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
+      propertyPath: _playerGameObject
+      value: 
+      objectReference: {fileID: 896573023}
+    - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
       propertyPath: isButtonActive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1450194029}
@@ -580,6 +584,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776407774}
   - component: {fileID: 776407775}
+  - component: {fileID: 776407776}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -654,6 +659,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &776407776
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776407773}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69147cd4e61d96a408ff30f693a649e0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &794212998
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -709,6 +735,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: button 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
+      propertyPath: _playerGameObject
+      value: 
+      objectReference: {fileID: 896573023}
     - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
       propertyPath: isButtonActive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -870,7 +900,7 @@ GameObject:
   - component: {fileID: 896573024}
   m_Layer: 0
   m_Name: 'Player '
-  m_TagString: Player
+  m_TagString: Astronaut
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -890,11 +920,17 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
-  onGround: 0
+  _isGrounded: 0
+  _isHittingRoof: 0
+  size: {x: 0, y: 0}
   collisionRadius: 0.1
   bottomOffset: {x: 0.08, y: -0.62}
   rightOffset: {x: 0.6, y: -0.2}
   leftOffset: {x: -0.42, y: -0.2}
+  topOffset: {x: 0, y: 0}
+  isGroundedChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &896573025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -904,13 +940,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 896573023}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a174e3cdbd813344ca89e70b9ffc37ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a3de30845475b7429787fc9d3b58d59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 7
-  jumpForce: 12
-  fallMultiplier: 3
-  lowJumpMultiplier: 8
+  playerData: {fileID: 11400000, guid: 3c0b5b6960f389c4c868444e02e5eff7, type: 2}
+  sprite: {fileID: 776407773}
+  animator: {fileID: 0}
+  jumpCanceledEvent:
+    m_PersistentCalls:
+      m_Calls: []
   isInteractingEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -926,7 +964,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: d93843c1d62f7ac4c90cdc56e1919785, type: 3}
+  m_Actions: {fileID: -944628639613478452, guid: cdb3397c362ab604a971d0c68348da67, type: 3}
   m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
@@ -940,56 +978,36 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents:
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 896573025}
-        m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
-        m_MethodName: OnWalkInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 5ba78d7a-b762-4ae1-a1a6-cca198378c2b
-    m_ActionName: Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+      m_Calls: []
+    m_ActionId: 9c535118-3872-47a8-bb1b-dde882e38332
+    m_ActionName: AstronautGameplay/Walk[/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 896573025}
-        m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
-        m_MethodName: OnJumpInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 26a4e445-2ba9-4453-860a-3310a07f1b7e
-    m_ActionName: Gameplay/Jump[/Keyboard/space]
+      m_Calls: []
+    m_ActionId: 35fac0bf-24a4-48ae-94dd-8da5cae773c1
+    m_ActionName: AstronautGameplay/Jump[/Keyboard/space]
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 896573025}
-        m_TargetAssemblyTypeName: PlayerStateMachine, Assembly-CSharp
-        m_MethodName: OnInteractInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 007f6067-f1dc-4441-a70b-8de99b803adc
-    m_ActionName: Gameplay/Interact[/Keyboard/e]
+      m_Calls: []
+    m_ActionId: 86c1fc2c-befc-4ab0-9e88-c10ce962b535
+    m_ActionName: AstronautGameplay/Interact[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06af8a30-17ae-4c9b-b692-191b2e96f4cc
+    m_ActionName: AlienGameplay/Walk[/Keyboard/j,/Keyboard/l]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 122b3916-d1f6-4516-b099-77b16ee996ed
+    m_ActionName: AlienGameplay/Jump[/Keyboard/slash]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4347618a-5cd0-4b09-82a4-d5a9674811a0
+    m_ActionName: AlienGameplay/Interact[/Keyboard/leftBracket]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 13753330-b91b-4317-b626-48656418b027
+    m_ActionName: AlienGameplay/Crouch[/Keyboard/k]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gameplay
+  m_DefaultActionMap: AstronautGameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!70 &896573027
@@ -1212,6 +1230,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: button 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
+      propertyPath: _playerGameObject
+      value: 
+      objectReference: {fileID: 896573023}
     - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
       propertyPath: isButtonActive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1676,6 +1698,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: button
       objectReference: {fileID: 0}
+    - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
+      propertyPath: _playerGameObject
+      value: 
+      objectReference: {fileID: 896573023}
     - target: {fileID: 2205505721691674109, guid: d122728e8c6929844ba0511cd137e0a2, type: 3}
       propertyPath: isButtonActive.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
