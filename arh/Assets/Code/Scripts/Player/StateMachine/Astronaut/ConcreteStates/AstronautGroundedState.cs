@@ -1,6 +1,7 @@
+using Player.StateMachine;
 using UnityEngine;
 
-namespace Player.StateMachine.Astronaut.ConcreteStates
+namespace Code.Scripts.Player.StateMachine.Astronaut.ConcreteStates
 {
     public class AstronautGroundedState : AstronautBaseState
     {
@@ -12,7 +13,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
 
         public override void EnterState()
         {
-            Debug.Log("ASTRONAUT GROUNDED!");
+            // Debug.Log("ASTRONAUT GROUNDED");
             
             Ctx.ResetJumpCount();
             Ctx.ChangeAnimation("AstronautIdle");
@@ -39,7 +40,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
 
         public override void CheckSwitchStates()
         {
-            if (Ctx.JumpBufferCounter > 0.01f) SwitchState(Factory.Ascend());
+            if (Ctx.JumpBufferCounter > 0.01f) SwitchState(Factory.Jump());
             else if (!Ctx.IsGrounded) SwitchState(Factory.Falling());
         }
 

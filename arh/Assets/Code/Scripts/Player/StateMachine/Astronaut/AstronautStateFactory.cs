@@ -1,6 +1,6 @@
-using Player.StateMachine.Astronaut.ConcreteStates;
+using Code.Scripts.Player.StateMachine.Astronaut.ConcreteStates;
 
-namespace Player.StateMachine.Astronaut
+namespace Code.Scripts.Player.StateMachine.Astronaut
 {
     public class AstronautStateFactory
     {
@@ -21,9 +21,14 @@ namespace Player.StateMachine.Astronaut
             return new AstronautWalkState(_context, this);
         }
 
-        public AstronautBaseState Ascend()
+        public AstronautBaseState Jump()
         {
-            return new AstronautAscendingState(_context, this);
+            return new AstronautJumpState(_context, this);
+        }
+        
+        public AstronautBaseState DoubleJump()
+        {
+            return new AstronautDoubleJumpState(_context, this);
         }
         
         public AstronautBaseState Falling()

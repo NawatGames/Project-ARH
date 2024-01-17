@@ -1,7 +1,8 @@
 using System;
+using Player.StateMachine;
 using UnityEngine;
 
-namespace Player.StateMachine.Astronaut.ConcreteStates
+namespace Code.Scripts.Player.StateMachine.Astronaut.ConcreteStates
 {
     public class AstronautWalkState : AstronautBaseState
     {

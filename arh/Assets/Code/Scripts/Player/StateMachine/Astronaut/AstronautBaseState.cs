@@ -1,6 +1,4 @@
-using Player.StateMachine.Astronaut;
-
-namespace Player.StateMachine
+namespace Code.Scripts.Player.StateMachine.Astronaut
 {
     public abstract class AstronautBaseState
     {

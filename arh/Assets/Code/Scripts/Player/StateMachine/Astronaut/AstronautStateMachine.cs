@@ -2,12 +2,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-namespace Player.StateMachine.Astronaut
+namespace Code.Scripts.Player.StateMachine.Astronaut
 {
     public class AstronautStateMachine : MonoBehaviour
     {
         
-        [SerializeField] private PlayerData.PlayerData playerData;
+        [SerializeField] private global::Player.PlayerData.PlayerData playerData;
         [SerializeField] private GameObject sprite;
         [HideInInspector] public Animator animator;
 

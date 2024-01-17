@@ -1,10 +1,11 @@
+using Player.StateMachine;
 using UnityEngine;
 
-namespace Player.StateMachine.Astronaut.ConcreteStates
+namespace Code.Scripts.Player.StateMachine.Astronaut.ConcreteStates
 {
-    public class AstronautAscendingState : AstronautBaseState
+    public class AstronautJumpState : AstronautBaseState
     {
-        public AstronautAscendingState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
+        public AstronautJumpState(AstronautStateMachine currentContext, AstronautStateFactory astronautStateFactory)
             : base(currentContext, astronautStateFactory)
         {
             IsRootState = true;
@@ -12,7 +13,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
         
         public override void EnterState()
         {
-            Debug.Log("ASTRONAUT ASCENDING");
+            Debug.Log("ASTRONAUT JUMP");
             
             Ctx.jumpCanceledEvent.AddListener(JumpCut);
             
@@ -21,7 +22,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
             
             Jump();
             
-            Ctx.ChangeAnimation("AstronautAscending");
+            Ctx.ChangeAnimation("AstronautJump");
         }
 
         protected override void UpdateState()
@@ -46,7 +47,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
             {
                 // Double Jump
                 Ctx.ExtraJumpsCounter -= 1;
-                SwitchState(Factory.Ascend());
+                SwitchState(Factory.DoubleJump());
             }
             
             if (Ctx.Rb.velocity.y < 0)

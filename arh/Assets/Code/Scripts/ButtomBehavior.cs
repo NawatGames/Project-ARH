@@ -1,8 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Code.Scripts.Player.StateMachine.Astronaut;
 using Player.StateMachine;
-using Player.StateMachine.Astronaut;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
