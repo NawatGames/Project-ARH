@@ -145,7 +145,7 @@ namespace Code.Scripts.Player.StateMachine.Astronaut
 
         public void ChangeAnimation(string newAnimation)
         {
-            if (newAnimation == "AstronautAscending")
+            if (newAnimation is "AstronautJump" or "AstronautDoubleJump")
             {
                 animator.Play(newAnimation, -1, 0f);
                 currentAnimation = newAnimation;

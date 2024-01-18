@@ -22,11 +22,11 @@ namespace Code.Scripts.Player.StateMachine.Astronaut.ConcreteStates
             
             Jump();
             
-            Ctx.ChangeAnimation("AstronautJump");
+            Ctx.ChangeAnimation("AstronautDoubleJump");
         }
 
         protected override void UpdateState()
-        {
+        { 
             CheckSwitchStates();
         }
 

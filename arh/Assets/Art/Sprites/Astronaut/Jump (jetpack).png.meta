@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a5bc60c32db6f1419ddbea7a2ba1a1d
+guid: b5d5eca9381a410458e18e2c5a0e27ea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,7 +118,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -129,337 +129,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: astronaut idle_0
+      name: Jump (jetpack)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.24}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e45d7f199b674ad4bab4502f4ade8296
-      internalID: -370409044
+      spriteID: 1b0fae9648ee83940984247788cbf8d7
+      internalID: -565269959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: astronaut idle_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1542143820d6a4469ea7707b6c89614
-      internalID: -1466735900
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_2
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 08bd7ab8badea6249870a38bce7a1279
-      internalID: 803054594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8415b4713cf8e9f448d07db20383697f
-      internalID: 23775967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_4
+      name: Jump (jetpack)_1
       rect:
         serializedVersion: 2
         x: 128
         y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67ae229830258cd4db7deab93ba471f4
-      internalID: -1524625369
+      spriteID: 80ca3df92b3449a4a8916fb03b15ac8c
+      internalID: 1788793355
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: astronaut idle_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c4dd3724026982f4180b9dba418fa3a6
-      internalID: 904328573
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6825c081f00bf074886f35c3547fc66a
-      internalID: 858142916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f77b2d0234a219641ba3f89b534ab6a3
-      internalID: 405051384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_8
+      name: Jump (jetpack)_2
       rect:
         serializedVersion: 2
         x: 256
         y: 0
-        width: 32
-        height: 64
+        width: 128
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62db7e33cc129184aa8ee909470450ab
-      internalID: -1493928284
+      spriteID: 3cefc77540c77ca48adc195b0560e143
+      internalID: 297435827
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: astronaut idle_9
-      rect:
-        serializedVersion: 2
-        x: 288
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 533915354fbd9084a9b882719e5eb115
-      internalID: 235150390
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_10
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e1f9c7549ff00043bdb6ffe488dac6d
-      internalID: 1051595248
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_11
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9004dc98eb557094894a828ef7ab585f
-      internalID: -247722220
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: astronaut idle_12
+      name: Jump (jetpack)_3
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.64}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eddd8e988795d894bb63a1df721ddc56
-      internalID: 1525008478
+      spriteID: 2d999db73706f8d49b18133bfbb4fe99
+      internalID: 1088798643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: astronaut idle_13
+      name: Jump (jetpack)_4
       rect:
         serializedVersion: 2
-        x: 416
+        x: 512
         y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e25cba1e4c4293d4096129894cea521c
-      internalID: 1040254326
+      spriteID: d4fa2292f99ee7e4e902f2a60b79a388
+      internalID: 1267132624
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: astronaut idle_14
+      name: Jump (jetpack)_5
       rect:
         serializedVersion: 2
-        x: 448
+        x: 640
         y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 893765e9b86846843822bd82a8057d3b
-      internalID: -467795442
+      spriteID: e3807776ffc75df45956ea9c0007c07d
+      internalID: 273286608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: astronaut idle_15
+      name: Jump (jetpack)_6
       rect:
         serializedVersion: 2
-        x: 480
+        x: 768
         y: 0
-        width: 32
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.64}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fabdbaa238d7a0b40b01cee182654ef3
-      internalID: -1954313544
+      spriteID: 4c6f4aa3055ec92438818ff196187c9f
+      internalID: -1058377214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump (jetpack)_7
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.56}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bcf612684618364b8d14ad2fa520cb5
+      internalID: 97062576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump (jetpack)_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.33}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff1831c3b6f9e9a459b0dce0c5e7f997
+      internalID: -698260203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Jump (jetpack)_9
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.23}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26b27ba4365a55744a857d0f512f70ba
+      internalID: -409736456
       vertices: []
       indices: 
       edges: []
@@ -475,22 +349,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      astronaut idle_0: -370409044
-      astronaut idle_1: -1466735900
-      astronaut idle_10: 1051595248
-      astronaut idle_11: -247722220
-      astronaut idle_12: 1525008478
-      astronaut idle_13: 1040254326
-      astronaut idle_14: -467795442
-      astronaut idle_15: -1954313544
-      astronaut idle_2: 803054594
-      astronaut idle_3: 23775967
-      astronaut idle_4: -1524625369
-      astronaut idle_5: 904328573
-      astronaut idle_6: 858142916
-      astronaut idle_7: 405051384
-      astronaut idle_8: -1493928284
-      astronaut idle_9: 235150390
+      Jump (jetpack)_0: -565269959
+      Jump (jetpack)_1: 1788793355
+      Jump (jetpack)_2: 297435827
+      Jump (jetpack)_3: 1088798643
+      Jump (jetpack)_4: 1267132624
+      Jump (jetpack)_5: 273286608
+      Jump (jetpack)_6: -1058377214
+      Jump (jetpack)_7: 97062576
+      Jump (jetpack)_8: -698260203
+      Jump (jetpack)_9: -409736456
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
