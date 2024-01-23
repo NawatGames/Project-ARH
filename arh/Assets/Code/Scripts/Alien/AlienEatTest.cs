@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using DG.Tweening.Core;
+using UnityEngine.Events;
 
 public class AlienEatTest : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class AlienEatTest : MonoBehaviour
     public float headMoveTime;
     public float foodSize;
     public float headMoveDistance;
+    public UnityEvent finishedEatingEvent;
     private Vector2 originalNeckScale;
     private Vector3 originalHeadPos;
 
@@ -35,7 +37,6 @@ public class AlienEatTest : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.I) | Input.GetKeyDown(KeyCode.J) | Input.GetKeyDown(KeyCode.K) | Input.GetKeyDown(KeyCode.L))
         {
             isMoving = true;
-            Debug.Log("MOVENDO");
         }
 
         else
@@ -45,17 +46,9 @@ public class AlienEatTest : MonoBehaviour
 
         if(isMoving == false)
         {
-            if(Input.GetKeyDown(KeyCode.F) & isMoving == false)
+            if(Input.GetKeyDown(KeyCode.LeftBracket) & isMoving == false)
             {
-                if(isEating == false)
-                {
-                    isEating = true;
-                    alienAnimator.SetBool("StartedEating", true);
-                    alienNeck.GetComponent<SpriteRenderer>().enabled = true;
-                    StartCoroutine(EatStartCountdown());
-                    isEating = false;
-                    alienAnimator.SetBool("FinishedEating", false);
-                }
+                Debug.Log("Comendo");
             }
             
         }
@@ -80,5 +73,20 @@ public class AlienEatTest : MonoBehaviour
         //alienNeck.transform.DOScaleY(originalNeckScale.y, 0.5f);
         alienAnimator.SetBool("FinishedEating", true);
         alienAnimator.SetBool("StartedEating", false);
+        finishedEatingEvent.Invoke();
+        Debug.Log("Invocou");
+    }
+
+    public void AlienEat()
+    {
+        if(isEating == false)
+                {
+                    isEating = true;
+                    alienAnimator.SetBool("StartedEating", true);
+                    alienNeck.GetComponent<SpriteRenderer>().enabled = true;
+                    StartCoroutine(EatStartCountdown());
+                    isEating = false;
+                    alienAnimator.SetBool("FinishedEating", false);
+                }
     }
 }

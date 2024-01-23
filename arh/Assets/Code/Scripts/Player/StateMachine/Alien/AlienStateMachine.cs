@@ -16,6 +16,7 @@ public class AlienStateMachine : MonoBehaviour
     [HideInInspector] public AlienAnimationEvents animationEventsScript;
     
     [SerializeField] private LayerMaskCollision _layerMaskCollision;
+    [SerializeField] public AlienEatTest alienEatTest;
 
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
@@ -159,6 +160,7 @@ public class AlienStateMachine : MonoBehaviour
         
     private void OnIsGroundedChanged(bool arg0)
     {
+        //Debug.Log("Gr sm");
         IsGrounded = arg0;
     }
 

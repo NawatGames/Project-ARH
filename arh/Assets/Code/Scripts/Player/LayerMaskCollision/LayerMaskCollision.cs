@@ -34,6 +34,7 @@ public class LayerMaskCollision : MonoBehaviour
 
         if (wasGrounded != _isGrounded)
         {
+            //Debug.Log("Gr2");
             isGroundedChangedEvent.Invoke(_isGrounded);
         }
 

@@ -50,6 +50,7 @@ public abstract class AlienBaseState
 
     protected void SwitchState(AlienBaseState newState)
     {
+        Debug.Log(newState.ToString());
         ExitState();
         
         newState.EnterState();

@@ -14,7 +14,7 @@ public class AlienIdleState : AlienBaseState
         {
             Ctx.animator.SetTrigger("startIdleShrunk");
         }
-        else if (!Ctx.IsStandingUp) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
+        else if (!Ctx.IsStandingUp && !(Ctx.CurrentState is AlienEatState)) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
         {
             Ctx.animator.SetTrigger("startIdle");
         }

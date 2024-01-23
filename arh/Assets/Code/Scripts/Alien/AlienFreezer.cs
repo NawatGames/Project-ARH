@@ -15,7 +15,7 @@ public class AlienFreezer : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
+        if(Input.GetKeyDown(KeyCode.LeftBracket))
         {
             StartCoroutine(FreezeAlien());
         }
