@@ -15,7 +15,7 @@ public class AlienWalkState : AlienBaseState
             {
                 Ctx.animator.SetTrigger("startRunShrunk");
             }
-            else if(!Ctx.IsStandingUp) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
+            else if(!Ctx.IsStandingUp && !(Ctx.CurrentState is AlienEatState)) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
             {
                 Ctx.animator.SetTrigger("startRunning");
             }
@@ -24,7 +24,7 @@ public class AlienWalkState : AlienBaseState
         // ReSharper disable Unity.PerformanceAnalysis
         protected override void UpdateState()
         {
-            if (Ctx.CurrentMovementInput > 0 && !Ctx.IsFacingRight || Ctx.CurrentMovementInput < 0 && Ctx.IsFacingRight)
+            if (Ctx.CurrentMovementInput > 0 && !Ctx.IsFacingRight || Ctx.CurrentMovementInput < 0 && Ctx.IsFacingRight && !(Ctx.CurrentState is AlienEatState))
             {
                 Flip();
             }
@@ -42,7 +42,11 @@ public class AlienWalkState : AlienBaseState
             var accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? Ctx.Acceleration : Ctx.Deceleration;
             var movement = Mathf.Pow(MathF.Abs(speedDif) * accelRate, Ctx.VelocityPower) * Mathf.Sign(speedDif);
             
-            Ctx.Rb.AddForce(movement * Vector2.right);
+            if(!(Ctx.CurrentState is AlienEatState))
+            {
+                //Debug.Log("Andou");
+                Ctx.Rb.AddForce(movement * Vector2.right);
+            }
             #endregion
             
             #region Friction

@@ -12,6 +12,8 @@ public class AlienGroundedState : AlienBaseState
     public override void EnterState()
     {
         Ctx.ResetJumpCount();
+        Ctx.isInteractingEvent.AddListener(GoToEatState);
+        //Debug.Log("Listener");
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -26,9 +28,16 @@ public class AlienGroundedState : AlienBaseState
             
     }
 
+    public void GoToEatState()
+    {
+        SwitchState((Factory.Eat()));
+        //Debug.Log("Go");
+    }
+
     protected override void ExitState()
     {
-
+        Ctx.isInteractingEvent.RemoveListener(GoToEatState);
+        //Debug.Log("Remove");
     }
 
     public override void CheckSwitchStates()

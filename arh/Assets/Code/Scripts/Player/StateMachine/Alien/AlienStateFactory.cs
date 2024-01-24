@@ -45,5 +45,10 @@ namespace Player.StateMachine.Alien
         {
             return new AlienCrouchState(_context, this);
         }
+
+        public AlienBaseState Eat()
+        {
+            return new AlienEatState(_context, this);
+        }
     }
 }

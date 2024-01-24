@@ -128,6 +128,7 @@ MonoBehaviour:
   alienAnimator: {fileID: 1088314859017641239}
   alienRenderer: {fileID: 624563981283063667}
   isEating: 0
+  isMoving: 0
   headMoveTime: 0.5
   foodSize: 2
   headMoveDistance: 0
@@ -160,6 +161,7 @@ GameObject:
   - component: {fileID: 624563981954928015}
   - component: {fileID: 624563981954928008}
   - component: {fileID: 1273485023289604676}
+  - component: {fileID: 2324678325963682878}
   m_Layer: 7
   m_Name: Alien
   m_TagString: Alien
@@ -377,6 +379,18 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0699, y: 0}
   m_Size: {x: 0.7, y: 1}
   m_Direction: 0
+--- !u!114 &2324678325963682878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624563981954928014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8948b30d628f9a54c87e79719d60832b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364802620623620899
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +577,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3589440309864604998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.063, y: -0.156, z: 0}
+  m_LocalPosition: {x: 0.0626, y: -0.1693, z: 0}
   m_LocalScale: {x: 1, y: 0.34, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
