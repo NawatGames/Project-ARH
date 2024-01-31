@@ -8,5 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Level/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Level/Scenes/Sakae/MenuTest.unity
+    guid: 7c9863f2233f4354eb15f549276ed00a
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: a076d3e22dfd88b489997040c118f878, type: 2}
