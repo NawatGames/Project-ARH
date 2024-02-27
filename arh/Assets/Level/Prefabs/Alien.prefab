@@ -187,10 +187,15 @@ MonoBehaviour:
       m_Calls: []
   _isCrouchPressed: 0
   _isInteractPressed: 0
+  hasStoredObject: 0
+  isEdibleInRange: 0
+  currentEdibleObject: {fileID: 0}
+  eatPointObject: {fileID: 0}
   alienHead: {fileID: 2481744189443000593}
   alienNeck: {fileID: 3589440309864604998}
   foodSize: 2
   headMoveTime: 0.5
+  spitForce: 2
 --- !u!114 &624563981954928117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,8 +374,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5785492124820140664}
-  - component: {fileID: 2584378857751911543}
   - component: {fileID: 5866239246164210638}
+  - component: {fileID: 1077460810164050081}
   m_Layer: 7
   m_Name: Eat Point
   m_TagString: Untagged
@@ -393,24 +398,6 @@ Transform:
   m_Father: {fileID: 624563981283063676}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2584378857751911543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364802620623620899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d015036cb61e2fa4989c72a4facd1ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _alienStateMachine: {fileID: 0}
-  _playerGameObject: {fileID: 0}
-  _edibleObject: {fileID: 0}
-  _objectIsInRange: 0
-  _objectWasEaten: 0
-  _throwForce: 5
 --- !u!61 &5866239246164210638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -437,6 +424,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29492283, y: 0.26238084}
   m_EdgeRadius: 0
+--- !u!114 &1077460810164050081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364802620623620899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281565a80c83e3c4dae81efd1b78f383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _alienStateMachine: {fileID: 624563981954928013}
 --- !u!1 &2481744189443000593
 GameObject:
   m_ObjectHideFlags: 0

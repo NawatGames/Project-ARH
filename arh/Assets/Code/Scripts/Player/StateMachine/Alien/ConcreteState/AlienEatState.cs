@@ -7,9 +7,7 @@ using DG.Tweening;
 
 public class AlienEatState : AlienBaseState
 {
-    public SpriteRenderer alienRenderer;
-    public bool isEating;
-    public bool isMoving;
+    private SpriteRenderer alienRenderer;
     private float headMoveDistance;
     private Vector2 originalNeckScale;
     private Vector3 originalHeadPos;
@@ -20,7 +18,6 @@ public class AlienEatState : AlienBaseState
         IsRootState = true;
         InitializeSubState();
 
-        isEating = false;
         alienRenderer = Ctx.spriteObject.GetComponent<SpriteRenderer>();
         originalNeckScale = Ctx.alienNeck.transform.localScale;
         headMoveDistance = Ctx.foodSize / 2;
@@ -30,12 +27,17 @@ public class AlienEatState : AlienBaseState
     {
         //Debug.Log("Entrou no EatState");
 
-        isEating = true;
         Ctx.animator.SetBool("StartedEating", true);
         Ctx.alienNeck.GetComponent<SpriteRenderer>().enabled = true;
         Ctx.StartCoroutine(EatStartCountdown());
-        isEating = false;
         Ctx.animator.SetBool("FinishedEating", false);
+    }
+
+    private void EatObject()
+    {
+        Ctx.hasStoredObject = true;
+        Ctx.currentEdibleObject.SetActive(false);
+        //Debug.Log("Comi o Objeto");
     }
 
     IEnumerator EatStartCountdown()
@@ -48,6 +50,7 @@ public class AlienEatState : AlienBaseState
         Ctx.alienHead.transform.DOLocalMoveY(headMoveDistance, Ctx.headMoveTime);
         Ctx.alienNeck.transform.DOScaleY(Ctx.foodSize, 0.5f);
         yield return new WaitForSeconds(1.0f);
+        EatObject();
         Ctx.alienHead.transform.DOLocalMoveY(-0.0378f, Ctx.headMoveTime);
         Ctx.alienNeck.transform.DOScaleY(originalNeckScale.y, 0.5f);
         //comentar os dois tween de cima e descomentar o localscale de baixo se quiser que corte direto pro final da ainmação
@@ -85,7 +88,7 @@ public class AlienEatState : AlienBaseState
 
     }
 
-    public void GoToGrounded()
+    private void GoToGrounded()
     {
         SwitchState(Factory.Grounded());
     }

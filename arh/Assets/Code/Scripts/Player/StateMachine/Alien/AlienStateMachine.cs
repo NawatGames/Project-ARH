@@ -29,11 +29,17 @@ public class AlienStateMachine : MonoBehaviour
 
     #region Alien Eating
 
+    public bool hasStoredObject;
+    public bool isEdibleInRange;
+    public GameObject currentEdibleObject;
+    public GameObject eatPointObject;
+
     public GameObject alienHead;
     public GameObject alienNeck;
 
     public float foodSize = 2; // TEMPORARIO, VAI DEPENDER DO OBJETO A ENGOLIR
-    public float headMoveTime = 0.5f; // DEVE SER CALCULADO DE ACORDO COM O FOOD SIZE ?
+    public float headMoveTime = 0.5f; // DEVERA SER CALCULADO EM FUNÇÃO DO foodSize ?
+    public float spitForce = 5;
 
     #endregion
 

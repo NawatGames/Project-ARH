@@ -50,5 +50,10 @@ namespace Player.StateMachine.Alien
         {
             return new AlienEatState(_context, this);
         }
+
+        public AlienBaseState Spit()
+        {
+            return new AlienSpitState(_context, this);
+        }
     }
 }

@@ -52,8 +52,6 @@ public abstract class AlienBaseState
     {
         //Debug.Log(newState.ToString()); // DEBUG ALL
         ExitState();
-        
-        newState.EnterState();
 
         if (_isRootState)
         {
@@ -65,6 +63,8 @@ public abstract class AlienBaseState
         {
             _currentSuperState?.SetSubState(newState);
         }
+
+        newState.EnterState();
     }
 
     private void SetSuperState(AlienBaseState newSuperState)
