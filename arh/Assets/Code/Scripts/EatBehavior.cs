@@ -86,12 +86,12 @@ public class EatBehavior : MonoBehaviour
     }
     private void OnEnable()
     {
-        _alienStateMachine.isInteractingEvent.AddListener(EatObject);
+        _alienStateMachine.onEatEvent.AddListener(EatObject);
     }
 
     private void OnDisable()
     {
-        _alienStateMachine.isInteractingEvent.RemoveListener(EatObject);
+        _alienStateMachine.onEatEvent.RemoveListener(EatObject);
 
     }
 }

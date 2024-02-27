@@ -38,7 +38,7 @@ public class AlienIdleState : AlienBaseState
         
     public override void CheckSwitchStates()
     {
-        if (!(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f))
+        if (!(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f) && !(Ctx.CurrentState is AlienEatState))
         {
             SwitchState(Factory.Walk());
         }

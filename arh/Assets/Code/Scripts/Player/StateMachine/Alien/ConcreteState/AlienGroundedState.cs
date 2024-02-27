@@ -12,7 +12,7 @@ public class AlienGroundedState : AlienBaseState
     public override void EnterState()
     {
         Ctx.ResetJumpCount();
-        Ctx.isInteractingEvent.AddListener(GoToEatState);
+        Ctx.onEatEvent.AddListener(GoToEatState);
         //Debug.Log("Listener");
     }
 
@@ -30,14 +30,16 @@ public class AlienGroundedState : AlienBaseState
 
     public void GoToEatState()
     {
-        SwitchState((Factory.Eat()));
-        //Debug.Log("Go");
+        if(_currentSubState is AlienIdleState)
+        {
+            Debug.Log("GO TO EAT");
+            SwitchState((Factory.Eat()));
+        }
     }
 
     protected override void ExitState()
     {
-        Ctx.isInteractingEvent.RemoveListener(GoToEatState);
-        //Debug.Log("Remove");
+        Ctx.onEatEvent.RemoveListener(GoToEatState);
     }
 
     public override void CheckSwitchStates()

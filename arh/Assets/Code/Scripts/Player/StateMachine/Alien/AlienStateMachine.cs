@@ -10,25 +10,33 @@ using UnityEngine.InputSystem;
 public class AlienStateMachine : MonoBehaviour
 {
     [SerializeField] private PlayerData playerData;
-    [SerializeField] private GameObject _visualSprite;
+    [SerializeField] public GameObject spriteObject;
     [HideInInspector] public Animator animator;
 
     [HideInInspector] public AlienAnimationEvents animationEventsScript;
     
     [SerializeField] private LayerMaskCollision _layerMaskCollision;
-    [SerializeField] public AlienEatTest alienEatTest;
 
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
 
     [HideInInspector] public UnityEvent jumpCanceledEvent;
-    [HideInInspector] public UnityEvent isInteractingEvent;
+    [HideInInspector] public UnityEvent onEatEvent;
 
 
     public bool _isCrouchPressed;
     public bool _isInteractPressed;
 
-    
+    #region Alien Eating
+
+    public GameObject alienHead;
+    public GameObject alienNeck;
+
+    public float foodSize = 2; // TEMPORARIO, VAI DEPENDER DO OBJETO A ENGOLIR
+    public float headMoveTime = 0.5f; // DEVE SER CALCULADO DE ACORDO COM O FOOD SIZE ?
+
+    #endregion
+
     #region Getters and Setters
 
     // Crouch
@@ -60,7 +68,7 @@ public class AlienStateMachine : MonoBehaviour
     public float JumpBufferCounter { get; set; }
     public int ExtraJumpsCounter { get; set; }
 
-    public GameObject Sprite => _visualSprite;
+    public GameObject Sprite => spriteObject;
     public AlienBaseState CurrentState { get; set; }
     public Rigidbody2D Rb { get; private set; }
     public CapsuleCollider2D CapsuleCollider { get; set; }
@@ -74,8 +82,8 @@ public class AlienStateMachine : MonoBehaviour
         Rb = GetComponent<Rigidbody2D>();
         CapsuleCollider = GetComponent<CapsuleCollider2D>();
         _layerMaskCollision = GetComponent<LayerMaskCollision>();
-        animator = _visualSprite.GetComponent<Animator>();
-        animationEventsScript = _visualSprite.GetComponent<AlienAnimationEvents>();
+        animator = spriteObject.GetComponent<Animator>();
+        animationEventsScript = spriteObject.GetComponent<AlienAnimationEvents>();
 
         NormalGravityScale = Rb.gravityScale;
         CoyoteTimeCounter = playerData.coyoteTime;
@@ -119,13 +127,13 @@ public class AlienStateMachine : MonoBehaviour
         }
     }
     
-    public void OnInteractInput(InputAction.CallbackContext context)
+    public void OnEatInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
             _isInteractPressed = context.ReadValueAsButton();
-            isInteractingEvent.Invoke();
-            //Debug.Log("Alien Interagiu");
+            onEatEvent.Invoke();
+            //Debug.Log("OnEatInput");
         }
 
         if (context.canceled)
