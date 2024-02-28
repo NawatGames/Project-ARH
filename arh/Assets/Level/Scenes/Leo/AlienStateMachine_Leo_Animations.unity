@@ -1278,11 +1278,6 @@ Transform:
   m_Father: {fileID: 2028119513}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2006160886 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1364802620623620899, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
-  m_PrefabInstance: {fileID: 4314522173337777091}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2028119512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1372,10 +1367,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 624563981954928013, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
-      propertyPath: eatPointObject
-      value: 
-      objectReference: {fileID: 2006160886}
     - target: {fileID: 624563981954928014, guid: 91e9be8976328ef448f31e3bdf1397c2, type: 3}
       propertyPath: m_Name
       value: Alien
