@@ -12,7 +12,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
 
         public override void EnterState()
         {
-            Debug.Log("ASTRONAUT GROUNDED!");
+            //Debug.Log("ASTRONAUT GROUNDED!");
             
             Ctx.ResetJumpCount();
             Ctx.ChangeAnimation("AstronautIdle");

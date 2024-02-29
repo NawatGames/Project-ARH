@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class AlienBaseState
 {
     private bool _isRootState;
-    private AlienBaseState _currentSubState;
+    protected AlienBaseState _currentSubState;
     private AlienBaseState _currentSuperState;
 
 
@@ -50,10 +50,8 @@ public abstract class AlienBaseState
 
     protected void SwitchState(AlienBaseState newState)
     {
-        Debug.Log(newState.ToString());
+        //Debug.Log(newState.ToString()); // DEBUG ALL
         ExitState();
-        
-        newState.EnterState();
 
         if (_isRootState)
         {
@@ -65,6 +63,8 @@ public abstract class AlienBaseState
         {
             _currentSuperState?.SetSubState(newState);
         }
+
+        newState.EnterState();
     }
 
     private void SetSuperState(AlienBaseState newSuperState)

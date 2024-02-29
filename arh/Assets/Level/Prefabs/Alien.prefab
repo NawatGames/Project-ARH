@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 624563981283063676}
   - component: {fileID: 624563981283063667}
   - component: {fileID: 1088314859017641239}
-  - component: {fileID: 1654482005148028577}
   - component: {fileID: 1514719971}
   m_Layer: 7
   m_Name: Sprite
@@ -111,27 +110,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1654482005148028577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624563981283063666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e26421d11b092ff4da880f927e6cc27c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  alienNeck: {fileID: 3589440309864604998}
-  alienHead: {fileID: 2481744189443000593}
-  alienAnimator: {fileID: 1088314859017641239}
-  alienRenderer: {fileID: 624563981283063667}
-  isEating: 0
-  isMoving: 0
-  headMoveTime: 0.5
-  foodSize: 2
-  headMoveDistance: 0
 --- !u!114 &1514719971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alienStandUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  alienAteEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!1 &624563981954928014
@@ -161,7 +142,6 @@ GameObject:
   - component: {fileID: 624563981954928015}
   - component: {fileID: 624563981954928008}
   - component: {fileID: 1273485023289604676}
-  - component: {fileID: 2324678325963682878}
   m_Layer: 7
   m_Name: Alien
   m_TagString: Alien
@@ -198,18 +178,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 530712829fad77645ba1341f5df91f88, type: 2}
-  _visualSprite: {fileID: 624563981283063666}
+  spriteObject: {fileID: 624563981283063666}
   animator: {fileID: 0}
   animationEventsScript: {fileID: 0}
   _layerMaskCollision: {fileID: 0}
   jumpCanceledEvent:
     m_PersistentCalls:
       m_Calls: []
-  isInteractingEvent:
+  onEatEvent:
     m_PersistentCalls:
       m_Calls: []
   _isCrouchPressed: 0
   _isInteractPressed: 0
+  hasStoredObject: 0
+  isEdibleInRange: 0
+  currentEdibleObject: {fileID: 0}
+  eatPointObject: {fileID: 1364802620623620899}
+  alienHead: {fileID: 2481744189443000593}
+  alienNeck: {fileID: 3589440309864604998}
+  foodSize: 2
+  headMoveTime: 0.5
+  spitForce: 2
 --- !u!114 &624563981954928117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,7 +298,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 624563981954928013}
         m_TargetAssemblyTypeName: AlienStateMachine, Assembly-CSharp
-        m_MethodName: OnInteractInput
+        m_MethodName: OnEatInput
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -379,18 +368,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0699, y: 0}
   m_Size: {x: 0.7, y: 1}
   m_Direction: 0
---- !u!114 &2324678325963682878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624563981954928014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8948b30d628f9a54c87e79719d60832b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1364802620623620899
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,8 +377,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5785492124820140664}
-  - component: {fileID: 2584378857751911543}
   - component: {fileID: 5866239246164210638}
+  - component: {fileID: 1077460810164050081}
   m_Layer: 7
   m_Name: Eat Point
   m_TagString: Untagged
@@ -424,24 +401,6 @@ Transform:
   m_Father: {fileID: 624563981283063676}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2584378857751911543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364802620623620899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d015036cb61e2fa4989c72a4facd1ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _alienStateMachine: {fileID: 0}
-  _playerGameObject: {fileID: 0}
-  _edibleObject: {fileID: 0}
-  _objectIsInRange: 0
-  _objectWasEaten: 0
-  _throwForce: 5
 --- !u!61 &5866239246164210638
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -468,6 +427,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.29492283, y: 0.26238084}
   m_EdgeRadius: 0
+--- !u!114 &1077460810164050081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364802620623620899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281565a80c83e3c4dae81efd1b78f383, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _alienStateMachine: {fileID: 624563981954928013}
 --- !u!1 &2481744189443000593
 GameObject:
   m_ObjectHideFlags: 0

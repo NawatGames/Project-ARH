@@ -12,7 +12,7 @@ namespace Player.StateMachine.Astronaut.ConcreteStates
         
         public override void EnterState()
         {
-            Debug.Log("ASTRONAUT FALLING");
+            //Debug.Log("ASTRONAUT FALLING");
             
             Ctx.Rb.gravityScale *= Ctx.FallGravityMultiplier;
             Ctx.ChangeAnimation("AstronautFalling");
