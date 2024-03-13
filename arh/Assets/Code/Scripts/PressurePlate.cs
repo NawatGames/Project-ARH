@@ -27,13 +27,7 @@ public class PressurePlate : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        //StartCoroutine(MoveDownCountdown());
         gameObject.transform.localScale += new Vector3(0f,0.25f,0f);
         platformObj.transform.transform.DOLocalMoveY(backDistance, moveTime);
-    }
-
-    IEnumerator MoveDownCountdown()
-    {
-        yield return new WaitForSeconds(2.0f);
     }
 }
