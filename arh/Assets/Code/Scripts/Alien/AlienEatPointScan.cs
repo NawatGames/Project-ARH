@@ -1,30 +1,26 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class AlienEatPointScan : MonoBehaviour
 {
-    [SerializeField] private AlienStateMachine _alienStateMachine;
+    [SerializeField] private AlienStateMachine alienStateMachine;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_alienStateMachine.hasStoredObject && !_alienStateMachine.isEdibleInRange && other.CompareTag("Food"))
+        if (!alienStateMachine.hasStoredObject && !alienStateMachine.isEdibleInRange && other.CompareTag("Food"))
         {
-            _alienStateMachine.currentEdibleObject = other.gameObject;
+            alienStateMachine.currentEdibleObject = other.gameObject;
 
-            _alienStateMachine.isEdibleInRange = true;
+            alienStateMachine.isEdibleInRange = true;
             //Debug.Log("Food Is In Range!");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!_alienStateMachine.hasStoredObject)
+        if (!alienStateMachine.hasStoredObject)
         {
-            _alienStateMachine.isEdibleInRange = false;
-            _alienStateMachine.currentEdibleObject = other.gameObject;
+            alienStateMachine.isEdibleInRange = false;
+            alienStateMachine.currentEdibleObject = other.gameObject;
         }
     }
 }

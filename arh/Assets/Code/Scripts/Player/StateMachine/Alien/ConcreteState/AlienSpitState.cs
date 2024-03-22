@@ -1,5 +1,4 @@
 using UnityEngine;
-using Player.StateMachine.Alien;
 
 public class AlienSpitState : AlienBaseState
 {
@@ -17,13 +16,13 @@ public class AlienSpitState : AlienBaseState
 
     public override void EnterState()
     {
-        // **** RODAR ANIMAÇÂO ****
+        // **** RODAR ANIMAÃ‡Ã‚O ****
         Spit();
         //Debug.Log("Cuspi o Objeto");
         GoToGrounded();
     }
 
-    private void Spit() // Cospe o Objeto com uma certa força
+    private void Spit() // Cospe o Objeto com uma certa forÃ§a
     {
         Ctx.hasStoredObject = false;
         Ctx.currentEdibleObject.transform.position = Ctx.eatPointObject.transform.position;
@@ -43,7 +42,7 @@ public class AlienSpitState : AlienBaseState
 
     protected override void UpdateState()
     {
-        
+    
     }
 
     protected override void PhysicsUpdateState()

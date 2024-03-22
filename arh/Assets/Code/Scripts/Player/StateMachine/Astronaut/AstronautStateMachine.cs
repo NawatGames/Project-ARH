@@ -14,7 +14,7 @@ namespace Player.StateMachine.Astronaut
         private LayerMaskCollision _layerMaskCollision;
         private AstronautStateFactory _states;
         private PlayerInputMap _playerInput;
-        private string currentAnimation;
+        private string _currentAnimation;
 
         [HideInInspector] public UnityEvent jumpCanceledEvent;
         [HideInInspector] public UnityEvent isInteractingEvent;
@@ -148,14 +148,14 @@ namespace Player.StateMachine.Astronaut
             if (newAnimation == "AstronautAscending")
             {
                 animator.Play(newAnimation, -1, 0f);
-                currentAnimation = newAnimation;
+                _currentAnimation = newAnimation;
                 return;
             }
             
-            if (currentAnimation == newAnimation) return;
+            if (_currentAnimation == newAnimation) return;
             
             animator.Play(newAnimation, -1, 0f);
-            currentAnimation = newAnimation;
+            _currentAnimation = newAnimation;
         }
     }
 }

@@ -1,55 +1,51 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class EatBehavior : MonoBehaviour
 {
-    [SerializeField] private AlienStateMachine _alienStateMachine;
-    [SerializeField] private GameObject _playerGameObject;
+    [SerializeField] private AlienStateMachine alienStateMachine;
+    [SerializeField] private GameObject playerGameObject;
 
-    [SerializeField] private GameObject _edibleObject;
+    [SerializeField] private GameObject edibleObject;
 
-    [SerializeField] private bool _objectIsInRange = false;
-    [SerializeField] private bool _objectWasEaten;
+    [SerializeField] private bool objectIsInRange = false;
+    [SerializeField] private bool objectWasEaten;
 
-    [SerializeField] private float _throwForce;
+    [SerializeField] private float throwForce;
     private Rigidbody2D _edibleObjectRigidBody;
 
 
     private void Awake()
     {
-        _playerGameObject = GameObject.FindWithTag("Alien");
-        _alienStateMachine = _playerGameObject.GetComponent<AlienStateMachine>();
+        playerGameObject = GameObject.FindWithTag("Alien");
+        alienStateMachine = playerGameObject.GetComponent<AlienStateMachine>();
     }
 
     public void EatObject()
     {
-        if (_objectWasEaten)
+        if (objectWasEaten)
         {
             // Cospe o Objeto com uma certa força
-            _objectWasEaten = false;
-            _edibleObject.SetActive(true);
+            objectWasEaten = false;
+            edibleObject.SetActive(true);
 
-            if (_alienStateMachine.Sprite.transform.localScale.x <= 0)
+            if (alienStateMachine.Sprite.transform.localScale.x <= 0)
             {
-                _edibleObjectRigidBody.velocity = new Vector2(_throwForce * -1, _edibleObjectRigidBody.velocity.y);
+                _edibleObjectRigidBody.velocity = new Vector2(throwForce * -1, _edibleObjectRigidBody.velocity.y);
                 
             }
             else
             {
-                _edibleObjectRigidBody.velocity = new Vector2(_throwForce, _edibleObjectRigidBody.velocity.y);
+                _edibleObjectRigidBody.velocity = new Vector2(throwForce, _edibleObjectRigidBody.velocity.y);
 
             }
 
             //Debug.Log("Cuspi o Objeto");
         }
-        else if (_objectIsInRange && !_objectWasEaten)
+        else if (objectIsInRange && !objectWasEaten)
         {
-            _objectWasEaten = true;
-            _edibleObject.SetActive(false);
-            _edibleObjectRigidBody = _edibleObject.GetComponent<Rigidbody2D>();
+            objectWasEaten = true;
+            edibleObject.SetActive(false);
+            _edibleObjectRigidBody = edibleObject.GetComponent<Rigidbody2D>();
             //Debug.Log("Comi o Objeto");
         }
 
@@ -58,40 +54,40 @@ public class EatBehavior : MonoBehaviour
     void Update()
     {
 
-        if (_objectWasEaten)
+        if (objectWasEaten)
         {
-            _edibleObject.transform.position = gameObject.transform.position;
+            edibleObject.transform.position = gameObject.transform.position;
         }
         
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!_objectWasEaten && !_objectIsInRange && other.CompareTag("Food"))
+        if (!objectWasEaten && !objectIsInRange && other.CompareTag("Food"))
         {
-            _edibleObject = other.gameObject;
+            edibleObject = other.gameObject;
 
-            _objectIsInRange = true;
+            objectIsInRange = true;
             //Debug.Log("Food Is In Range!");
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!_objectWasEaten)
+        if (!objectWasEaten)
         {
-            _objectIsInRange = false;
-            _edibleObject = null;
+            objectIsInRange = false;
+            edibleObject = null;
         }
     }
     private void OnEnable()
     {
-        _alienStateMachine.onEatEvent.AddListener(EatObject);
+        alienStateMachine.onEatEvent.AddListener(EatObject);
     }
 
     private void OnDisable()
     {
-        _alienStateMachine.onEatEvent.RemoveListener(EatObject);
+        alienStateMachine.onEatEvent.RemoveListener(EatObject);
 
     }
 }

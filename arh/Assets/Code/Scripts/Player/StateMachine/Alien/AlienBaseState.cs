@@ -1,11 +1,7 @@
-using Player.StateMachine;
-using Player.StateMachine.Alien;
-using UnityEngine;
-
 public abstract class AlienBaseState
 {
     private bool _isRootState;
-    protected AlienBaseState _currentSubState;
+    protected AlienBaseState currentSubState;
     private AlienBaseState _currentSuperState;
 
 
@@ -34,12 +30,12 @@ public abstract class AlienBaseState
     public void UpdateStates()
     {
         UpdateState();
-        _currentSubState?.UpdateStates();
+        currentSubState?.UpdateStates();
     }
     public void PhysicsUpdateStates()
     {
         PhysicsUpdateState();
-        _currentSubState?.PhysicsUpdateState();
+        currentSubState?.PhysicsUpdateState();
     }
 
     /*public void ExitStates()
@@ -55,8 +51,8 @@ public abstract class AlienBaseState
 
         if (_isRootState)
         {
-            newState._currentSubState = _currentSubState; // mantém o subState
-            _currentSubState.SetSuperState(newState); // faz do novo estado o superState do sub atual
+            newState.currentSubState = currentSubState; // mantém o subState
+            currentSubState.SetSuperState(newState); // faz do novo estado o superState do sub atual
             Ctx.CurrentState = newState;
         }
         else
@@ -74,7 +70,7 @@ public abstract class AlienBaseState
         
     protected void SetSubState(AlienBaseState newSubState)
     {
-        _currentSubState = newSubState;
+        currentSubState = newSubState;
         newSubState.SetSuperState(this);
     }
 

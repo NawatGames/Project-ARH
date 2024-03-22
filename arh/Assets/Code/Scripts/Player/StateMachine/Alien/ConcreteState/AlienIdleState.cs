@@ -1,25 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
-using Player.StateMachine.Alien;
 using UnityEngine;
 
 public class AlienIdleState : AlienBaseState
 {
     public AlienIdleState(AlienStateMachine currentContext, AlienStateFactory alienStateFactory)
         : base(currentContext, alienStateFactory){}
-        
+    
     public override void EnterState()
     {
+        Debug.Log("IDLE");
+        
         if (Ctx.CurrentState is AlienCrouchState && !Ctx.IsStandingUp)
         {
-            Ctx.animator.SetTrigger("startIdleShrunk");
+            // Ctx.animator.SetTrigger("startIdleShrunk");
+            Ctx.ChangeAnimation("AlienIdleShrunk");
         }
-        else if (!Ctx.IsStandingUp && !(Ctx.CurrentState is AlienEatState)) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
+        else if (!Ctx.IsStandingUp && Ctx.CurrentState is not AlienEatState) // Se tiver rodando StandigUp tem q deixar terminar p chegar no evento do fim
         {
-            Ctx.animator.SetTrigger("startIdle");
+            // Ctx.animator.SetTrigger("startIdle");
+            Ctx.ChangeAnimation("AlienIdle");
         }
     }
-        
+    
     // ReSharper disable Unity.PerformanceAnalysis
     protected override void UpdateState()
     {
@@ -33,9 +34,9 @@ public class AlienIdleState : AlienBaseState
 
     protected override void ExitState()
     {
-    
+
     }
-        
+    
     public override void CheckSwitchStates()
     {
         if (!(Mathf.Abs(Ctx.CurrentMovementInput) < 0.01f) && !(Ctx.CurrentState is AlienEatState))
@@ -46,6 +47,6 @@ public class AlienIdleState : AlienBaseState
 
     public override void InitializeSubState()
     {
-        
+    
     }
 }
