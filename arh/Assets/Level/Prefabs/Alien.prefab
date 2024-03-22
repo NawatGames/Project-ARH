@@ -181,15 +181,15 @@ MonoBehaviour:
   spriteObject: {fileID: 624563981283063666}
   animator: {fileID: 0}
   animationEventsScript: {fileID: 0}
-  _layerMaskCollision: {fileID: 0}
+  layerMaskCollision: {fileID: 0}
   jumpCanceledEvent:
     m_PersistentCalls:
       m_Calls: []
   onEatEvent:
     m_PersistentCalls:
       m_Calls: []
-  _isCrouchPressed: 0
-  _isInteractPressed: 0
+  isCrouchPressed: 0
+  isInteractPressed: 0
   hasStoredObject: 0
   isEdibleInRange: 0
   currentEdibleObject: {fileID: 0}
@@ -439,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 281565a80c83e3c4dae81efd1b78f383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _alienStateMachine: {fileID: 624563981954928013}
+  alienStateMachine: {fileID: 624563981954928013}
 --- !u!1 &2481744189443000593
 GameObject:
   m_ObjectHideFlags: 0

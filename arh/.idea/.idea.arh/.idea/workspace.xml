@@ -6,9 +6,37 @@
   <component name="ChangeListManager">
     <list default="true" id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.arh/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautAscendingState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/StateMachine/Astronaut/ConcreteStates/AstronautFallingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienEatEnd.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienEatEnd.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienEatStart.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienEatStart.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienEating.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienEating.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienIdle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienIdle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienIdleShrunk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienIdleShrunk.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienJump.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienJump.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienRun.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienRun.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienRunShrunk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienRunShrunk.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienShrinkDown.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienShrinkDown.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienStandUp.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Animations/Alien/AlienStandUp.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/AnimatorControllers/Alien.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/AnimatorControllers/Alien.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Alien/AlienEatPointScan.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Alien/AlienEatPointScan.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Alien/AlienShrinkingScript.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Alien/AlienShrinkingScript.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Alien/AlienSpriteChanger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Alien/AlienSpriteChanger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/EatBehavior.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/EatBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/AnimationEvents/AlienAnimationEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/AnimationEvents/AlienAnimationEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/AlienBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/AlienBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/AlienStateFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/AlienStateFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/AlienStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/AlienStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienApexState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienApexState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienAscendingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienAscendingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienCrouchState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienCrouchState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienEatState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienEatState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienFallingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienFallingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienGroundedState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienGroundedState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienSpitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienSpitState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Alien/ConcreteState/AlienWalkState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Code/Scripts/Player/StateMachine/Astronaut/AstronautStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Level/Prefabs/Alien.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Level/Prefabs/Alien.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +47,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/69c0ac029a6e4a708e1f794f9c0582a327000/e6/e1289051/Animator.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.5.1/InputSystem/Utilities/DelegateHelpers.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/EatBehavior.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2PzZgyCxm44d2J4aWhl2QoWV8MC" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -33,28 +65,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Discover.Launch.Via.Unity" value="true" />
-    <property name="rider.run.widget.enabled.cache" value="false" />
-  </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;astronaut-jump-animation-andre&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;SpellingScopeSettingsId&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
     &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.2\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\andre\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
       &quot;C:\\Users\\andre\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
@@ -105,7 +135,7 @@
       <method v="2" />
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="1" Folder0="F:\Downloads\Portuguese_BR" CustomDictionaries="1" CustomDictionary0="F:\Downloads\Portuguese_BR\br.dic" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="a33e4fc7-bead-4cb5-808c-d2cc230ca27e" name="Changes" comment="" />
@@ -155,6 +185,11 @@
       <workItem from="1698873874765" duration="1115000" />
       <workItem from="1698906764344" duration="1163000" />
       <workItem from="1699315778531" duration="333000" />
+      <workItem from="1710470074607" duration="597000" />
+      <workItem from="1710885238583" duration="354000" />
+      <workItem from="1710890384144" duration="597000" />
+      <workItem from="1710961870905" duration="7002000" />
+      <workItem from="1711066274266" duration="5368000" />
     </task>
     <servers />
   </component>
@@ -174,5 +209,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

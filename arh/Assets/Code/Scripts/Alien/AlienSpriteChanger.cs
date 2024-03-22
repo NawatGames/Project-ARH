@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AlienSpriteChanger : MonoBehaviour
 {
-    private AlienShrinkingScript alienShrinker;
+    private AlienShrinkingScript _alienShrinker;
 
     void Start()
     {
-        alienShrinker = gameObject.GetComponent<AlienShrinkingScript>();
+        _alienShrinker = gameObject.GetComponent<AlienShrinkingScript>();
     }
 
     void Update()

@@ -1,4 +1,3 @@
-using Player.StateMachine.Alien;
 using UnityEngine;
 
 public class AlienGroundedState : AlienBaseState
@@ -14,6 +13,7 @@ public class AlienGroundedState : AlienBaseState
         Ctx.ResetJumpCount();
         Ctx.onEatEvent.AddListener(GoToEatOrSpitState);
         //Debug.Log("Listener");
+        currentSubState.EnterState();
     }
 
     // ReSharper disable Unity.PerformanceAnalysis
@@ -30,7 +30,7 @@ public class AlienGroundedState : AlienBaseState
 
     public void GoToEatOrSpitState()
     {
-        if(_currentSubState is AlienIdleState)
+        if(currentSubState is AlienIdleState)
         {
             if(Ctx.hasStoredObject)
             {

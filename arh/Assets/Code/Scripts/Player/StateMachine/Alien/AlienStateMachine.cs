@@ -1,8 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Player.PlayerData;
-using Player.StateMachine.Alien;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -14,8 +10,8 @@ public class AlienStateMachine : MonoBehaviour
     [HideInInspector] public Animator animator;
 
     [HideInInspector] public AlienAnimationEvents animationEventsScript;
-    
-    [SerializeField] private LayerMaskCollision _layerMaskCollision;
+
+    [SerializeField] private LayerMaskCollision layerMaskCollision;
 
     private AlienStateFactory _states;
     private PlayerInputMap _playerInput;
@@ -23,9 +19,9 @@ public class AlienStateMachine : MonoBehaviour
     [HideInInspector] public UnityEvent jumpCanceledEvent;
     [HideInInspector] public UnityEvent onEatEvent;
 
-
-    public bool _isCrouchPressed;
-    public bool _isInteractPressed;
+    public bool isCrouchPressed;
+    public bool isInteractPressed;
+    private string _currentAnimation;
 
     #region Alien Eating
 
@@ -38,7 +34,7 @@ public class AlienStateMachine : MonoBehaviour
     public GameObject alienNeck;
 
     public float foodSize = 2; // TEMPORARIO, VAI DEPENDER DO OBJETO A ENGOLIR
-    public float headMoveTime = 0.5f; // DEVERA SER CALCULADO EM FUNÇÃO DO foodSize ?
+    public float headMoveTime = 0.5f; // DEVERA SER CALCULADO EM FUNÃ‡ÃƒO DO foodSize ?
     public float spitForce = 5;
 
     #endregion
@@ -46,10 +42,10 @@ public class AlienStateMachine : MonoBehaviour
     #region Getters and Setters
 
     // Crouch
-    public bool IsCrouchingPressed => _isCrouchPressed;
-    public float _crouchSizeReduction => playerData.crouchSizeReduction;
+    public bool IsCrouchingPressed => isCrouchPressed;
+    public float CrouchSizeReduction => playerData.crouchSizeReduction;
     public bool IsStandingUp { get; set; } = false;
-    
+
     // Movement
     public float MoveSpeed => playerData.moveSpeed;
     public float Acceleration => playerData.acceleration;
@@ -78,7 +74,7 @@ public class AlienStateMachine : MonoBehaviour
     public AlienBaseState CurrentState { get; set; }
     public Rigidbody2D Rb { get; private set; }
     public CapsuleCollider2D CapsuleCollider { get; set; }
-    public LayerMaskCollision LmCollision => _layerMaskCollision;
+    public LayerMaskCollision LmCollision => layerMaskCollision;
 
     #endregion
 
@@ -87,7 +83,7 @@ public class AlienStateMachine : MonoBehaviour
         _playerInput = new PlayerInputMap();
         Rb = GetComponent<Rigidbody2D>();
         CapsuleCollider = GetComponent<CapsuleCollider2D>();
-        _layerMaskCollision = GetComponent<LayerMaskCollision>();
+        layerMaskCollision = GetComponent<LayerMaskCollision>();
         animator = spriteObject.GetComponent<Animator>();
         animationEventsScript = spriteObject.GetComponent<AlienAnimationEvents>();
 
@@ -95,31 +91,32 @@ public class AlienStateMachine : MonoBehaviour
         CoyoteTimeCounter = playerData.coyoteTime;
         ExtraJumpsCounter = playerData.extraJumps;
         IsFacingRight = true;
-            
+        
         // Initialize StateMachine
         _states = new AlienStateFactory(this);
         CurrentState = _states.Grounded();
         CurrentState.InitializeSubState();
         CurrentState.EnterState();
     }
-    
+
     private void Update()
     {
+        // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
         CurrentState.UpdateStates();
         JumpBufferCounter = Mathf.Clamp(JumpBufferCounter - Time.deltaTime, 0, playerData.jumpBufferTime);
     }
-    
+
     private void FixedUpdate()
     {
         CurrentState.PhysicsUpdateStates();
     }
-    
+
     public void OnWalkInput(InputAction.CallbackContext context)
     {
         //Debug.Log("alien andando");
         CurrentMovementInput = context.ReadValue<float>();
     }
-    
+
     public void OnJumpInput(InputAction.CallbackContext context)
     {
         if (context.performed)
@@ -132,19 +129,19 @@ public class AlienStateMachine : MonoBehaviour
             jumpCanceledEvent.Invoke();
         }
     }
-    
+
     public void OnEatInput(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
-            _isInteractPressed = context.ReadValueAsButton();
+            isInteractPressed = context.ReadValueAsButton();
             onEatEvent.Invoke();
             //Debug.Log("OnEatInput");
         }
 
         if (context.canceled)
         {
-            _isInteractPressed = false;
+            isInteractPressed = false;
         }
     }
 
@@ -152,26 +149,26 @@ public class AlienStateMachine : MonoBehaviour
     {
         if (context.performed)
         {
-            _isCrouchPressed = context.ReadValueAsButton();
+            isCrouchPressed = context.ReadValueAsButton();
         }
         if (context.canceled)
         {
-            _isCrouchPressed = false;
+            isCrouchPressed = false;
         }
     }
-    
+
     private void OnEnable()
     {
         _playerInput.AlienGameplay.Enable();
-        _layerMaskCollision.isGroundedChangedEvent.AddListener(OnIsGroundedChanged);
+        layerMaskCollision.isGroundedChangedEvent.AddListener(OnIsGroundedChanged);
     }
 
     private void OnDisable()
     {
         _playerInput.AlienGameplay.Disable();
-        _layerMaskCollision.isGroundedChangedEvent.RemoveListener(OnIsGroundedChanged);
+        layerMaskCollision.isGroundedChangedEvent.RemoveListener(OnIsGroundedChanged);
     }
-        
+    
     private void OnIsGroundedChanged(bool arg0)
     {
         //Debug.Log("Gr sm");
@@ -191,5 +188,12 @@ public class AlienStateMachine : MonoBehaviour
     public void SetVelocity(float x, float y)
     {
         Rb.velocity = new Vector2(x, y);
+    }
+
+    public void ChangeAnimation(string newAnimation)
+    {
+        if (_currentAnimation == newAnimation) return;
+        animator.Play(newAnimation, -1, 0f);
+        _currentAnimation = newAnimation;
     }
 }
